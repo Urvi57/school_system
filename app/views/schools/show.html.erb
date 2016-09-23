@@ -1,0 +1,48 @@
+<div align="center" width="">
+		<strong>View School Details</strong>
+</div>
+<table>
+	<tr>
+		<td>
+			<strong>School Name</strong>
+		</td>
+		<td>
+			<strong>Phone no.</strong>
+		</td>
+		<td>
+			<strong>Address</strong>
+		</td>
+		<td>
+			<strong>City</strong>
+		</td>
+		<td>
+			<strong>Zipcode</strong>
+		</td>
+		<td>
+			<strong>State</strong>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= @school.name %>
+		</td>
+		<td>
+			<%= @school.phone_no %>
+		</td>
+		<td>
+			<%= @school.address %>
+		</td>
+		<td>
+			<%= @school.city %>
+		</td>
+		<td>
+			<%= @school.zipcode %>
+		</td>
+		<td>
+			<%= @school.state %>
+		</td>
+	</tr>
+
+</table>
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path%>

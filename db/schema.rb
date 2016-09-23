@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921081133) do
+ActiveRecord::Schema.define(version: 20160923104724) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20160921081133) do
     t.integer  "school_id",          limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "classrooms_schools", force: :cascade do |t|
+    t.integer "classroom_id", limit: 4
+    t.integer "school_id",    limit: 4
   end
 
   create_table "classrooms_students", force: :cascade do |t|
@@ -49,9 +54,9 @@ ActiveRecord::Schema.define(version: 20160921081133) do
     t.datetime "updated_at"
   end
 
-  create_table "schools_classes", force: :cascade do |t|
-    t.integer "school_id",    limit: 4
-    t.integer "classroom_id", limit: 4
+  create_table "schools_students", force: :cascade do |t|
+    t.integer "school_id",  limit: 4
+    t.integer "student_id", limit: 4
   end
 
   create_table "schools_subjects", force: :cascade do |t|
@@ -98,21 +103,11 @@ ActiveRecord::Schema.define(version: 20160921081133) do
   create_table "teachers", force: :cascade do |t|
     t.string   "name",                limit: 255
     t.string   "proficiency_subject", limit: 255
-    t.string   "gender",              limit: 1
+    t.string   "gender",              limit: 255
     t.string   "phone_no",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "school_id",           limit: 4
-  end
-
-  create_table "teachers_classrooms", force: :cascade do |t|
-    t.integer "teacher_id",   limit: 4
-    t.integer "classroom_id", limit: 4
-  end
-
-  create_table "teachers_students", force: :cascade do |t|
-    t.integer "teacher_id", limit: 4
-    t.integer "student_id", limit: 4
   end
 
 end

@@ -1,61 +1,110 @@
 class ClassroomsController < ApplicationController
 	def index
-		@classroom=Classroom.all
-		render :json => @classroom
+		@classrooms=Classroom.all
+		respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @classroom, :status => :ok }
+		end
 	end
 	def show
 		begin
 		@classroom = Classroom.find(params[:id])
-		#if @classroom
-			render :json => @classroom, :status => :ok
-		# else
-		# 	render :json => @classroom.errors, :status  => :unprocessable_entity
-		# end
+		respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @classroom, :status => :ok }
+		end
 		rescue => e
 			p e.message
-			render :json =>  { "error" => e.message}, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
+ 			end
 		end
 	end
 	def new
 		@classroom= Classroom.new()
+		respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @classroom, :status => :ok }
+		end
 	end
 	 def edit 
 	 	@classroom = Classroom.find(params[:id])
+	 	respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @classroom, :status => :ok }
+		end
 	 end
 	def create
-		
+
 		 @classroom = Classroom.new(classroom_param)
 		 if @classroom.save
-      		render json: @classroom, :status => :ok
+		 	
+		 	respond_to do |format|
+ 				format.html 
+ 				format.json {render json: @classroom, :status => :ok}
+ 			end
     	 else
-    		render :json => @classroom.errors, :status  => :unprocessable_entity
+    	 	respond_to do |format|
+ 				format.html 
+ 				format.json {render :json => @classroom.errors, :status  => :unprocessable_entity}
+ 			end
       	end
 	end
 	def update
 		begin
 		@classroom = Classroom.find(params[:id])
 		if @classroom.update_attributes(classroom_param)
-			render :json => @classroom, :status  => :ok
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render json: @classroom, :status => :ok}
+ 			end
 		else
-			render :json => @classroom.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => @classroom.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 	    rescue => e
 	    	p e.message
-			render :json => {"error" => e.message}, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => {"error" => e.message}, :status  => :unprocessable_entity}
+ 			end
 		end
 	end
 	def destroy
 		begin
 		@classroom = Classroom.find(params[:id])
 	   if @classroom.destroy
-	      render :json => @classroom, :status  => :ok
+	      respond_to do |format|
+
+ 				format.html 
+ 				format.json {render json: @classroom, :status => :ok}
+ 			end
 	   
 	   else
-	   	render :json => @classroom.errors ,:status => :unprocessable_entity
+	   	respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => @classroom.errors, :status  => :unprocessable_entity}
+ 			end
 	   end
 	   rescue => e
 	   	  p e.message
-       	  render :json => {"error" => e.message}, :status  => :unprocessable_entity
+       	  respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => {"error" => e.message}, :status  => :unprocessable_entity}
+ 			end
        end
 	end
 	private 

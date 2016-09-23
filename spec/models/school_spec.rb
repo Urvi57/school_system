@@ -26,13 +26,13 @@ RSpec.describe School, type: :model do
           FactoryGirl.create(:teacher,:name=>"Saran",:phone_no=>"8210101010",:proficiency_subject=>"BNM",:school_id=>school.id).should be_valid
          
         end
-        # it "should have many students" do
-        #   school=FactoryGirl.create(:school)
-        #   #:name, :father_name, :mother_name, :phone_no, :address, :city, :zipcode, :state, presence: true
-        #   FactoryGirl.create(:student,:name=>"sha",:father_name=>"Shah",:mother_name=>"Rita",
-        #     :phone_no=>"8210101010",:city=>"Udaipur",:zipcode=>"313002",:state=>"Raj",:school_id=>school.id).should be_valid
+        it "should have many students" do
+          # school=FactoryGirl.create(:school)
+          #:name, :father_name, :mother_name, :phone_no, :address, :city, :zipcode, :state, presence: true
+          FactoryGirl.create(:student,:name=>"sha",:father_name=>"Shah",:mother_name=>"Rita",
+            :phone_no=>"8210101010",:city=>"Udaipur",:zipcode=>"313002",:state=>"Raj").should be_valid
          
-        # end
+        end
   	end
   end
 end

@@ -4,6 +4,7 @@ RSpec.describe StudentsController, type: :controller do
 	before(:each) do
 		@school=FactoryGirl.create(:school, :name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567891')
 		@classroom=FactoryGirl.create(:classroom, :name => 'First', :number_of_students => '20', :school_id => @school.id)	
+		request.env["HTTP_ACCEPT"]='application/json'
 	end
 	context "index" do
 		it "should list of all students in the system" do

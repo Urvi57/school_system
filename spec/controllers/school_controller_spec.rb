@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe SchoolsController, type: :controller do
+	before(:each) do
+		request.env["HTTP_ACCEPT"]='application/json'
+	end
 	context "index" do
 		it "should list of all schools in the system" do
 			school = FactoryGirl.create(:school)
@@ -37,12 +40,13 @@ RSpec.describe SchoolsController, type: :controller do
 	 context "create" do
 	  	it "should return success and create school if valid params are passed" do
 	  		 post :create, :school=>{:name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567890'}
- 	 		 response.status.should eq 200
+ 	 		 response.should redirect_to(School.last)
 		
 		 end
 		it "should not return success if invalid params are passed" do
-			 post :create, :school=>{:name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567'}
- 	 		 response.status.should eq 422
+			 post :create, :school=>{:name => nil, :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567'} 	 		 # response.status.should eq 422
+			 # response.should render_template :new
+			 response.status.should eq 422
 		end
 	 end
 	 context "update" do

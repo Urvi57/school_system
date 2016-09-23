@@ -1,0 +1,36 @@
+<div align="center" width="">
+		<strong>View Teacher Details</strong>
+</div>
+<table>
+	<tr>
+		<td>
+			<strong>Teacher Name</strong>
+		</td>
+		<td>
+			<strong>Gender</strong>
+		</td>
+		<td>
+			<strong>Phone No</strong>
+		</td>
+		<td>
+			<strong>Proficiency Subject</strong>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= @teacher.name %>
+		</td>
+		<td>
+			<%= @teacher.gender %>
+		</td>
+		<td>
+			<%= @teacher.phone_no%>
+		</td>
+		<td>
+			<%= @teacher.proficiency_subject%>
+		</td>
+	</tr>
+
+</table>
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path%>

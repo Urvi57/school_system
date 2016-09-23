@@ -1,46 +1,76 @@
 class SubjectsController < ApplicationController
 	def index
 		@subject=Subject.all
-
+		respond_to do |format|
+			format.html 
+ 			format.json { render :json => @subject, :status => :ok}
+		end
 	end
 	def show
 		begin
 		@subject=Subject.find(params[:id])
-		#if @subject
-			render :json => @subject, :status => :ok
-		# else
-		# 	render :json => @subject.errors, :status => :unprocessable_entity
-		# end
+		respond_to do |format|
+			format.html 
+ 			format.json { render :json => @subject, :status => :ok}
+		end
+		
 		rescue => e
 			p e.message
-			render :json => { "error" => e.message}, :status => :unprocessable_entity
+			respond_to do |format|
+ 				format.html 
+ 				format.json { render :json => { "error" => e.message}, :status => :unprocessable_entity}
+			end
+
 		end
 	end
 	def new
 		@subject=Subject.new()
+		respond_to do |format|
+			format.html 
+ 			format.json { render :json => @subject, :status => :ok}
+		end
 	end
 	def edit 
 	 	@subject = Subject.find(params[:id])
+	 	respond_to do |format|
+			format.html 
+ 			format.json { render :json => @subject, :status => :ok}
+		end
 	 end
 	def create
 		@subject=Subject.new(subject_param)
 		if @subject.save
-			render :json => @subject, :status  => :ok
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @subject, :status  => :ok}
+ 			end
 		else
-			render :json => @subject.errors, :status => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @subject.errors, :status => :unprocessable_entity}
+ 			end
 		end
 	end
 	def update
 		begin
 		@subject=Subject.find(params[:id])
 		if @subject.update_attributes(subject_param)
-			render :json => @subject, :status => :ok
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @subject, :status => :ok}
+ 			end
 		else
-			render :json => @subject.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @subject.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 		rescue => e
 			p e.message
-			render :json => {"error" => e.message}, :status =>:unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => {"error" => e.message}, :status =>:unprocessable_entity}
+ 			end
 		end
 	end
 	
@@ -50,14 +80,23 @@ class SubjectsController < ApplicationController
 		@subject=Subject.find(params[:id])
 		if @subject
 			@subject.destroy
-			render :json => @subject, :status => :ok
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @subject, :status => :ok}
+ 			end
 		else
-			render :json => @subject.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @subject.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 		
 		rescue => e
 			p e.message
-			render :json => {"error" => e.message}, :status => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => {"error" => e.message}, :status => :unprocessable_entity}
+ 			end
 		end
 	end
 	private 

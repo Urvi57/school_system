@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe TeachersController, type: :controller do
 	before(:each) do
 		@school=FactoryGirl.create(:school, :name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567890')
+		request.env["HTTP_ACCEPT"]='application/json'
 	end
 	context "index" do
 		it "should list of all teachers in the system" do

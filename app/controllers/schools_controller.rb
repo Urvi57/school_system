@@ -1,65 +1,113 @@
 class SchoolsController < ApplicationController
 	def index
-		@school=School.all
-		render :json => @school
+		@schools=School.all
+		respond_to do |format|
+ 			format.html {render 'index'}
+			format.json {render :json => @schools, :status => :ok}
+		end
 	end
 	def show
 		begin
 		@school = School.find(params[:id])
-		# if @school
-			render :json => @school, :status => :ok
-		# else
-		# 	render :json => @school.errors, :status  => :unprocessable_entity
-		# end
+		
+		respond_to do |format|
+
+ 			format.html 
+			format.json {render :json => @school, :status => :ok}
+		end
+		
 		rescue => e
       		p e.message
-			render :json => { "error" => e.message} , :status  => :unprocessable_entity
+      		respond_to do |format|
+
+ 				format.html 
+				format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
+			end
 		end
 	end
 	def new
-		@school = School.new()
+		@school = School.new
 	end
+
+
 	 def edit 
 	 	@school = School.find(params[:id])
+	 	respond_to do |format|
+
+ 			format.html 
+			format.json {render :json => @school, :status => :ok}
+		end
 	 end
 	def create
 		@school = School.new(school_param)
 		
 		if @school.save
-			render :json => @school, :status  => :ok
-		else
+			# redirect_to @school
+			respond_to do |format|
 
-			render :json => @school.errors, :status  => :unprocessable_entity
+ 				format.html {render 'show'}
+				format.json {render :json => @school, :status => :ok}
+			end
+		else
+			# render 'new', status: :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html {render 'new'}
+				format.json {render :json => @school.errors , :status  => :unprocessable_entity}
+			end
 		end
 	end
 	def update
 		begin
 			@school = School.find(params[:id])
 			if @school.update_attributes(school_param)
-				render :json => @school, :status  => :ok
+				
+				respond_to do |format|
+
+ 					format.html {render 'show'}
+					format.json {render :json => @school, :status => :ok}
+				end
 			else
-				render :json => @school.errors, :status  => :unprocessable_entity
+				respond_to do |format|
+
+ 				format.html  {render 'new'}
+				format.json {render :json => @school.message , :status  => :unprocessable_entity}
+			end
 			end
 			rescue => e
 		
-			render :json => { "error" => e.message}, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+				format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
+			end
 		end
 	end
 	def destroy
-		begin
-		@school = School.find(params[:id])
-		#School.transaction do
-	   		if @school.destroy
-	     #	 @school.classroom.destroy
-	      	 render :json => @school, :status  => :ok
+		# begin
+		@schools = School.find(params[:id])
+		
+	   		if @schools.delete
+	    		respond_to do |format|
+	    			format.html
+	      		end
 	   		else
-	   			render :json => @school.errors, :status  => :unprocessable_entity
+	   			respond_to do |format|
+
+ 					format.html {render 'index'}
+					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
+				end
 	   		end
-	   		rescue => e
-       	  	 render :json => {"error" => e.message}, :status  => :unprocessable_entity
-        	end
+	  #  		rescue => e
+   #     	  	 	respond_to do |format|
+
+ 		# 			format.html {render 'index'}
+			# 		format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
+			# end
+        	# end
    
 	end
+
 	private 
 	def school_param
 		 params.require(:school).permit(:name, :address, :city, :zipcode, :state, :phone_no)

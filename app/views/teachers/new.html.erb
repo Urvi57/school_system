@@ -1,0 +1,87 @@
+<!-- <h1>New Classroom</h1> -->
+<%= form_for :teacher, url: teachers_path do |f| %>
+	<% if @teacher.errors.any? %>
+		<div id="error explaination">
+			<h2>
+				<%= pluralize(@teacher.errors.count,"error") %> Prohibited this teacher from being saved:
+			</h2>
+			<ul>
+				<% @teacher.errors.full_messages.each do|msg|%>
+				<li>
+					<%= msg%>
+				</li>
+				<%end%>
+			</ul>
+		</div>
+	<%end%>
+	<div align="center" width="40%">
+		<strong>Add New Teacher</strong>
+	</div>
+	<body>
+	 <table border="0" cellpadding="0" cellspacing="0" width="60%">
+          <tr>
+            <td>
+              <%= f.label :school_id %>
+            </td>
+            <td>
+               <%= select_tag 'teacher[school_id]', options_from_collection_for_select(School.all, :id, :name) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label :classroom_id%>
+            </td>
+            <td>
+              <%= select_tag 'teacher[classroom_ids]', options_from_collection_for_select(Classroom.all, :id, :name), 
+              { :multiple => true, :size =>3 } %>
+            </td>
+          </tr>
+          <tr>
+            <td width="120px">
+               <%= f.label :name %>
+          </td>
+          <td width="120px">
+              <%= f.text_field :name %>
+          </td>
+        </tr>
+        <tr>
+            <td width="120px">
+              <%= f.label :gender %>
+            </td>
+            <td width="120px">
+              <select name="teacher[gender]" id="teacher_gender">
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+             </select>
+            
+            </td>
+        </tr>
+      <tr>
+        <td width="120px">
+           <%= f.label :phone_no%>
+        </td>
+        <td>
+          <%= f.text_field :phone_no ,:maxlength => 10,:size => 20 %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+           <%= f.label :proficiency_subject%>
+        </td>
+        <td>
+           <%= f.text_field :proficiency_subject%>
+        </td>
+      </tr>
+    	
+   	<tr>
+   		<td align="center">
+  			<%= f.submit%>
+  		</td>
+  	</tr>
+  	<tr >
+   		<td align="center">
+  			<%= link_to 'Back', teachers_path%>
+  		</td>
+  	</tr>
+	</body>
+ <% end -%>

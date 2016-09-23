@@ -1,61 +1,97 @@
 class StudentsController < ApplicationController
 	def index
 		@student=Student.all
-		render :json => @student
+		respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @student, :stauts => :ok}
+ 		end
 	end
 	def show
 		begin
 		@student=Student.find(params[:id])
-		#if @student
-			render :json => @student, :stauts => :ok
-		#else
-		#	render :json => @student.errors, :status  => :unprocessable_entity
-		#end
+		respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @student, :stauts => :ok}
+ 		end
+		
 		 rescue => e
-		 # 	p e.message
-		  	render :json => { "error" => e.message}, :status => :unprocessable_entity
+		 	p e.message
+		 	respond_to do |format|
+				format.html 
+ 				format.json { render :json => { "error" => e.message}, :status => :unprocessable_entity}
+ 			end
 		  end
 	end
 	def new
 		@student=Student.new()
+		respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @student, :stauts => :ok}
+ 		end
 	end
 	def edit 
 	 	@student = Student.find(params[:id])
+	 	respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json => @student, :stauts => :ok}
+ 		end
 	 end
 	def create
 		@student = Student.new(student_param)
 		
 		if @student.save
-			render :json => @student, :status  => :ok
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @student, :status  => :ok}
+ 			end
 		else
-
-			render :json => @student.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @student.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 	end
 	def update
 		begin
 		@student=Student.find(params[:id])
 		if @student.update_attributes(student_param)
-			render :json => @student, :status => :ok
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @student, :status => :ok}
+ 			end
 		else
-			render :json => @student.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => @student.errors, :status  => :unprocessable_entity}
+			end
 		end
 		rescue => e
 			p e.message
-			render :json => {"error" => e.message}, :status => :unprocessable_entity
+			respond_to do |format|
+				format.html 
+ 				format.json {render :json => {"error" => e.message}, :status => :unprocessable_entity}
+ 			end
 		end
 	end
-	
-	
 	def destroy
 		p params[:id]
 		begin
 			@student=Student.find(params[:id])
 			
 			if @student.destroy
-				render :json => @student, :status => :ok
+				respond_to do |format|
+					format.html 
+ 					format.json {render :json => @student, :status => :ok}
+ 			end
 			else	
-				render :json => @student.errors ,:status => :unprocessable_entity
+				respond_to do |format|
+					format.html 
+ 					format.json {render :json => @student.errors ,:status => :unprocessable_entity}
+ 				end
 			end
 		rescue => e
 			p e.message

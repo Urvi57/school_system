@@ -1,0 +1,58 @@
+<!-- <h1>New Classroom</h1> -->
+<%= form_for :classroom, url: classrooms_path do |f| %>
+	<% if @classroom.errors.any? %>
+		<div id="error explaination">
+			<h2>
+				<%= pluralize(@classroom.errors.count,"error") %> Prohibited this classroom from being saved:
+			</h2>
+			<ul>
+				<% @classroom.errors.full_messages.each do|msg|%>
+				<li>
+					<%= msg%>
+				</li>
+				<%end%>
+			</ul>
+		</div>
+	<%end%>
+	<div align="center" width="40%">
+		<strong>Add New Classroom</strong>
+	</div>
+	<body>
+	 <table border="0" cellpadding="0" cellspacing="0" width="60%">
+      <tr>
+          <td>
+            <%= f.label :school_id %><br>
+          </td>
+          <td>
+             <%= select_tag 'teacher[school_id]', options_from_collection_for_select(School.all, :id, :name) %>
+          </td>
+      </tr>
+      <tr>
+          <td width="120px">
+  			     <%= f.label :name %>
+  		  </td>
+  		  <td width="120px">
+      		  <%= f.text_field :name %>
+    		</td>
+ 	    </tr>
+   	 <tr>
+      	<td width="120px">
+      		<%= f.label :number_of_students %>
+      	</td>
+      	<td width="120px">
+      		<%= f.number_field :number_of_students %>
+      	</td>
+    	</tr>
+    	
+   	<tr>
+   		<td align="center">
+  			<%= f.submit%>
+  		</td>
+  	</tr>
+  	<tr >
+   		<td align="center">
+  			<%= link_to 'Back', classrooms_path%>
+  		</td>
+  	</tr>
+	</body>
+ <% end -%>

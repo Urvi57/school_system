@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe SubjectsController, type: :controller do
+	before(:each) do
+		request.env["HTTP_ACCEPT"]='application/json'
+	end
 	context "index" do
 		it "should list of all subjects in the system" do
 			subject = FactoryGirl.create(:subject)

@@ -1,0 +1,33 @@
+<%= form_for @classroom do |f| %>
+ 
+  <% if @classroom.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@classroom.errors.count, "error") %> prohibited
+        this classroom from being saved:
+      </h2>
+      <ul>
+        <% @classroom.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <p>
+    <%= f.label :school_id %><br>
+    <%= select_tag 'classroom[school_id]', options_from_collection_for_select(School.all, :id, :name) %>
+ </p>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :no_of_students %><br>
+    <%= f.text_area :number_of_students %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>

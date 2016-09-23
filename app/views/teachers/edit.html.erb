@@ -1,2 +1,88 @@
-<h1>Editing School </h1>
+<h3>Edit Teacher Details</h1>
+
+	<%= form_for :teacher, url: teacher_path(@teacher.id) , method: :patch do |f| %>
+	
+		<%if @teacher.errors.any?  %>
+			<div id="error_explain">
+				<h2>
+					<%= pluralize(@teacher.errors.count, "error")%> Prohibited this teacher from being edited
+				</h2>
+				<ul>
+					<%= @teacher.errors.full_message.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+					<%end%>	
+				</ul>
+			</div>
+		<% end %>
+
+		<body>
+		 <table border="0" cellpadding="0" cellspacing="0" width="60%">
+			<tr>
+	          <td>
+	            <%= f.label :school_id %><br>
+	          </td>
+	          <td>
+	             <%= select_tag 'teacher[school_id]', options_from_collection_for_select(School.all, :id, :name) %>
+	          </td>
+	      	</tr>
+	      	<tr>
+            <td>
+              <%= f.label :classroom_id%>
+            </td>
+            <td>
+              <%= select_tag 'teacher[classroom_ids]', options_from_collection_for_select(Classroom.all, :id, :name), 
+              { :multiple => true, :size =>3 } %>
+            </td>
+          </tr>
+	      	<tr>
+	          <td width="120px">
+	  			     <%= f.label :name %>
+	  		  </td>
+	  		  <td width="120px">
+	      		  <%= f.text_field :name %>
+	    		</td>
+	 	    </tr>
+	   	 	<tr>
+	      		<td width="120px">
+	      		<%= f.label :gender %>
+	      		</td>
+	      		<td width="120px">
+	      			<select name="teacher[gender]" id="teacher_gender">
+        				<option value="Male" selected>Male</option>
+        				<option value="Female">Female</option>
+   					 </select>
+	      		
+	      		</td>
+	    	</tr>
+	 		<tr>
+	 			<td width="120px">
+	 				 <%= f.label :phone_no%>
+	 			</td>
+	 			<td>
+	 				<%= f.number_field :phone_no %>
+	 			</td>
+	 		</tr>
+	 		<tr>
+	 			<td>
+	 				 <%= f.label :proficiency_subject%>
+	 			</td>
+	 			<td>
+	 				 <%= f.text_field :proficiency_subject%>
+	 			</td>
+	 		</tr>
+		 	<tr>
+		 		<td align="center">
+					<%= f.submit%>
+				</td>
+			</tr>
+			<tr>
+		 		<td align="center">
+					<%= link_to 'Back', teachers_path%>
+				</td>
+			</tr>
+		</body>
+<% end %>
+		
 

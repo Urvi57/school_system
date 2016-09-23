@@ -1,46 +1,89 @@
 class TeachersController < ApplicationController
 	def index
-		@teacher=Teacher.all
-		render :json => @teacher
+		@teachers=Teacher.all
+		respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok }
+ 			end	
 	end
 	def show
 		begin
 		@teacher =Teacher.find(params[:id])
-		#if @teacher
-			render :json => @teacher, :status  => :ok
-		#else
-		#	render :json => @teacher.errors, :status  => :unprocessable_entity
-		#end
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok }
+ 			end	
+		
 		rescue => e
 			p e.message
-			render :json =>  { "error" => e.message}, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 			format.html 
+ 			format.json { render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
+			end
 		end
 	end
 	def new
 		@teacher = Teacher.new()
+		respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok }
+ 			end	
 	end
 	def edit 
 	 	@teacher = Teacher.find(params[:id])
+	 	respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok }
+ 			end	
 	 end
 	def create
-		@teacher=Teacher.new(teacher_param)
+		
+		# @teacher=Teacher.new(teacher_param)
+		@teacher = Teacher.new(params.require(:teacher).permit(:name, :proficiency_subject, :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids]))
+
 		if @teacher.save
-			render :json => @teacher, :status  => :ok
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok}
+			end
+
 		else
-			render :json => @teacher.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => @teacher.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 	end
 	def update
 		begin
 		@teacher=Teacher.find(params[:id])
 		if @teacher.update_attributes(teacher_param)
-			render :json => @teacher, :status  => :ok
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok}
+			end
 		else
-			render :json => @teacher.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => @teacher.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 		rescue => e
 			p e.message
-			render :json => { "error" => e.message}, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => { "error" => e.message}, :status  => :unprocessable_entity}
+ 			end
 		end
 	end
 	
@@ -49,13 +92,25 @@ class TeachersController < ApplicationController
 		begin
 		@teacher=Teacher.find(params[:id])
 		if @teacher.destroy
-			render :json => @teacher, :status  => :ok
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json { render :json => @teacher, :status  => :ok}
+			end
 		else
-			render :json => @teacher.errors, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => @teacher.errors, :status  => :unprocessable_entity}
+ 			end
 		end
 		rescue => e
 			p e.message
-			render :json => {"error" => e.message}, :status  => :unprocessable_entity
+			respond_to do |format|
+
+ 				format.html 
+ 				format.json {render :json => { "error" => e.message}, :status  => :unprocessable_entity}
+ 			end
 		end
 	end
 	private 

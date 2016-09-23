@@ -1,0 +1,26 @@
+<div align="center" width="">
+		<strong>View Classroom Details</strong>
+</div>
+<table>
+	<tr>
+		<td>
+			<strong>Classroom Name</strong>
+		</td>
+		<td>
+			<strong>Number Of Students</strong>
+		</td>
+		
+	</tr>
+	<tr>
+		<td>
+			<%= @classroom.name %>
+		</td>
+		<td>
+			<%= @classroom.number_of_students %>
+		</td>
+		
+	</tr>
+
+</table>
+<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= link_to 'Back', classrooms_path%>
