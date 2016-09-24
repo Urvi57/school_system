@@ -11872,3 +11872,505 @@ Started GET "/schools/new" for ::1 at 2016-09-23 19:44:20 +0530
 Processing by SchoolsController#new as HTML
   Rendered schools/new.html.erb within layouts/application (4.2ms)
 Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-24 14:15:31 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 204ms (Views: 195.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-24 14:15:31 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 49ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-24 14:15:33 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (2.1ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 69ms (Views: 64.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-24 14:15:35 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 75ms (Views: 72.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-24 14:15:57 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0k58yt+OBv8RG3T96s7MfRiOpllzYzk0f/50Hr2GXY6ELWDJPH+xz6fCrqUEGhYQ+XsLn23A+9FWZopQY2Z2kA==", "school"=>{"name"=>"Reyan International", "phone_no"=>"7812901001", "address"=>"Sector 14", "city"=>"Udaipur", "zipcode"=>"313002", "state"=>"Rajasthan"}, "commit"=>"Save School"}
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.5ms)[0m  SELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '7812901001' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `schools` (`name`, `address`, `city`, `zipcode`, `state`, `phone_no`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Reyan International"], ["address", "Sector 14"], ["city", "Udaipur"], ["zipcode", "313002"], ["state", "Rajasthan"], ["phone_no", "7812901001"], ["created_at", "2016-09-24 08:45:57"], ["updated_at", "2016-09-24 08:45:57"]]
+  [1m[35m (2.7ms)[0m  COMMIT
+  Rendered schools/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 89ms (Views: 41.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/schools/11/edit" for ::1 at 2016-09-24 14:16:02 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSchool Load (1.1ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 11]]
+  Rendered schools/edit.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 46ms (Views: 42.8ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/schools/11" for ::1 at 2016-09-24 14:16:08 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"clc516dFS2L5EM/R5Bfkztv19UDT+VuZ9Hvgr7XlcikkNCXURLT8Uk/JFYkKwz6jOgBYhs1amXzd4x7hawVZNw==", "school"=>{"name"=>"Reyan International", "phone_no"=>"7812901001", "address"=>"Sector-14", "city"=>"Udaipur", "zipcode"=>"313002", "state"=>"Rajasthan"}, "commit"=>"Save School", "id"=>"11"}
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 11]]
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.5ms)[0m  SELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '7812901001' AND `schools`.`id` != 11) LIMIT 1
+  [1m[36mSQL (7.0ms)[0m  [1mUPDATE `schools` SET `address` = ?, `updated_at` = ? WHERE `schools`.`id` = ?[0m  [["address", "Sector-14"], ["updated_at", "2016-09-24 08:46:08"], ["id", 11]]
+  [1m[35m (7.5ms)[0m  COMMIT
+  Rendered schools/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 60ms (Views: 37.3ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-24 14:16:11 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/schools/11" for ::1 at 2016-09-24 14:16:23 +0530
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"X/j83lKfv3hiZnPQLqi5Ey8FaVEn74VqkusxG0SGp5sJm+DdsW4ISNS/qYjAfGN+zvDElzlMR4+7c89VmmaMhQ==", "id"=>"11"}
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 11]]
+  [1m[36mSQL (6.1ms)[0m  [1mDELETE FROM `schools` WHERE `schools`.`id` = ?[0m  [["id", 11]]
+Completed 500 Internal Server Error in 11ms
+
+ActionView::MissingTemplate (Missing template schools/destroy, application/destroy with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/urvashi/Development/school_system/app/views"
+):
+  app/controllers/schools_controller.rb:91:in `destroy'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (59.9ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-24 14:16:40 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 41.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-24 14:16:42 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 63ms (Views: 61.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (101.1ms)[0m  [1mDROP DATABASE IF EXISTS `school_system_development`[0m
+  [1m[35m (52.5ms)[0m  DROP DATABASE IF EXISTS `school_system_test`
+  [1m[36m (0.5ms)[0m  [1mCREATE DATABASE `school_system_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.5ms)[0m  CREATE DATABASE `school_system_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (30.2ms)[0m  [1mCREATE TABLE `classrooms` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `number_of_students` varchar(255), `school_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (21.0ms)[0m  CREATE TABLE `classrooms_schools` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `school_id` int(11)) ENGINE=InnoDB
+  [1m[36m (25.9ms)[0m  [1mCREATE TABLE `classrooms_students` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `student_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (20.8ms)[0m  CREATE TABLE `classrooms_subjects` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `subject_id` int(11)) ENGINE=InnoDB
+  [1m[36m (28.0ms)[0m  [1mCREATE TABLE `classrooms_teachers` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `teacher_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (25.1ms)[0m  CREATE TABLE `schools` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `address` text, `city` varchar(255), `zipcode` varchar(255), `state` varchar(255), `phone_no` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (20.5ms)[0m  [1mCREATE TABLE `schools_students` (`id` int(11) auto_increment PRIMARY KEY, `school_id` int(11), `student_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (24.4ms)[0m  CREATE TABLE `schools_subjects` (`id` int(11) auto_increment PRIMARY KEY, `school_id` int(11), `subject_id` int(11)) ENGINE=InnoDB
+  [1m[36m (20.3ms)[0m  [1mCREATE TABLE `students` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `father_name` varchar(255), `mother_name` varchar(255), `phone_no` varchar(255), `address` text, `city` varchar(255), `zipcode` varchar(255), `state` varchar(255), `created_at` datetime, `updated_at` datetime, `school_id` int(11), `classroom_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (20.4ms)[0m  CREATE TABLE `students_subjects` (`id` int(11) auto_increment PRIMARY KEY, `student_id` int(11), `subject_id` int(11)) ENGINE=InnoDB
+  [1m[36m (20.9ms)[0m  [1mCREATE TABLE `students_teachers` (`id` int(11) auto_increment PRIMARY KEY, `student_id` int(11), `teacher_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (20.2ms)[0m  CREATE TABLE `subjects` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (20.7ms)[0m  [1mCREATE TABLE `subjects_teachers` (`id` int(11) auto_increment PRIMARY KEY, `teacher_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (20.6ms)[0m  CREATE TABLE `teachers` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `proficiency_subject` varchar(255), `gender` varchar(255), `phone_no` varchar(255), `created_at` datetime, `updated_at` datetime, `school_id` int(11)) ENGINE=InnoDB
+  [1m[36m (26.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (41.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (4.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (5.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160923104724')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160912131017')[0m
+  [1m[35m (11.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919082115')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919082125')[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919082138')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919095343')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919111817')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919115317')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919122139')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919132355')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919132803')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919133309')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160920185639')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160920191954')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160921081133')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160923090917')[0m
+  [1m[35m (21.4ms)[0m  CREATE TABLE `classrooms` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `number_of_students` varchar(255), `school_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (16.8ms)[0m  [1mCREATE TABLE `classrooms_schools` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `school_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (19.9ms)[0m  CREATE TABLE `classrooms_students` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `student_id` int(11)) ENGINE=InnoDB
+  [1m[36m (20.9ms)[0m  [1mCREATE TABLE `classrooms_subjects` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (23.3ms)[0m  CREATE TABLE `classrooms_teachers` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `teacher_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (23.0ms)[0m  [1mCREATE TABLE `schools` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `address` text, `city` varchar(255), `zipcode` varchar(255), `state` varchar(255), `phone_no` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (19.3ms)[0m  CREATE TABLE `schools_students` (`id` int(11) auto_increment PRIMARY KEY, `school_id` int(11), `student_id` int(11)) ENGINE=InnoDB
+  [1m[36m (23.3ms)[0m  [1mCREATE TABLE `schools_subjects` (`id` int(11) auto_increment PRIMARY KEY, `school_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (26.4ms)[0m  CREATE TABLE `students` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `father_name` varchar(255), `mother_name` varchar(255), `phone_no` varchar(255), `address` text, `city` varchar(255), `zipcode` varchar(255), `state` varchar(255), `created_at` datetime, `updated_at` datetime, `school_id` int(11), `classroom_id` int(11)) ENGINE=InnoDB
+  [1m[36m (25.8ms)[0m  [1mCREATE TABLE `students_subjects` (`id` int(11) auto_increment PRIMARY KEY, `student_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (31.1ms)[0m  CREATE TABLE `students_teachers` (`id` int(11) auto_increment PRIMARY KEY, `student_id` int(11), `teacher_id` int(11)) ENGINE=InnoDB
+  [1m[36m (22.4ms)[0m  [1mCREATE TABLE `subjects` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (23.4ms)[0m  CREATE TABLE `subjects_teachers` (`id` int(11) auto_increment PRIMARY KEY, `teacher_id` int(11), `subject_id` int(11)) ENGINE=InnoDB
+  [1m[36m (23.5ms)[0m  [1mCREATE TABLE `teachers` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `proficiency_subject` varchar(255), `gender` varchar(255), `phone_no` varchar(255), `created_at` datetime, `updated_at` datetime, `school_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (20.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (21.2ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (2.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160923104724')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160912131017')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919082115')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919082125')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919082138')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919095343')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919111817')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919115317')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919122139')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919132355')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160919132803')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160919133309')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160920185639')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160920191954')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160921081133')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160923090917')
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '9876543210' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `schools` (`name`, `address`, `phone_no`, `city`, `state`, `zipcode`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "ABS Public School"], ["address", "hiram mangri sec-6"], ["phone_no", "9876543210"], ["city", "Udaipur"], ["state", "Rajasthan"], ["zipcode", "313001"], ["created_at", "2016-09-24 08:47:09"], ["updated_at", "2016-09-24 08:47:09"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'First Class' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "First Class"], ["number_of_students", "20"], ["school_id", 1], ["created_at", "2016-09-24 08:47:09"], ["updated_at", "2016-09-24 08:47:09"]]
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'Second Class' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "Second Class"], ["number_of_students", "20"], ["school_id", 1], ["created_at", "2016-09-24 08:47:09"], ["updated_at", "2016-09-24 08:47:09"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'six Class' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "six Class"], ["number_of_students", "20"], ["school_id", 1], ["created_at", "2016-09-24 08:47:09"], ["updated_at", "2016-09-24 08:47:09"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mTeacher Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `teachers` WHERE `teachers`.`phone_no` = BINARY '9876543211' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `teachers` (`name`, `proficiency_subject`, `gender`, `phone_no`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "Pradeep"], ["proficiency_subject", "rails"], ["gender", "M"], ["phone_no", "9876543211"], ["school_id", 1], ["created_at", "2016-09-24 08:47:09"], ["updated_at", "2016-09-24 08:47:09"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `students` (`name`, `father_name`, `mother_name`, `phone_no`, `address`, `city`, `state`, `zipcode`, `school_id`, `classroom_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bharti"], ["father_name", "Kumar"], ["mother_name", "Radha"], ["phone_no", "9876543210"], ["address", "Sector 9"], ["city", "Udaipur"], ["state", "Rajasthan"], ["zipcode", "313001"], ["school_id", 1], ["classroom_id", 1], ["created_at", "2016-09-24 08:47:09"], ["updated_at", "2016-09-24 08:47:09"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36mSchool Load (0.8ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.9ms)[0m  SELECT `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` IN (1, 2)
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.6ms)[0m  SELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '9876543210' AND `schools`.`id` != 1) LIMIT 1
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'First Class' AND `classrooms`.`id` != 1) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.4ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'Second Class' AND `classrooms`.`id` != 2) LIMIT 1
+  [1m[36mSubject Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `subjects` WHERE `subjects`.`name` = BINARY 'rails' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `subjects` (`name`, `created_at`, `updated_at`) VALUES (?, ?, ?)  [["name", "rails"], ["created_at", "2016-09-24 08:47:10"], ["updated_at", "2016-09-24 08:47:10"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schools_subjects` (`school_id`, `subject_id`) VALUES (?, ?)[0m  [["school_id", 1], ["subject_id", 1]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `classrooms_subjects` (`classroom_id`, `subject_id`) VALUES (?, ?)  [["classroom_id", 1], ["subject_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `classrooms_subjects` (`classroom_id`, `subject_id`) VALUES (?, ?)[0m  [["classroom_id", 2], ["subject_id", 1]]
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36m (20.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (30.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSchools (20160912131017)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/urvashi/Development/school_system/db/migrate/20160912131017_create_schools.rb:10)
+  [1m[35m (28.9ms)[0m  CREATE TABLE `schools` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `address` text, `city` varchar(255), `zipcode` varchar(255), `state` varchar(255), `phone_no` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160912131017"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateClassrooms (20160919082115)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/urvashi/Development/school_system/db/migrate/20160919082115_create_classrooms.rb:7)
+  [1m[35m (26.1ms)[0m  CREATE TABLE `classrooms` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `number_of_students` varchar(255), `school_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160919082115"]]
+  [1m[36m (4.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTeachers (20160919082125)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/urvashi/Development/school_system/db/migrate/20160919082125_create_teachers.rb:9)
+  [1m[35m (26.1ms)[0m  CREATE TABLE `teachers` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `proficiency_subject` varchar(255), `gender` varchar(255), `phone_no` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160919082125"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStudents (20160919082138)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/urvashi/Development/school_system/db/migrate/20160919082138_create_students.rb:12)
+  [1m[35m (25.4ms)[0m  CREATE TABLE `students` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `father_name` varchar(255), `mother_name` varchar(255), `phone_no` varchar(255), `address` text, `city` varchar(255), `zipcode` varchar(255), `state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160919082138"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSubjects (20160919095343)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/urvashi/Development/school_system/db/migrate/20160919095343_create_subjects.rb:5)
+  [1m[35m (29.3ms)[0m  CREATE TABLE `subjects` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160919095343"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateClassroomsTeachers (20160919111817)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/urvashi/Development/school_system/db/migrate/20160919111817_create_classrooms_teachers.rb:6)
+  [1m[35m (29.7ms)[0m  CREATE TABLE `classrooms_teachers` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `teacher_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160919111817"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSchoolsSubjects (20160919115317)
+  [1m[35m (35.5ms)[0m  CREATE TABLE `schools_subjects` (`id` int(11) auto_increment PRIMARY KEY, `school_id` int(11), `subject_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES (?)  [["version", "20160919115317"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddSchoolAndClassroomToStudent (20160919122139)
+  [1m[35m (52.2ms)[0m  ALTER TABLE `students` ADD `school_id` int(11)
+  [1m[36m (33.5ms)[0m  [1mALTER TABLE `students` ADD `classroom_id` int(11)[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160919122139"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+Migrating to CreateClassroomsStudents (20160919132355)
+  [1m[36m (32.6ms)[0m  [1mCREATE TABLE `classrooms_students` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `student_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160919132355"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+Migrating to CreateClassroomsSubjects (20160919132803)
+  [1m[36m (35.8ms)[0m  [1mCREATE TABLE `classrooms_subjects` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160919132803"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+Migrating to CreateStudentsTeachers (20160919133309)
+  [1m[36m (31.1ms)[0m  [1mCREATE TABLE `students_teachers` (`id` int(11) auto_increment PRIMARY KEY, `student_id` int(11), `teacher_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160919133309"]]
+  [1m[35m (4.8ms)[0m  COMMIT
+Migrating to AddSchoolToTeacher (20160920185639)
+  [1m[36m (48.0ms)[0m  [1mALTER TABLE `teachers` ADD `school_id` int(11)[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160920185639"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Migrating to CreateSubjectsTeachers (20160920191954)
+  [1m[36m (30.5ms)[0m  [1mCREATE TABLE `subjects_teachers` (`id` int(11) auto_increment PRIMARY KEY, `teacher_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160920191954"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Migrating to StudentsSubjects (20160921081133)
+  [1m[36m (29.2ms)[0m  [1mCREATE TABLE `students_subjects` (`id` int(11) auto_increment PRIMARY KEY, `student_id` int(11), `subject_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160921081133"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Migrating to CreateClassroomsSchools (20160923090917)
+  [1m[36m (32.4ms)[0m  [1mCREATE TABLE `classrooms_schools` (`id` int(11) auto_increment PRIMARY KEY, `classroom_id` int(11), `school_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160923090917"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+Migrating to CreateSchoolsStudents (20160923104724)
+  [1m[36m (26.2ms)[0m  [1mCREATE TABLE `schools_students` (`id` int(11) auto_increment PRIMARY KEY, `school_id` int(11), `student_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES (?)[0m  [["version", "20160923104724"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'classrooms'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `classrooms`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'classrooms_schools'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `classrooms_schools`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'classrooms_students'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `classrooms_students`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'classrooms_subjects'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `classrooms_subjects`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'classrooms_teachers'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `classrooms_teachers`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'schools'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `schools`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'schools_students'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `schools_students`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'schools_subjects'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `schools_subjects`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'students'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `students`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'students_subjects'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `students_subjects`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'students_teachers'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `students_teachers`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'subjects'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `subjects`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'subjects_teachers'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `subjects_teachers`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'school_system_development'
+  AND fk.table_name = 'teachers'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `teachers`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '9876543210' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schools` (`name`, `address`, `phone_no`, `city`, `state`, `zipcode`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "ABS Public School"], ["address", "hiram mangri sec-6"], ["phone_no", "9876543210"], ["city", "Udaipur"], ["state", "Rajasthan"], ["zipcode", "313001"], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'First Class' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "First Class"], ["number_of_students", "20"], ["school_id", 1], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'Second Class' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "Second Class"], ["number_of_students", "20"], ["school_id", 1], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'six Class' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "six Class"], ["number_of_students", "20"], ["school_id", 1], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mTeacher Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `teachers` WHERE `teachers`.`phone_no` = BINARY '9876543211' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `teachers` (`name`, `proficiency_subject`, `gender`, `phone_no`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "Pradeep"], ["proficiency_subject", "rails"], ["gender", "M"], ["phone_no", "9876543211"], ["school_id", 1], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `students` (`name`, `father_name`, `mother_name`, `phone_no`, `address`, `city`, `state`, `zipcode`, `school_id`, `classroom_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bharti"], ["father_name", "Kumar"], ["mother_name", "Radha"], ["phone_no", "9876543210"], ["address", "Sector 9"], ["city", "Udaipur"], ["state", "Rajasthan"], ["zipcode", "313001"], ["school_id", 1], ["classroom_id", 1], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[35m (4.8ms)[0m  COMMIT
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` IN (1, 2)
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.4ms)[0m  SELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '9876543210' AND `schools`.`id` != 1) LIMIT 1
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'First Class' AND `classrooms`.`id` != 1) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'Second Class' AND `classrooms`.`id` != 2) LIMIT 1
+  [1m[36mSubject Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `subjects` WHERE `subjects`.`name` = BINARY 'rails' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subjects` (`name`, `created_at`, `updated_at`) VALUES (?, ?, ?)  [["name", "rails"], ["created_at", "2016-09-24 08:50:36"], ["updated_at", "2016-09-24 08:50:36"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schools_subjects` (`school_id`, `subject_id`) VALUES (?, ?)[0m  [["school_id", 1], ["subject_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `classrooms_subjects` (`classroom_id`, `subject_id`) VALUES (?, ?)  [["classroom_id", 1], ["subject_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `classrooms_subjects` (`classroom_id`, `subject_id`) VALUES (?, ?)[0m  [["classroom_id", 2], ["subject_id", 1]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '9876543210' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'First Class' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'Second Class' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'six Class' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mTeacher Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `teachers` WHERE `teachers`.`phone_no` = BINARY '9876543211' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `students` (`name`, `father_name`, `mother_name`, `phone_no`, `address`, `city`, `state`, `zipcode`, `school_id`, `classroom_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Bharti"], ["father_name", "Kumar"], ["mother_name", "Radha"], ["phone_no", "9876543210"], ["address", "Sector 9"], ["city", "Udaipur"], ["state", "Rajasthan"], ["zipcode", "313001"], ["school_id", 1], ["classroom_id", 1], ["created_at", "2016-09-24 08:51:31"], ["updated_at", "2016-09-24 08:51:31"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` IN (1, 2)[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '9876543210' AND `schools`.`id` != 1) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'First Class' AND `classrooms`.`id` != 1) LIMIT 1
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'Second Class' AND `classrooms`.`id` != 2) LIMIT 1[0m
+  [1m[35mSubject Exists (0.3ms)[0m  SELECT  1 AS one FROM `subjects` WHERE `subjects`.`name` = BINARY 'rails' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/schools" for ::1 at 2016-09-24 14:21:37 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 43ms (Views: 33.5ms | ActiveRecord: 1.3ms)

@@ -40,13 +40,14 @@ RSpec.describe SchoolsController, type: :controller do
 	 context "create" do
 	  	it "should return success and create school if valid params are passed" do
 	  		 post :create, :school=>{:name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567890'}
- 	 		 response.should redirect_to(School.last)
-		
+ 	 		 # response.should redirect_to(School.last)
+			 response.status.should eq 200
 		 end
 		it "should not return success if invalid params are passed" do
 			 post :create, :school=>{:name => nil, :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567'} 	 		 # response.status.should eq 422
 			 # response.should render_template :new
 			 response.status.should eq 422
+
 		end
 	 end
 	 context "update" do
@@ -73,7 +74,7 @@ RSpec.describe SchoolsController, type: :controller do
 	  	 end
 	  end
 	  context "destroy" do
-		it "should destroy the requested subject if valid params are passed" do
+		it "should destroy the requested school if valid params are passed" do
 			school=FactoryGirl.create(:school)
 			delete :destroy, :id=>school.id
 			response.status.should eq 200		

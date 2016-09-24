@@ -27,6 +27,11 @@ class SchoolsController < ApplicationController
 	end
 	def new
 		@school = School.new
+		respond_to do |format|
+
+ 			format.html 
+			format.json {render :json => @school, :status => :ok}
+		end
 	end
 
 
@@ -78,18 +83,19 @@ class SchoolsController < ApplicationController
 		
 			respond_to do |format|
 
- 				format.html 
+ 				format.html {render 'new'}
 				format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 			end
 		end
 	end
 	def destroy
-		# begin
+		begin
 		@schools = School.find(params[:id])
 		
-	   		if @schools.delete
+	   		if @schools.destroy
 	    		respond_to do |format|
-	    			format.html
+	    			format.html {render 'index'}
+	    			format.json {render :json => @school, :status => :ok}
 	      		end
 	   		else
 	   			respond_to do |format|
@@ -98,13 +104,13 @@ class SchoolsController < ApplicationController
 					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 				end
 	   		end
-	  #  		rescue => e
-   #     	  	 	respond_to do |format|
+	   		rescue => e
+       	  	 	respond_to do |format|
 
- 		# 			format.html {render 'index'}
-			# 		format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
-			# end
-        	# end
+ 					format.html {render 'index'}
+					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
+				end
+        	end
    
 	end
 
