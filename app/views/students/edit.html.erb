@@ -24,7 +24,7 @@
 	              <%= f.label :school_id %>
 	            </td>
 	            <td>
-	               <%= select_tag 'student[school_id]', options_from_collection_for_select(School.all, :id, :name) %>
+	               <%= @student.school.name%>
 	            </td>
 	          </tr>
 	          <tr>
@@ -32,7 +32,7 @@
 	              <%= f.label :classroom_id%>
 	            </td>
 	            <td>
-	              <%= select_tag 'student[classroom_id]', options_from_collection_for_select(Classroom.all, :id, :name) %>
+	              <%= @student.classroom.name%>
 	               
 	            </td>
 	          </tr>

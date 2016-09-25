@@ -24,7 +24,7 @@
 	            <%= f.label :school_id %><br>
 	          </td>
 	          <td>
-	             <%= select_tag 'teacher[school_id]', options_from_collection_for_select(School.all, :id, :name) %>
+	             <%= @teacher.school.name%>
 	          </td>
 	      	</tr>
 	      	<tr>
@@ -32,8 +32,9 @@
               <%= f.label :classroom_id%>
             </td>
             <td>
-              <%= select_tag 'teacher[classroom_ids]', options_from_collection_for_select(Classroom.all, :id, :name), 
-              { :multiple => true, :size =>3 } %>
+              <%= select_tag 'teacher[classroom_ids]', options_from_collection_for_select(Classroom.all, :id, :name,:selected=>@teacher.classrooms.collect(&:id)), 
+              { :multiple => true }%>
+
             </td>
           </tr>
 	      	<tr>
@@ -49,11 +50,8 @@
 	      		<%= f.label :gender %>
 	      		</td>
 	      		<td width="120px">
-	      			<select name="teacher[gender]" id="teacher_gender">
-        				<option value="Male" selected>Male</option>
-        				<option value="Female">Female</option>
-   					 </select>
-	      		
+	      		<%= f.select :gender, ['Male', 'Female']%>
+	      			
 	      		</td>
 	    	</tr>
 	 		<tr>

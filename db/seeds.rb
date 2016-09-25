@@ -12,6 +12,6 @@
 	{name: 'Second Class', number_of_students: '20', school_id: '1'},
 	{name: 'six Class', number_of_students: '20', school_id: '1'}])
 
- Teacher.create([{name: 'Pradeep', proficiency_subject:'rails', gender: 'M', phone_no: '9876543211', school_id: '1',classroom_ids:[1,2] }])
+ Teacher.create([{name: 'Pradeep', subject_ids:[1], gender: 'Male', phone_no: '9876543211', school_id: '1',classroom_ids:[1,2] }])
  Student.create([{name: 'Bharti', father_name: 'Kumar', mother_name: 'Radha', phone_no: '9876543210', address: 'Sector 9', city: 'Udaipur', state: 'Rajasthan', zipcode: '313001', school_id: '1' ,classroom_id: '1'}])
 Subject.create([{name: 'rails', school_ids:[1], classroom_ids:[1,2]}])
