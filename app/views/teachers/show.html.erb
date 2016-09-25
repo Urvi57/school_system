@@ -1,8 +1,8 @@
 <div align="center" width="">
 		<strong>View Teacher Details</strong>
 </div>
-<table>
-	<tr>
+<table border="1">
+	<tr >
 		<td>
 			<strong>Teacher Name</strong>
 		</td>
@@ -15,6 +15,10 @@
 		<td>
 			<strong>Proficiency Subject</strong>
 		</td>
+		<td align="center">
+			<strong>School</strong>
+		</td>
+	
 	</tr>
 	<tr>
 		<td>
@@ -29,6 +33,10 @@
 		<td>
 			<%= @teacher.proficiency_subject%>
 		</td>
+		<td>
+			<%= @teacher.school.name%>
+		</td>
+		
 	</tr>
 
 </table>

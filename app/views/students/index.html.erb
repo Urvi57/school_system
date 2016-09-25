@@ -1,0 +1,85 @@
+<h3>Listing Students</h1>
+<%= link_to 'Add New Student', new_student_path %></h3></br></br>
+<table border="1">
+	<tr>
+		<th>
+			Student Name
+		</th>
+		<th>
+			 Father Name
+		</th>
+		<th>
+			Mother Name
+		</th>
+		<th>
+			Phone Number
+		</th>
+		<th>
+			Address
+		</th>
+		<th>
+			City
+		</th>
+		<th>
+			Zipcode
+		</th>
+		<th>
+			State
+		</th>
+		<th>	
+			School
+		</th>
+		<th>
+			Classroom
+		</th>
+		<th colspan="6">
+			Actions
+		</th>
+	</tr>
+	<% @students.each do |student|%>
+		<tr>
+			<td>
+				<%= student.name%>
+			</td>
+			<td>
+				<%= student.father_name%>
+			</td>
+			<td>
+				<%= student.mother_name%>
+			</td>
+			<td>
+				<%= student.phone_no%>
+			</td>
+			<td>
+				<%= student.address%>
+			</td>
+			<td>
+				<%= student.city%>
+			</td>
+			<td>
+				<%= student.zipcode%>
+			</td>
+			<td>
+				<%= student.state%>
+			</td>
+			
+			<td>
+				<%= student.school.name%>
+			</td>
+			<td>
+				<%= student.classroom.name%>
+			</td>
+			<td colspan="2">
+				<%= link_to 'Show', student_path(student) %>
+			</td>
+			<td colspan="2">
+				<%= link_to 'Edit', edit_student_path(student) %>
+			</td>
+			<td colspan="2">
+				<%= link_to 'Destroy', student_path(student), method: :delete, data: { confirm: 'Do you want to destroy this record?' } %>
+			</td>
+		</tr>
+
+	<%end%>
+
+</table>

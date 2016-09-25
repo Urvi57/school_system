@@ -1,0 +1,17 @@
+<div align="center" width="">
+		<strong>View Subject Details</strong>
+</div>
+<table border="1">
+	<tr>
+		<td>
+			<strong>Subject Name</strong>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= @subject.name %>
+		</td>
+	</tr>
+</table>
+<%= link_to 'Edit', edit_subject_path(@subject) %> |
+<%= link_to 'Back', subjects_path%>

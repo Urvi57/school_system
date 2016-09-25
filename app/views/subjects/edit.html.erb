@@ -1,2 +1,43 @@
-<h1>Editing School </h1>
+<h3>Edit Subject Details</h1>
+
+	<%= form_for :subject, url: subject_path(@subject.id) , method: :patch do |f| %>
+	
+		<%if @subject.errors.any?  %>
+			<div id="error_explain">
+				<h2>
+					<%= pluralize(@subject.errors.count, "error")%> Prohibited this subject from being edited
+				</h2>
+				<ul>
+					<%= @subject.errors.full_message.each do |msg| %>
+						<li>
+						<%= msg %>
+						</li>
+					<%end%>	
+				</ul>
+			</div>
+		<% end %>
+		<body>
+		 	<table border="0" cellpadding="0" cellspacing="0" width="60%">
+	      		<tr>
+	        		<td width="120px">
+						<%= f.label :name %>
+					</td>
+					<td width="120px">
+	    				<%= f.text_field :name %>
+	  				</td>
+	 	 		</tr>
+	 	 		<tr>
+	 				<td align="center">
+						<%= f.submit%>
+					</td>
+		 		</tr>
+		 		<tr>
+	 				<td align="center">
+						<%= link_to 'Back', subjects_path%>
+					</td>
+				</tr>
+			</table>
+		</body>
+	<% end %>
+		
 

@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 	def index
-		@subject=Subject.all
+		@subjects=Subject.all
 		respond_to do |format|
 			format.html 
  			format.json { render :json => @subject, :status => :ok}
@@ -41,12 +41,12 @@ class SubjectsController < ApplicationController
 		@subject=Subject.new(subject_param)
 		if @subject.save
 			respond_to do |format|
-				format.html 
+				format.html {render 'show'}
  				format.json {render :json => @subject, :status  => :ok}
  			end
 		else
 			respond_to do |format|
-				format.html 
+				format.html {render 'new'}
  				format.json {render :json => @subject.errors, :status => :unprocessable_entity}
  			end
 		end
@@ -56,19 +56,19 @@ class SubjectsController < ApplicationController
 		@subject=Subject.find(params[:id])
 		if @subject.update_attributes(subject_param)
 			respond_to do |format|
-				format.html 
+				format.html {render 'show'}
  				format.json {render :json => @subject, :status => :ok}
  			end
 		else
 			respond_to do |format|
-				format.html 
+				format.html {render 'new'}
  				format.json {render :json => @subject.errors, :status  => :unprocessable_entity}
  			end
 		end
 		rescue => e
 			p e.message
 			respond_to do |format|
-				format.html 
+				format.html {render 'new'}
  				format.json {render :json => {"error" => e.message}, :status =>:unprocessable_entity}
  			end
 		end
@@ -78,23 +78,20 @@ class SubjectsController < ApplicationController
 	def destroy
 		begin
 		@subject=Subject.find(params[:id])
-		if @subject
-			@subject.destroy
+		if @subject.destroy
+			@subjects = Subject.all
 			respond_to do |format|
-				format.html 
+				format.html {render 'index'}
  				format.json {render :json => @subject, :status => :ok}
  			end
-		else
-			respond_to do |format|
-				format.html 
- 				format.json {render :json => @subject.errors, :status  => :unprocessable_entity}
- 			end
+		
 		end
 		
 		rescue => e
 			p e.message
 			respond_to do |format|
-				format.html 
+				@subjects = Subject.all
+				format.html {render 'index'}
  				format.json {render :json => {"error" => e.message}, :status => :unprocessable_entity}
  			end
 		end

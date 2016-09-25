@@ -1,0 +1,72 @@
+<div align="center" width="">
+		<strong>View Student Details</strong>
+</div>
+<table border="1">
+	<tr >
+		<td>
+			<strong>Student Name</strong>
+		</td>
+		<td>
+			<strong>Father Name</strong>
+		</td>
+		<td>
+			<strong>Mother Name</strong>
+		</td>
+		<td>
+			<strong>Phone No.</strong>
+		</td>
+		<td>
+			<strong>Address</strong>
+		</td>
+		<td>
+			<strong>City</strong>
+		</td>
+		<td>
+			<strong>Zipcode</strong>
+		</td>
+		<td>
+			<strong>State</strong>
+		</td>
+		<td align="center">
+			<strong>School</strong>
+		</td>
+		<td align="center">
+			<strong>Classroom</strong>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= @student.name %>
+		</td>
+		<td>
+			<%= @student.father_name %>
+		</td>
+		<td>
+			<%= @student.mother_name%>
+		</td>
+		<td>
+			<%= @student.phone_no%>
+		</td>
+		<td>
+			<%= @student.address%>
+		</td>
+		<td>
+			<%= @student.city%>
+		</td>
+		<td>
+			<%= @student.zipcode%>
+		</td>
+		<td>
+			<%= @student.state%>
+		</td>
+		<td>
+			<%= @student.school.name%>
+		</td>
+		<td>
+			<%= @student.classroom.name%>
+		</td>
+	</tr>
+
+</table>
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path%>

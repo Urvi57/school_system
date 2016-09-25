@@ -90,23 +90,19 @@ class SchoolsController < ApplicationController
 	end
 	def destroy
 		begin
-		@schools = School.find(params[:id])
+		@school = School.find(params[:id])
 		
-	   		if @schools.destroy
+	   		if @school.destroy
+	   			@schools = School.all
 	    		respond_to do |format|
 	    			format.html {render 'index'}
 	    			format.json {render :json => @school, :status => :ok}
 	      		end
-	   		else
-	   			respond_to do |format|
-
- 					format.html {render 'index'}
-					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
-				end
+	   		
 	   		end
 	   		rescue => e
        	  	 	respond_to do |format|
-
+       	  	 		@schools = School.all
  					format.html {render 'index'}
 					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 				end

@@ -46,12 +46,12 @@ class ClassroomsController < ApplicationController
 		 if @classroom.save
 		 	
 		 	respond_to do |format|
- 				format.html 
+ 				format.html {render 'show'}
  				format.json {render json: @classroom, :status => :ok}
  			end
     	 else
     	 	respond_to do |format|
- 				format.html 
+ 				format.html {render 'new'}
  				format.json {render :json => @classroom.errors, :status  => :unprocessable_entity}
  			end
       	end
@@ -62,13 +62,13 @@ class ClassroomsController < ApplicationController
 		if @classroom.update_attributes(classroom_param)
 			respond_to do |format|
 
- 				format.html 
+ 				format.html {render 'show'}
  				format.json {render json: @classroom, :status => :ok}
  			end
 		else
 			respond_to do |format|
 
- 				format.html 
+ 				format.html {render 'new'}
  				format.json {render :json => @classroom.errors, :status  => :unprocessable_entity}
  			end
 		end
@@ -76,7 +76,7 @@ class ClassroomsController < ApplicationController
 	    	p e.message
 			respond_to do |format|
 
- 				format.html 
+ 				format.html {render 'new'}
  				format.json {render :json => {"error" => e.message}, :status  => :unprocessable_entity}
  			end
 		end
@@ -85,24 +85,18 @@ class ClassroomsController < ApplicationController
 		begin
 		@classroom = Classroom.find(params[:id])
 	   if @classroom.destroy
+	   	@classrooms = Classroom.all
 	      respond_to do |format|
 
- 				format.html 
+ 				format.html {render 'index'}
  				format.json {render json: @classroom, :status => :ok}
- 			end
-	   
-	   else
-	   	respond_to do |format|
-
- 				format.html 
- 				format.json {render :json => @classroom.errors, :status  => :unprocessable_entity}
  			end
 	   end
 	   rescue => e
 	   	  p e.message
        	  respond_to do |format|
 
- 				format.html 
+ 				format.html {render 'index'}
  				format.json {render :json => {"error" => e.message}, :status  => :unprocessable_entity}
  			end
        end
