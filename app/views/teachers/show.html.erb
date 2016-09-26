@@ -18,7 +18,9 @@
 		<td align="center">
 			<strong>School</strong>
 		</td>
-	
+		<td align="center">
+				<strong>Classroom</strong>
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -31,12 +33,14 @@
 			<%= @teacher.phone_no%>
 		</td>
 		<td>
-			<%= @teacher.proficiency_subject%>
+			<%= @teacher.subjects.collect(&:name).join(",")%>
 		</td>
 		<td>
 			<%= @teacher.school.name%>
 		</td>
-		
+		<td>
+			<%= @teacher.classrooms.collect(&:name).join(",")%>
+		</td>
 	</tr>
 
 </table>

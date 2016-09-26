@@ -44,7 +44,7 @@ class TeachersController < ApplicationController
 	def create
 		
 		# @teacher=Teacher.new(teacher_param)
-		@teacher = Teacher.new(params.require(:teacher).permit(:name, :proficiency_subject, :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids]))
+		@teacher = Teacher.new(params.require(:teacher).permit(:name,  :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
 
 		if @teacher.save
 			respond_to do |format|
@@ -64,7 +64,7 @@ class TeachersController < ApplicationController
 	def update
 		begin
 		@teacher=Teacher.find(params[:id])
-		if @teacher.update_attributes(teacher_param)
+		if @teacher.update_attributes(params.require(:teacher).permit(:name,  :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
 			respond_to do |format|
 
  				format.html {render 'show'}

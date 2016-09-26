@@ -3,7 +3,7 @@ RSpec.describe Teacher, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
   describe Teacher do
   	context 'validations' do
-  		["name", "gender", "phone_no","proficiency_subject"].each do |field|
+  		["name", "gender", "phone_no"].each do |field|
   			it "is invalid if #{field} is not present}" do
   				FactoryGirl.build(:teacher, "#{field}".to_sym =>nil).should_not be_valid
   			end

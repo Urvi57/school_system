@@ -40,29 +40,29 @@ RSpec.describe TeachersController, type: :controller do
 	end
 	context "create" do
 	  	it "should return success and create teacher if valid params are passed" do
-	  		 post :create, :teacher=>{:name => 'Amit', :proficiency_subject => 'Hindi', :gender => 'M', :phone_no => '1234567890', :school_id => @school.id }
+	  		 post :create, :teacher=>{:name => 'Amit',  :gender => 'M', :phone_no => '1234567890', :school_id => @school.id }
  	 		 response.status.should eq 200
 		
 		 end
 		it "should not return success if invalid params are passed" do
-			 post :create, :teacher=>{:name => 'Amit', :proficiency_subject => 'Hindi', :gender => 'M', :phone_no => '123456789', :school_id => @school.id }
+			 post :create, :teacher=>{:name => 'Amit',  :gender => 'M', :phone_no => '123456789', :school_id => @school.id }
  		 		 response.status.should eq 422
 		end
 	 end
 	  context "update" do
 	  	it "should return success and update the requested teacher if valid params are passed" do
 	  		teacher=FactoryGirl.create(:teacher)
-	  		put :update, :teacher=>{:name => teacher.name, :proficiency_subject => teacher.proficiency_subject, :gender => teacher.gender, :phone_no => teacher.phone_no, :school_id => @school.id}, :id=>teacher.id
+	  		put :update, :teacher=>{:name => teacher.name,  :gender => teacher.gender, :phone_no => teacher.phone_no, :school_id => @school.id}, :id=>teacher.id
 	  		response.status.should eq 200		
 	  	end
 	  	 it "should not return success if invalid id passed" do
 	   	 	teacher=FactoryGirl.create(:teacher)
-	   		put :update, :teacher=>{:name => teacher.name, :proficiency_subject => teacher.proficiency_subject, :gender => teacher.gender, :phone_no => teacher.phone_no, :school_id => @school.id}, :id=>1
+	   		put :update, :teacher=>{:name => teacher.name,  :gender => teacher.gender, :phone_no => teacher.phone_no, :school_id => @school.id}, :id=>1
 	   		response.status.should eq 422	
 	   	 end
 	   	 it "should not return success if invalid params were passed" do
 	   	 	teacher=FactoryGirl.create(:teacher)
-	   		put :update, :teacher=>{:name => nil, :proficiency_subject => teacher.proficiency_subject, :gender => teacher.gender, :phone_no => teacher.phone_no, :school_id => @school.id}, :id=>teacher.id
+	   		put :update, :teacher=>{:name => nil,  :gender => teacher.gender, :phone_no => teacher.phone_no, :school_id => @school.id}, :id=>teacher.id
 	   		response.status.should eq 422	
 	   	 end
 	  end

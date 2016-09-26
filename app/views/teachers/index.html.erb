@@ -37,7 +37,7 @@
 				<%= teacher.phone_no%>
 			</td>
 			<td>
-				<%= teacher.proficiency_subject%>
+				<%= teacher.subjects.collect(&:name).join(",")%>
 			</td>
 			<td>
 				<%= teacher.school.name%>

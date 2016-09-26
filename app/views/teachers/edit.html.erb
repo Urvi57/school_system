@@ -34,7 +34,7 @@
             <td>
               <%= select_tag 'teacher[classroom_ids]', options_from_collection_for_select(Classroom.all, :id, :name,:selected=>@teacher.classrooms.collect(&:id)), 
               { :multiple => true }%>
-
+             
             </td>
           </tr>
 	      	<tr>
@@ -64,10 +64,10 @@
 	 		</tr>
 	 		<tr>
 	 			<td>
-	 				 <%= f.label :proficiency_subject%>
+	 				 <%= f.label :subject_id%>
 	 			</td>
 	 			<td>
-	 				 <%= f.text_field :proficiency_subject%>
+	 				 <%= select_tag 'teacher[subject_ids]', options_from_collection_for_select(Subject.all, :id, :name,:selected=>@teacher.subjects.collect(&:id)), { :multiple => true }%>
 	 			</td>
 	 		</tr>
 		 	<tr>

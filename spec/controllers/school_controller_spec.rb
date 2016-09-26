@@ -79,11 +79,11 @@ RSpec.describe SchoolsController, type: :controller do
 			delete :destroy, :id=>school.id
 			response.status.should eq 200		
 		end
-		 it "should not return success if invalid id passed" do
+		it "should not return success if invalid id passed" do
 	  	 	school=FactoryGirl.create(:school)
 			delete :destroy, :id=>1
 			response.status.should eq 422
-	  	  end
+	    end
 	  	  
 	end
 end

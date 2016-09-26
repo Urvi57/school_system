@@ -10,9 +10,7 @@ RSpec.describe Student, type: :model do
   			it "validates phone_no length" do
           FactoryGirl.build(:student, phone_no: "1234567899").should be_valid
         end
-        it "validates zipcode length" do
-          FactoryGirl.build(:student, zipcode: "123456").should be_valid
-        end
+        
   	end
   end
 end

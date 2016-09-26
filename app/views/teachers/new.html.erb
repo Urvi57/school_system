@@ -69,7 +69,8 @@
            <%= f.label :proficiency_subject%>
         </td>
         <td>
-           <%= f.text_field :proficiency_subject%>
+         <%= select_tag 'teacher[subject_ids]', options_from_collection_for_select(Subject.all, :id, :name), 
+              { :multiple => true, :size =>3 } %>
         </td>
       </tr>
     	

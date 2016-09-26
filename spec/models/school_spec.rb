@@ -11,10 +11,7 @@ RSpec.describe School, type: :model do
     			
     			FactoryGirl.build(:school, phone_no: "1234567899").should be_valid
   			end
-        it "validates zipcode length" do
-          
-          FactoryGirl.build(:school, zipcode: "123456").should be_valid
-        end
+        
         it "should have many classrooms" do
           school=FactoryGirl.create(:school)
           FactoryGirl.create(:classroom,:name=>"HJK",:number_of_students=>"5",:school_id=>school.id).should be_valid
