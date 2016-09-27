@@ -21567,3 +21567,2174 @@ Processing by SchoolsController#index as HTML
   [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
   Rendered schools/index.html.erb within layouts/application (3.3ms)
 Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 12:55:11 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 128ms (Views: 126.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-26 12:55:13 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 12:55:14 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 50ms (Views: 48.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-26 12:55:17 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-26 12:55:31 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VA/Z74t12s67u2HA87wmOeMpDOySXWkduCgA8s3wnTECbMXsaIRt/g1iu5gdaPxUAtyhKoz+q/iRsP68ExC2Lw==", "school"=>{"name"=>"Alok School", "phone_no"=>"7812901057", "address"=>"Sector 12", "city"=>"bnmdsc", "zipcode"=>"313002", "state"=>"Rajasthan"}, "commit"=>"Save School"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.3ms)[0m  SELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '7812901057' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO `schools` (`name`, `address`, `city`, `zipcode`, `state`, `phone_no`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alok School"], ["address", "Sector 12"], ["city", "bnmdsc"], ["zipcode", "313002"], ["state", "Rajasthan"], ["phone_no", "7812901057"], ["created_at", "2016-09-26 07:25:31"], ["updated_at", "2016-09-26 07:25:31"]]
+  [1m[35m (12.8ms)[0m  COMMIT
+  Rendered schools/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 92ms (Views: 71.8ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 12:55:33 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-26 12:55:39 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.6ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (1.2ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 44ms (Views: 40.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 12:55:42 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subjects/new" for ::1 at 2016-09-26 12:55:43 +0530
+Processing by SubjectsController#new as HTML
+  Rendered subjects/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/subjects" for ::1 at 2016-09-26 12:55:49 +0530
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3Vmi1QP4RGL/hKMEZNmfTpkv50Ryw3fV1iuTqvbDm4yLOr7W4AnzUkldeVyKDUUjeNpKgmxgtTD/s23kKCOwkg==", "subject"=>{"name"=>"Java"}, "commit"=>"Save Subject"}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSubject Exists (0.3ms)[0m  SELECT  1 AS one FROM `subjects` WHERE `subjects`.`name` = BINARY 'Java' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `subjects` (`name`, `created_at`, `updated_at`) VALUES (?, ?, ?)[0m  [["name", "Java"], ["created_at", "2016-09-26 07:25:49"], ["updated_at", "2016-09-26 07:25:49"]]
+  [1m[35m (7.4ms)[0m  COMMIT
+  Rendered subjects/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 46ms (Views: 32.3ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 12:55:50 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects/2" for ::1 at 2016-09-26 12:55:52 +0530
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.5ms)[0m  SELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered subjects/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 12:55:53 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 12:55:56 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/classroom.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/classrooms.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/schools.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/home.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/students.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/school.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/subjects.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/teacher.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/teachers.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/classroom.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/classrooms.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/school.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/schools.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/students.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/subjects.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/teacher.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/assets/teachers.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-26 12:55:56 +0530
+
+
+Started GET "/" for ::1 at 2016-09-26 12:56:00 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 12:56:01 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 13:39:00 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 13:39:10 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 13:39:18 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/school" for ::1 at 2016-09-26 13:39:21 +0530
+
+ActionController::RoutingError (No route matches [GET] "/school"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.9ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.1ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (96.4ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 13:43:23 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/school" for ::1 at 2016-09-26 13:45:44 +0530
+
+ActionController::RoutingError (No route matches [GET] "/school"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (63.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 13:50:31 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 13:50:36 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+  [1m[36mSubject Load (11.8ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+
+
+Started GET "/schools" for ::1 at 2016-09-26 14:50:59 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 174ms (Views: 151.5ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/schools/1/edit" for ::1 at 2016-09-26 14:53:05 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered schools/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 50ms (Views: 36.8ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/schools/1" for ::1 at 2016-09-26 14:53:07 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yM/Yn/pdfjG8qZmS6L2LestBhg7SYHRCri1MZQdI+O6erMScGazJAQpwQ8oGaVEXKrQryMzDtqeHtbIr2ajT8A==", "school"=>{"name"=>"ABS Public School", "phone_no"=>"9876543210", "address"=>"hiram mangri sec-6", "city"=>"Udaipur", "zipcode"=>"313001", "state"=>"Rajasthan"}, "commit"=>"Save School", "id"=>"1"}
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.4ms)[0m  SELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '9876543210' AND `schools`.`id` != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  Rendered schools/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 35ms (Views: 28.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 15:13:32 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 15:13:35 +0530
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (1.0ms)[0m  [1mSELECT `students`.* FROM `students`[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 73ms (Views: 60.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 15:13:48 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 15:14:03 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 52ms (Views: 36.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-26 15:14:13 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 15:14:19 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.5ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 73ms (Views: 55.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 15:14:23 +0530
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.9ms)[0m  [1mSELECT `students`.* FROM `students`[0m
+  [1m[35mSchool Load (0.7ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 37ms (Views: 34.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 15:14:26 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 15:31:43 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 123ms (Views: 122.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:07:12 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (1.2ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 202ms (Views: 174.3ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 17:07:25 +0530
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (1.1ms)[0m  SELECT `students`.* FROM `students`
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 120ms (Views: 104.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/students/1" for ::1 at 2016-09-26 17:07:28 +0530
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT  `students`.* FROM `students` WHERE `students`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 59ms (Views: 55.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 17:07:30 +0530
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.6ms)[0m  SELECT `students`.* FROM `students`
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.6ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 119ms (Views: 116.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/students/1" for ::1 at 2016-09-26 17:07:34 +0530
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  `students`.* FROM `students` WHERE `students`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 58ms (Views: 54.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 17:07:36 +0530
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.5ms)[0m  SELECT `students`.* FROM `students`
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/students/1" for ::1 at 2016-09-26 17:07:44 +0530
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.5ms)[0m  [1mSELECT  `students`.* FROM `students` WHERE `students`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 17:07:47 +0530
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.7ms)[0m  SELECT `students`.* FROM `students`
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 17:09:10 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 132ms (Views: 131.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:09:13 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.7ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-26 17:09:14 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 65ms (Views: 62.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:09:15 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.7ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:09:57 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.7ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 169ms (Views: 149.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:09:58 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (2.0ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 62ms (Views: 58.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/students" for ::1 at 2016-09-26 17:09:59 +0530
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.6ms)[0m  [1mSELECT `students`.* FROM `students`[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:10:00 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (3.3ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 65ms (Views: 60.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 17:10:01 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:10:02 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:10:04 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 17:19:11 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.8ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:19:12 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (1.8ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 48ms (Views: 44.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 17:19:15 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects/1" for ::1 at 2016-09-26 17:19:16 +0530
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (1.2ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered subjects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 29.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 17:19:18 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.6ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:19:19 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:50:53 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 133ms (Views: 130.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-26 17:50:57 +0530
+Processing by TeachersController#new as HTML
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:51:09 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.6ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.6ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 53ms (Views: 48.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:51:11 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (1.1ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 17:51:12 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 82ms (Views: 80.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:51:17 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:51:21 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 42ms (Views: 39.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-26 17:51:24 +0530
+Processing by TeachersController#new as HTML
+  [1m[36mSchool Load (0.7ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:52:25 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-26 17:52:26 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:52:44 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-26 17:53:29 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 40ms (Views: 37.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-26 17:53:35 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:53:37 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.5ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-26 17:53:39 +0530
+Processing by TeachersController#new as HTML
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:53:45 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.6ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 49ms (Views: 45.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-26 17:53:52 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.2ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-26 17:54:00 +0530
+Processing by TeachersController#new as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 62ms (Views: 59.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 10:31:50 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (2.2ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (1.7ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.9ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (1.0ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (51.6ms)
+Completed 200 OK in 275ms (Views: 261.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 10:31:51 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 81ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:32:18 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.7ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 10:32:21 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.7ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-27 10:32:23 +0530
+Processing by TeachersController#new as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/students" for ::1 at 2016-09-27 10:57:42 +0530
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.6ms)[0m  [1mSELECT `students`.* FROM `students`[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 46ms (Views: 43.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:57:50 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (1.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 10:57:54 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:57:56 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.7ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/students" for ::1 at 2016-09-27 10:57:57 +0530
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (1.1ms)[0m  [1mSELECT `students`.* FROM `students`[0m
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:57:58 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 10:57:59 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.8ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.8ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 89ms (Views: 84.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:58:01 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (1.3ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 107ms (Views: 103.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 10:58:03 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/classrooms/3/edit" for ::1 at 2016-09-27 10:58:11 +0530
+Processing by ClassroomsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/classrooms/3" for ::1 at 2016-09-27 10:58:20 +0530
+Processing by ClassroomsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2f202uIwAtpKVYuUzobFqnzkdnsZKUN5Gjztqf5UD46PnqjZAcG16vyMUcwgUh/HnRHbvQeKgZwzpBPnILQkkA==", "classroom"=>{"name"=>"Six Class", "number_of_students"=>"20"}, "commit"=>"Save Classroom", "id"=>"3"}
+  [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'Six Class' AND `classrooms`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE `classrooms` SET `name` = ?, `updated_at` = ? WHERE `classrooms`.`id` = ?  [["name", "Six Class"], ["updated_at", "2016-09-27 05:28:20"], ["id", 3]]
+  [1m[36m (11.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 73ms (Views: 41.9ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 10:58:23 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:58:55 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.8ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-27 10:58:57 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:58:59 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 10:59:05 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 41ms (Views: 37.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-27 10:59:08 +0530
+Processing by TeachersController#new as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 44ms (Views: 41.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 10:59:13 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 41ms (Views: 37.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 10:59:15 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 10:59:16 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.7ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (1.8ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 58ms (Views: 53.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/classrooms/new" for ::1 at 2016-09-27 10:59:18 +0530
+Processing by ClassroomsController#new as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered classrooms/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 73ms (Views: 71.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/classrooms" for ::1 at 2016-09-27 10:59:28 +0530
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SixBaVDQhZuyvMT8c1QWeHRgNQBB/LODdZRW/ACobnUcT11qsyEyqwRlHqSdgMwVlZWYxl9fcWZcDKiy3khFaw==", "classroom"=>{"school_id"=>"1", "name"=>"Seven Class", "number_of_students"=>"40"}, "commit"=>"Save Classroom"}
+  [1m[35mSQL (2.7ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'Seven Class' LIMIT 1[0m
+  [1m[35mSQL (21.1ms)[0m  INSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)  [["name", "Seven Class"], ["number_of_students", "40"], ["school_id", 1], ["created_at", "2016-09-27 05:29:28"], ["updated_at", "2016-09-27 05:29:28"]]
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 70ms (Views: 33.6ms | ActiveRecord: 29.9ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 10:59:29 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/classrooms/new" for ::1 at 2016-09-27 10:59:36 +0530
+Processing by ClassroomsController#new as HTML
+  [1m[35mSchool Load (1.2ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered classrooms/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 11:00:04 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 11:00:10 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 11:00:12 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.6ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 55ms (Views: 51.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-27 11:00:13 +0530
+Processing by TeachersController#new as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  [1m[36mClassroom Load (0.6ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 11:06:03 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.3ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.7ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/teacher" for ::1 at 2016-09-27 11:06:06 +0530
+
+ActionController::RoutingError (No route matches [GET] "/teacher"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/urvashi/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.8ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.2ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.3ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (108.0ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 11:06:17 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.2ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 33ms (Views: 30.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/teachers/2/edit" for ::1 at 2016-09-27 12:03:23 +0530
+Processing by TeachersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT  `teachers`.* FROM `teachers` WHERE `teachers`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/edit.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/teachers/2" for ::1 at 2016-09-27 12:03:33 +0530
+Processing by TeachersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o/ewCKzPZx66Lh/+eCbnEor5ugXLvroYfj1/0tYxfsv1lKwLTz7QLgz3xaaW8j1/awwXw9UdeP1XpYGcCNFV1Q==", "teacher"=>{"classroom_ids"=>["3"], "name"=>"Karuna", "gender"=>"Female", "phone_no"=>"7630303031", "subject_ids"=>["1", "2"]}, "commit"=>"Save Teacher", "id"=>"2"}
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT  `teachers`.* FROM `teachers` WHERE `teachers`.`id` = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameters: classroom_ids, subject_ids
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` IN (1, 2)[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `subjects_teachers` (`teacher_id`, `subject_id`) VALUES (?, ?)[0m  [["teacher_id", 2], ["subject_id", 2]]
+  [1m[35mTeacher Exists (6.6ms)[0m  SELECT  1 AS one FROM `teachers` WHERE (`teachers`.`phone_no` = BINARY '7630303031' AND `teachers`.`id` != 2) LIMIT 1
+  [1m[36mSQL (3.5ms)[0m  [1mUPDATE `teachers` SET `name` = ?, `updated_at` = ? WHERE `teachers`.`id` = ?[0m  [["name", "Karuna"], ["updated_at", "2016-09-27 06:33:33"], ["id", 2]]
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teachers/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 93ms (Views: 60.5ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 12:03:38 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.3ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 12:03:52 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 12:04:38 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 12:04:39 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.5ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 42ms (Views: 38.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-27 12:04:42 +0530
+Processing by TeachersController#new as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 40ms (Views: 37.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/teachers/2/edit" for ::1 at 2016-09-27 12:05:01 +0530
+Processing by TeachersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT  `teachers`.* FROM `teachers` WHERE `teachers`.`id` = ? LIMIT 1  [["id", 2]]
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mClassroom Load (0.8ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/edit.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 43ms (Views: 38.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 12:05:16 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 12:11:48 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.5ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.8ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 139ms (Views: 134.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 12:31:37 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 122ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:04:15 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 136ms (Views: 135.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-27 13:04:17 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 13:04:53 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/classroom.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/school.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/classrooms.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/students.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/schools.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/home.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/subjects.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/teacher.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/teachers.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/classroom.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/classrooms.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/school.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/schools.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/students.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/subjects.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/teacher.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/teachers.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-27 13:04:53 +0530
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:04:56 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools/1" for ::1 at 2016-09-27 13:05:00 +0530
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered schools/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools/1/edit" for ::1 at 2016-09-27 13:05:02 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchool Load (0.8ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered schools/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 41ms (Views: 38.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:05:05 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 41ms (Views: 39.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:05:09 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.7ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 46ms (Views: 43.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:05:18 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:05:40 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.6ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/classrooms/new" for ::1 at 2016-09-27 13:05:48 +0530
+Processing by ClassroomsController#new as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered classrooms/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/classrooms" for ::1 at 2016-09-27 13:06:41 +0530
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6LPbTJ5aCaTxYvUmm7XPxykcNWYDTqgz14lJJqgYdHm+0MdPfau+lEe7L351YRWqyOmYoB3tatb+EbdodvhfZw==", "classroom"=>{"school_id"=>"1", "name"=>"ljj", "number_of_students"=>"90"}, "commit"=>"Save Classroom"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mClassroom Exists (0.4ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY 'ljj' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)[0m  [["name", "ljj"], ["number_of_students", "90"], ["school_id", 1], ["created_at", "2016-09-27 07:36:41"], ["updated_at", "2016-09-27 07:36:41"]]
+  [1m[35m (10.1ms)[0m  COMMIT
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 58ms (Views: 41.5ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/classrooms/5/edit" for ::1 at 2016-09-27 13:06:44 +0530
+Processing by ClassroomsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mClassroom Load (0.7ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 5]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:06:45 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 64ms (Views: 62.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:06:47 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.5ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 13:06:50 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.6ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.7ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-27 13:06:54 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-27 13:07:20 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U4AjXGRJ7v/Xtf9QpYanjJCIquRFgtat/rlXeR4VVWoF4z9fh7hZz2FsJQhLUn3hcX0HIlshFEjXIak3wPV+dA==", "school"=>{"name"=>"DPS School", "phone_no"=>"1234567890", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdfg", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '1234567890' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schools` (`name`, `address`, `city`, `zipcode`, `state`, `phone_no`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "DPS School"], ["address", "sdfdghgfg"], ["city", "dsaff"], ["zipcode", "fgesgsdfg"], ["state", "sddvfgfdgfdg"], ["phone_no", "1234567890"], ["created_at", "2016-09-27 07:37:20"], ["updated_at", "2016-09-27 07:37:20"]]
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+  Rendered schools/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 28.0ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:07:32 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/schools/4" for ::1 at 2016-09-27 13:07:35 +0530
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSchool Load (0.7ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered schools/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/schools/4/edit" for ::1 at 2016-09-27 13:07:38 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered schools/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/schools/4" for ::1 at 2016-09-27 13:07:57 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l5DzbtaDPAR8HohtyA9O8flGMP4raHsu2cZqVn4WnmTB8+9tNXKLNMrHUjUm25ScGLOdODXLucvwXpQYoPa1eg==", "school"=>{"name"=>"DPS School", "phone_no"=>"123456789", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdf", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School", "id"=>"4"}
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '123456789' AND `schools`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered schools/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 35ms (Views: 29.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-27 13:08:08 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0+24/1Un1OK7QkaEWBAqUASH7DzpjLSuq92seYmF8RaFjqT8ttZj0g2bnNy2xPA95XJB+vcvdkuCRVI3V2XaCA==", "school"=>{"name"=>"DPS School", "phone_no"=>"123456789", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdf", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School"}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.3ms)[0m  SELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '123456789' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered schools/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-27 13:08:12 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wrgd/IjV+8XqQ541/2aeKFF3lQJAeHK0BLiREleux5mU2wH/ayRM9VyaRG0RskRFsII4xF7bsFEtIG9ciU7shw==", "school"=>{"name"=>"DPS School", "phone_no"=>"1234567890", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdf", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School"}
+  [1m[35mSQL (0.7ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '1234567890' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered schools/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-27 13:08:28 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"25RbfMF46uOjPuPLI1hwphkM7LGaz08zZ9I7Aqc2LhuN90d/Iold0xXnOZPNjKrL+PlBd4RsjdZOSsVMedYFBQ==", "school"=>{"name"=>"DPS School", "phone_no"=>"1234567890", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdf", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School"}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.3ms)[0m  SELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '1234567890' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered schools/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-27 13:10:40 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FqirMb5h1TIzXQgJHh1TLfNdYRBL4RFOYFTvVqoryF5Ay7cyXZBiAoWE0lHwyYlAEqjM1lVC06tJzBEYdMvjQA==", "school"=>{"name"=>"DPS School", "phone_no"=>"1234567890", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdf", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY '1234567890' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered schools/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 68ms (Views: 37.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:11:08 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/4/edit" for ::1 at 2016-09-27 13:11:11 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered schools/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:11:17 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/schools/4/edit" for ::1 at 2016-09-27 13:11:20 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered schools/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools/4/edit" for ::1 at 2016-09-27 13:11:24 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered schools/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/schools/4" for ::1 at 2016-09-27 13:11:32 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lu9nbhqtcDuxVWjzwqX7R0xI8GsNb/DBh4wMW1M43nPAjHtt+VzHCweMsqsscSEqrb1drRPMMiSuFPIVjdj1bQ==", "school"=>{"name"=>"DPS School", "phone_no"=>"1234567890", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdfg", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School", "id"=>"4"}
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSchool Exists (0.4ms)[0m  SELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '1234567890' AND `schools`.`id` != 4) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  Rendered schools/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 35ms (Views: 30.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/schools/4/edit" for ::1 at 2016-09-27 13:11:35 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSchool Load (0.9ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered schools/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 40ms (Views: 37.4ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/schools/4" for ::1 at 2016-09-27 13:11:42 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+EQQOE4tL98q3mb05LyaF9a+pjfgrO8YU3mwfPOuPMGuJww7rdyY75wHvKwKaEB6N0sL8f4PLf164U4yLU4X3w==", "school"=>{"name"=>"DPS School", "phone_no"=>"123456789", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdfg", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School", "id"=>"4"}
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '123456789' AND `schools`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered schools/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 33ms (Views: 27.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/schools/4" for ::1 at 2016-09-27 13:13:13 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Xo/dP3479mY9A3CP60bvtXP9rkesax6GPQYFlrEx/C3GSN3HglY6S4t15rRecHTNDpbfwASbp8xbOZYhCTs7g==", "school"=>{"name"=>"DPS School", "phone_no"=>"123456789", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdfg", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School", "id"=>"4"}
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '123456789' AND `schools`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered schools/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 38ms (Views: 31.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:13:37 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/4/edit" for ::1 at 2016-09-27 13:13:39 +0530
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSchool Load (0.6ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered schools/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 49ms (Views: 47.0ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/schools/4" for ::1 at 2016-09-27 13:13:43 +0530
+Processing by SchoolsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e+cbxLJ7JyDUe+203Bw3usg7G/tT7TOs2eOxqqwRVlwthAfHUYqQEGKiN+wyyO3XKc62PU1O8Unwe0/kcvF9Qg==", "school"=>{"name"=>"DPS School", "phone_no"=>"1234567890", "address"=>"sdfdghgfg", "city"=>"dsaff", "zipcode"=>"fgesgsdfg", "state"=>"sddvfgfdgfdg"}, "commit"=>"Save School", "id"=>"4"}
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE (`schools`.`phone_no` = BINARY '1234567890' AND `schools`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  Rendered schools/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 61ms (Views: 55.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:13:47 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.7ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:13:49 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.7ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 54ms (Views: 39.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/classrooms/new" for ::1 at 2016-09-27 13:13:51 +0530
+Processing by ClassroomsController#new as HTML
+  [1m[35mSchool Load (0.6ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered classrooms/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/classrooms" for ::1 at 2016-09-27 13:14:04 +0530
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAzhGgxIY0c2f8rlLxF06+1+NG1OVkNzdTqwSQ7lAhnSb/0Z77nUd4CmEL3Bxa6GDIuZq1D1gZZcok4H0AUpBw==", "classroom"=>{"school_id"=>"4", "name"=>"1", "number_of_students"=>"5"}, "commit"=>"Save Classroom"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE `classrooms`.`name` = BINARY '1' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `classrooms` (`name`, `number_of_students`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)[0m  [["name", "1"], ["number_of_students", "5"], ["school_id", 4], ["created_at", "2016-09-27 07:44:04"], ["updated_at", "2016-09-27 07:44:04"]]
+  [1m[35m (4.7ms)[0m  COMMIT
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered classrooms/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 41ms (Views: 29.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/classrooms/6/edit" for ::1 at 2016-09-27 13:14:09 +0530
+Processing by ClassroomsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 6]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered classrooms/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/classrooms/6" for ::1 at 2016-09-27 13:14:13 +0530
+Processing by ClassroomsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RGXDJfgmIQNKJ8b2XibKOYoIFSI5USM/K/4DeytZeGoSBt8mG9eWM/z+HK6w8hBUa/245Cfy4doCZv019blTdA==", "classroom"=>{"name"=>"1", "number_of_students"=>"2"}, "commit"=>"Save Classroom", "id"=>"6"}
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 6]]
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY '1' AND `classrooms`.`id` != 6) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `classrooms` SET `number_of_students` = ?, `updated_at` = ? WHERE `classrooms`.`id` = ?[0m  [["number_of_students", "2"], ["updated_at", "2016-09-27 07:44:13"], ["id", 6]]
+  [1m[35m (5.7ms)[0m  COMMIT
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered classrooms/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 30.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:14:15 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (1.7ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered classrooms/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 46ms (Views: 42.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:14:17 +0530
+Processing by SchoolsController#index as HTML
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  Rendered schools/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 13:14:20 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.4ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  Rendered teachers/index.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 84ms (Views: 66.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-27 13:14:25 +0530
+Processing by TeachersController#new as HTML
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 40ms (Views: 37.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/teachers" for ::1 at 2016-09-27 13:16:42 +0530
+Processing by TeachersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VK00ob0U0+ZNV8Hr3Gu9MZ01LrIp8vpOAF8d36VqYRcCziiiXuVk1vuOG7Myv2dcfMCDdDdROKspx+ORe4pKCQ==", "teacher"=>{"school_id"=>"4", "name"=>"", "gender"=>"Male", "phone_no"=>""}, "commit"=>"Save Teacher"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mTeacher Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `teachers` WHERE `teachers`.`phone_no` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 67ms (Views: 56.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/teachers" for ::1 at 2016-09-27 13:17:27 +0530
+Processing by TeachersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETqWl19uKWzEevGzqSGKueiHoa5hocGuaupyotJByaNHWYqUvJ+eXHKjK+tH9VDUCXIMaH8CA0tDcozsDKHivQ==", "teacher"=>{"school_id"=>"1", "classroom_ids"=>["1"], "name"=>"pradeep", "gender"=>"Male", "phone_no"=>"sadfsvvfdb", "subject_ids"=>["1"]}, "commit"=>"Save Teacher"}
+Unpermitted parameters: classroom_ids, subject_ids
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'First Class' AND `classrooms`.`id` != 1) LIMIT 1[0m
+  [1m[35mSubject Exists (0.4ms)[0m  SELECT  1 AS one FROM `subjects` WHERE (`subjects`.`name` = BINARY 'rails' AND `subjects`.`id` != 1) LIMIT 1
+  [1m[36mTeacher Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `teachers` WHERE `teachers`.`phone_no` = BINARY 'sadfsvvfdb' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `teachers` (`name`, `gender`, `phone_no`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?)  [["name", "pradeep"], ["gender", "Male"], ["phone_no", "sadfsvvfdb"], ["school_id", 1], ["created_at", "2016-09-27 07:47:27"], ["updated_at", "2016-09-27 07:47:27"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `classrooms_teachers` (`classroom_id`, `teacher_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?)[0m  [["classroom_id", 1], ["teacher_id", 3], ["created_at", "2016-09-27 07:47:27"], ["updated_at", "2016-09-27 07:47:27"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subjects_teachers` (`subject_id`, `teacher_id`) VALUES (?, ?)  [["subject_id", 1], ["teacher_id", 3]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered teachers/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 54ms (Views: 29.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 13:17:39 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.9ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 3]]
+  Rendered teachers/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 45ms (Views: 40.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/teachers/3/edit" for ::1 at 2016-09-27 13:17:43 +0530
+Processing by TeachersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT  `teachers`.* FROM `teachers` WHERE `teachers`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 3]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 3]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 40ms (Views: 35.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 13:18:40 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.5ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.5ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 3]]
+  Rendered teachers/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 47ms (Views: 42.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/teachers/new" for ::1 at 2016-09-27 13:18:44 +0530
+Processing by TeachersController#new as HTML
+  [1m[36mSchool Load (1.9ms)[0m  [1mSELECT `schools`.* FROM `schools`[0m
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered teachers/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/teachers" for ::1 at 2016-09-27 13:19:10 +0530
+Processing by TeachersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fLlACAB9F0/2PQcDe+p6se7gHH1KHBiCx2k8gRc3wgkq2lwL44ygf0Dk3VuVPqDcDxWxu1S/2mfu8cLPydfpFw==", "teacher"=>{"school_id"=>"4", "classroom_ids"=>["1", "2"], "name"=>"sonal", "gender"=>"Male", "phone_no"=>"xccvxbvbnv", "subject_ids"=>["2"]}, "commit"=>"Save Teacher"}
+Unpermitted parameters: classroom_ids, subject_ids
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` IN (1, 2)
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClassroom Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'First Class' AND `classrooms`.`id` != 1) LIMIT 1[0m
+  [1m[35mClassroom Exists (0.3ms)[0m  SELECT  1 AS one FROM `classrooms` WHERE (`classrooms`.`name` = BINARY 'Second Class' AND `classrooms`.`id` != 2) LIMIT 1
+  [1m[36mSubject Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `subjects` WHERE (`subjects`.`name` = BINARY 'Java' AND `subjects`.`id` != 2) LIMIT 1[0m
+  [1m[35mTeacher Exists (0.3ms)[0m  SELECT  1 AS one FROM `teachers` WHERE `teachers`.`phone_no` = BINARY 'xccvxbvbnv' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `teachers` (`name`, `gender`, `phone_no`, `school_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "sonal"], ["gender", "Male"], ["phone_no", "xccvxbvbnv"], ["school_id", 4], ["created_at", "2016-09-27 07:49:10"], ["updated_at", "2016-09-27 07:49:10"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `classrooms_teachers` (`classroom_id`, `teacher_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?)  [["classroom_id", 1], ["teacher_id", 4], ["created_at", "2016-09-27 07:49:10"], ["updated_at", "2016-09-27 07:49:10"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `classrooms_teachers` (`classroom_id`, `teacher_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?)[0m  [["classroom_id", 2], ["teacher_id", 4], ["created_at", "2016-09-27 07:49:10"], ["updated_at", "2016-09-27 07:49:10"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subjects_teachers` (`subject_id`, `teacher_id`) VALUES (?, ?)  [["subject_id", 2], ["teacher_id", 4]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  Rendered teachers/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 54ms (Views: 30.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/teachers/4/edit" for ::1 at 2016-09-27 13:19:16 +0530
+Processing by TeachersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTeacher Load (0.4ms)[0m  [1mSELECT  `teachers`.* FROM `teachers` WHERE `teachers`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSchool Load (0.6ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 4]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 4]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered teachers/edit.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 45ms (Views: 41.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 13:20:08 +0530
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.5ms)[0m  [1mSELECT `teachers`.* FROM `teachers`[0m
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.4ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 2]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 3]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 4]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 4]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 4]]
+  Rendered teachers/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 54ms (Views: 48.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:20:13 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.9ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/schools/4" for ::1 at 2016-09-27 13:20:20 +0530
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m/odv46WvcsfYV/JJsBSHX6mhl/zUxUohx10y5rJg23NmQG8bWcK+6m4hZHIFIhwn1Mrme3w182uhYqFRCmocw==", "id"=>"4"}
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `schools_subjects` WHERE `schools_subjects`.`school_id` = ?[0m  [["school_id", 4]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `schools` WHERE `schools`.`id` = ?  [["id", 4]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 45ms (Views: 32.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:20:26 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.7ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.8ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered classrooms/index.html.erb within layouts/application (10.2ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    24: 				<%= classroom.number_of_students%>
+    25: 			</td>
+    26: 			<td>
+    27: 				<%= classroom.school.name%>
+    28: 			</td>
+    29: 			<td colspan="2">
+    30: 				<%= link_to 'Show', classroom_path(classroom) %>
+  app/views/classrooms/index.html.erb:27:in `block in _app_views_classrooms_index_html_erb__1942192228822584512_70190930211140'
+  app/views/classrooms/index.html.erb:18:in `_app_views_classrooms_index_html_erb__1942192228822584512_70190930211140'
+  app/controllers/classrooms_controller.rb:4:in `index'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.4ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.3ms)
+
+
+Started GET "/teachers" for ::1 at 2016-09-27 13:20:36 +0530
+Processing by TeachersController#index as HTML
+  [1m[35mTeacher Load (0.5ms)[0m  SELECT `teachers`.* FROM `teachers`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.3ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?  [["teacher_id", 2]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?[0m  [["teacher_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms` INNER JOIN `classrooms_teachers` ON `classrooms`.`id` = `classrooms_teachers`.`classroom_id` WHERE `classrooms_teachers`.`teacher_id` = ?[0m  [["teacher_id", 3]]
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects` INNER JOIN `subjects_teachers` ON `subjects`.`id` = `subjects_teachers`.`subject_id` WHERE `subjects_teachers`.`teacher_id` = ?  [["teacher_id", 4]]
+  [1m[36mSchool Load (0.2ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered teachers/index.html.erb within layouts/application (17.6ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    40: 				<%= teacher.subjects.collect(&:name).join(",")%>
+    41: 			</td>
+    42: 			<td>
+    43: 				<%= teacher.school.name%>
+    44: 			</td>
+    45: 			<td>
+    46: 			
+  app/views/teachers/index.html.erb:43:in `block in _app_views_teachers_index_html_erb___157975544693525689_70190928557320'
+  app/views/teachers/index.html.erb:28:in `_app_views_teachers_index_html_erb___157975544693525689_70190928557320'
+  app/controllers/teachers_controller.rb:4:in `index'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.2ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.2ms)
+
+
+Started GET "/students" for ::1 at 2016-09-27 13:20:41 +0530
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.4ms)[0m  SELECT `students`.* FROM `students`
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT  `classrooms`.* FROM `classrooms` WHERE `classrooms`.`id` = ? LIMIT 1  [["id", 1]]
+  Rendered students/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 55ms (Views: 41.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 13:20:46 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.7ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/schools/new" for ::1 at 2016-09-27 13:21:24 +0530
+Processing by SchoolsController#new as HTML
+  Rendered schools/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/schools" for ::1 at 2016-09-27 13:21:44 +0530
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+CPTHHvUqVzfrz/Cb9IGfuqirklvRBB/66yjBbTSdC+uQM8fmCUebGl25ZqBBtwTC1cDj3Hn0prCNF1LajJfMQ==", "school"=>{"name"=>"new", "phone_no"=>"vvdbvcbvvn", "address"=>"xc cxvngngmhmjhmjh", "city"=>"xsvdbgfbgf", "zipcode"=>"bvcbvnbbmnb", "state"=>"vcxvcbbn"}, "commit"=>"Save School"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSchool Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `schools` WHERE `schools`.`phone_no` = BINARY 'vvdbvcbvvn' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schools` (`name`, `address`, `city`, `zipcode`, `state`, `phone_no`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "new"], ["address", "xc cxvngngmhmjhmjh"], ["city", "xsvdbgfbgf"], ["zipcode", "bvcbvnbbmnb"], ["state", "vcxvcbbn"], ["phone_no", "vvdbvcbvvn"], ["created_at", "2016-09-27 07:51:44"], ["updated_at", "2016-09-27 07:51:44"]]
+  [1m[36m (6.6ms)[0m  [1mCOMMIT[0m
+  Rendered schools/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 68ms (Views: 56.0ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:21:50 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.4ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 13:21:59 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subjects/new" for ::1 at 2016-09-27 13:22:02 +0530
+Processing by SubjectsController#new as HTML
+  Rendered subjects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/subjects" for ::1 at 2016-09-27 13:22:09 +0530
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iT/JvpLPXZ0qfJ66sdWFyioXtwKx3Vl8lEV2asB47iXfXNW9cT7qrZylROJfAV+ny+IaxK9+m5m93YgkHpjFOw==", "subject"=>{"name"=>"RAILS"}, "commit"=>"Save Subject"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSubject Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `subjects` WHERE `subjects`.`name` = BINARY 'RAILS' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subjects` (`name`, `created_at`, `updated_at`) VALUES (?, ?, ?)  [["name", "RAILS"], ["created_at", "2016-09-27 07:52:09"], ["updated_at", "2016-09-27 07:52:09"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  Rendered subjects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 13:22:13 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects`
+  Rendered subjects/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 13:22:18 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects/new" for ::1 at 2016-09-27 13:22:24 +0530
+Processing by SubjectsController#new as HTML
+  Rendered subjects/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/subjects" for ::1 at 2016-09-27 13:22:30 +0530
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cxdz1LU3zfuMQjy8WhniE8ngNr3x39dL8drmz0PIuxEldG/XVsZ6yzqb5uS0zTh+KBWbe+98Fa7YQhiBnSiQDw==", "subject"=>{"name"=>"rails"}, "commit"=>"Save Subject"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSubject Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `subjects` WHERE `subjects`.`name` = BINARY 'rails' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered subjects/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 31.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 13:22:52 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:22:59 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (2.2ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/subjects" for ::1 at 2016-09-27 13:27:27 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.7ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  Rendered subjects/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 13:35:17 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:35:19 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (0.7ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/classrooms" for ::1 at 2016-09-27 13:37:43 +0530
+Processing by ClassroomsController#index as HTML
+  [1m[36mClassroom Load (0.5ms)[0m  [1mSELECT `classrooms`.* FROM `classrooms`[0m
+  [1m[35mSchool Load (0.8ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  `schools`.* FROM `schools` WHERE `schools`.`id` = ? LIMIT 1[0m  [["id", 4]]
+  Rendered classrooms/index.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    24: 				<%= classroom.number_of_students%>
+    25: 			</td>
+    26: 			<td>
+    27: 				<%= classroom.school.name%>
+    28: 			</td>
+    29: 			<td colspan="2">
+    30: 				<%= link_to 'Show', classroom_path(classroom) %>
+  app/views/classrooms/index.html.erb:27:in `block in _app_views_classrooms_index_html_erb__1942192228822584512_70190930211140'
+  app/views/classrooms/index.html.erb:18:in `_app_views_classrooms_index_html_erb__1942192228822584512_70190930211140'
+  app/controllers/classrooms_controller.rb:4:in `index'
+
+
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/urvashi/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (41.0ms)
+
+
+Started GET "/schools" for ::1 at 2016-09-27 13:37:53 +0530
+Processing by SchoolsController#index as HTML
+  [1m[35mSchool Load (1.0ms)[0m  SELECT `schools`.* FROM `schools`
+  Rendered schools/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 1.0ms)

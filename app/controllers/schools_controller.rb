@@ -2,7 +2,7 @@ class SchoolsController < ApplicationController
 	def index
 		@schools=School.all
 		respond_to do |format|
- 			format.html {render 'index'}
+ 			format.html 
 			format.json {render :json => @schools, :status => :ok}
 		end
 	end
@@ -74,7 +74,7 @@ class SchoolsController < ApplicationController
 				end
 			else
 				respond_to do |format|
-
+							p @school.errors
  				format.html  {render 'new'}
 				format.json {render :json => @school.message , :status  => :unprocessable_entity}
 			end

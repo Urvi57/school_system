@@ -42,8 +42,6 @@ class TeachersController < ApplicationController
  			end	
 	 end
 	def create
-		
-		# @teacher=Teacher.new(teacher_param)
 		@teacher = Teacher.new(params.require(:teacher).permit(:name,  :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
 
 		if @teacher.save
@@ -86,8 +84,6 @@ class TeachersController < ApplicationController
  			end
 		end
 	end
-	
-	
 	def destroy
 		begin
 		@teacher=Teacher.find(params[:id])
@@ -108,8 +104,5 @@ class TeachersController < ApplicationController
  			end
 		end
 	end
-	private 
-	def teacher_param
-		 params.require(:teacher).permit(:name, :gender, :phone_no, :school_id)
-	end	
+	
 end
