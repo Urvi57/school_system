@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
 	def index
 		@subjects=Subject.all
 		respond_to do |format|
-			format.html 
+			# format.html 
  			format.json { render :json => @subject, :status => :ok}
 		end
 	end

@@ -139,41 +139,55 @@
 		</table>
 		</div>
 	</div>
-<div id="dveditSchool" class="hidden" align="center">
-	<div id="editSchoolDetails">
-		<h1>School Details</h1>
-		
-		<table border="1" id="tableEditSchool" width="60%">
-		<thead>
-			<tr>
 
-				<th>
-					School Name
-				</th>
-				<th>
-					Phone Number
-				</th>
-				<th>
-					 Address
-				</th>
-				<th>
-					 City
-				</th>
-				<th>
-					Zipcode
-				</th>
-				<th>
-					State
-				</th>
-				
-				
-			</tr>
-		</thead>
-		<tbody>
-			
-		</tbody>
-
-		</table>
+<div id="editSchoolContainer" class="hidden" align="center">
+	<form action=""  id="editForm">
+		<h3>Edit School</h3>
+		<div>
+			<input type="text" id="schoolName"  placeholder="School Name">
 		</div>
-	</div>
+        <div>
+        <input type="text" id="schoolPhoneNo"  placeholder="Phone No">
+        </div>
+        <div>
+        	<input type="text" id="schoolAddress"  placeholder="School Address">
+        </div>
+        <div>
+        	<input type="text" id="schoolCity" placeholder="City">
+        </div>
+        <div>
+        	<input type="text" id="schoolZipcode"  placeholder="Zipcode">
+        </div>
+        <div>
+        	<input type="text" id="schoolState" placeholder="State">
+        	<input type="hidden" id="schoolHidden" >
+        </div>
+        <div> 
+        	<button type="submit" id="btneditSchool" >Update School</button>
+        </div>
+	</form>
+</div>
+<div id="createClassroomContainer" class="hidden" align="center">
+	<form action=""  id="createClassForm">
+		<h3>Create Classroom</h3>
+		<div>
+			<input type="text" id="schoolName"  placeholder="School Name">
+		</div>
+        <div>
+        <input type="text" id="classroomName"  placeholder="Classroom Name">
+        </div>
+        <div>
+        	<input type="text" id="numberOfStudent"  placeholder="Number Of Students">
+        </div>
+        <div>
+        	<input type="hidden" id="classHidden" >
+        </div>
+        <div>
+        	<select id="ddSubject">
+			</select>
+        </div>
+        <div> 
+        	<button type="submit" id="btncreateClass" >Submit</button>
+        </div>
+	</form>
 </div>

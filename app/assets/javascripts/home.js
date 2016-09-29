@@ -35,7 +35,23 @@ SS.Home.prototype = {
             $('#dvSchool').removeClass('hidden');
             var schoolIndex=new SS.schoolIndex();
         })
-        
+        $('#editSchoolContainer #editForm #btneditSchool').click(function(){
+          $('#editSchoolContainer').addClass('hidden');
+            $('#dvshowSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        })
+        $('#dvshowSchool #schoolDetails #destroySchool').click(function(){
+          $('#dvshowSchool').addClass('hidden');
+          $('#dvSchool').removeClass('hidden');
+           var schoolIndex=new SS.schoolIndex();
+
+        })
+        $('#dvshowSchool #schoolDetails #createClassroom').click(function(){
+          $('#dvshowSchool').addClass('hidden');
+          $('#createClassroomContainer').removeClass('hidden');
+           var schoolIndex=new SS.schoolIndex();
+
+        })
 	}
 
 }
