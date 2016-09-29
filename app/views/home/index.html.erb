@@ -1,2 +1,29 @@
-<h1>School System</h1>
-<%= link_to 'School', controller: 'schools' %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SchoolSystem</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="project_index" >
+		<div id="divIndex">
+			<h1>School System</h1>
+			<div id="dv_index">
+				<a id="menu_school">School</a>
+			</div>
+		</div>
+			<%= render partial: 'schools/index'%>
+			
+			
+	</div>
+</body>	
+	<%=javascript_include_tag "home_minifest.js", :cache => true%>
+
+<script type="text/javascript">
+            jQuery(document).ready(function() {    
+                var Home = new SS.Home();
+            });
+</script>
+</html>

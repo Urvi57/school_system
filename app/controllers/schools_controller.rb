@@ -1,8 +1,10 @@
 class SchoolsController < ApplicationController
+
 	def index
+		p "index"
 		@schools=School.all
 		respond_to do |format|
- 			format.html 
+ 			# format.html 
 			format.json {render :json => @schools, :status => :ok}
 		end
 	end
@@ -12,7 +14,7 @@ class SchoolsController < ApplicationController
 		
 		respond_to do |format|
 
- 			format.html 
+ 			# format.html 
 			format.json {render :json => @school, :status => :ok}
 		end
 		
@@ -20,7 +22,7 @@ class SchoolsController < ApplicationController
       		p e.message
       		respond_to do |format|
 
- 				format.html 
+ 				# format.html 
 				format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 			end
 		end
@@ -29,35 +31,40 @@ class SchoolsController < ApplicationController
 		@school = School.new
 		respond_to do |format|
 
- 			format.html 
+ 			# format.html 
 			format.json {render :json => @school, :status => :ok}
 		end
 	end
 
 
-	 def edit 
+	def edit 
 	 	@school = School.find(params[:id])
 	 	respond_to do |format|
 
- 			format.html 
+ 			# format.html 
 			format.json {render :json => @school, :status => :ok}
 		end
-	 end
+	end
+
 	def create
+		p "jhggjghjgjhgj"
+		p "hererre"
+		p "school_param"
 		@school = School.new(school_param)
 		
 		if @school.save
 			# redirect_to @school
 			respond_to do |format|
 
- 				format.html {render 'show'}
+ 				# format.html {render 'show'}
 				format.json {render :json => @school, :status => :ok}
 			end
 		else
 			# render 'new', status: :unprocessable_entity
 			respond_to do |format|
-
- 				format.html {render 'new'}
+				p "Starting"
+ 				# format.html {render 'new'}
+ 				p @school.errors
 				format.json {render :json => @school.errors , :status  => :unprocessable_entity}
 			end
 		end
@@ -69,13 +76,13 @@ class SchoolsController < ApplicationController
 				
 				respond_to do |format|
 
- 					format.html {render 'show'}
+ 					# format.html {render 'show'}
 					format.json {render :json => @school, :status => :ok}
 				end
 			else
 				respond_to do |format|
 							p @school.errors
- 				format.html  {render 'new'}
+ 				# format.html  {render 'edit'}
 				format.json {render :json => @school.message , :status  => :unprocessable_entity}
 			end
 			end
@@ -83,7 +90,7 @@ class SchoolsController < ApplicationController
 		
 			respond_to do |format|
 
- 				format.html {render 'new'}
+ 				# format.html {render 'edit'}
 				format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 			end
 		end
@@ -95,7 +102,7 @@ class SchoolsController < ApplicationController
 	   		if @school.destroy
 	   			@schools = School.all
 	    		respond_to do |format|
-	    			format.html {render 'index'}
+	    			# format.html {render 'index'}
 	    			format.json {render :json => @school, :status => :ok}
 	      		end
 	   		
@@ -103,7 +110,7 @@ class SchoolsController < ApplicationController
 	   		rescue => e
        	  	 	respond_to do |format|
        	  	 		@schools = School.all
- 					format.html {render 'index'}
+ 					# format.html {render 'index'}
 					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 				end
         	end
