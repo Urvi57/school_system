@@ -1,8 +1,8 @@
 <div id="dvSchool" class="hidden" align="center">
     <form action=""  id="dvChildSchool">
 		<h1>School List</h1>
-		<a id="createSchool">Create new School</a></br>
-		<a id="createSubject">Create Subjects</a>
+		<a id="createSchool">Add new School</a></br>
+		<a id="allSubject">All Subjects</a>
 		<table border="1" id="tableSchool" width="70%">
 		<thead>
 			<tr>
@@ -39,66 +39,80 @@
 	</form>
 </div>
 <div id="newSchoolContainer" class="hidden" align="center">
-	<div>
+
 		<h3>Create New School</h3>
-		<table id="tblSchool">
-			<tr>
-				<td>
-					School Name: 
-				</td>
-				<td>
-					<input type="text"  id="schoolName"  >
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Phone No.: 
-				</td>
-				<td>
-					<input type="text"  id="schoolPhoneno"  >
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Address: 
-				</td>
-				<td>
-					<input type="text"  id="schoolAddress"  >
-				</td>
-			</tr>
-			<tr>
-				<td>
-					City: 
-				</td>
-				<td>
-					<input type="text"  id="schoolCity"  >
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Zipcode: 
-				</td>
-				<td>
-					<input type="text"  id="schoolZipcode" >
-				</td>
-			</tr>
-			<tr>
-				<td>
-					State: 
-				</td>
-				<td>
-					<input type="text"  id="schoolState" >
-				</td>
-			</tr>
-			<tr>
-              <td align="center" colspan="2">
-	              <button type="submit" id="saveSchool" >Save School</button>
-              </td>
-            </div>
-			</tr>
-		</table>
-	</div>
+		<form action="" method="" id="createForm">
+		
+		<div class="container">
+			<div class="row" >
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-6">
+					
+					<div class="col-md-6">
+						<label>School Name :</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" id="schoolName" name="school_name"  >
+					</div>
+
+					<div class="col-md-6">
+				  	<label>Phone No :</label>
+				  </div>
+				  <div class="col-md-6">
+      			<input type="text" id="schoolPhoneNo"  name="school_phone" >
+        	</div>
+        	<div class="col-md-6">
+          	<label>Address :</label>
+          </div>
+          <div class="col-md-6">
+          	<input type="text" id="schoolAddress"  name="school_address" >
+          </div>
+
+          <div class="col-md-6"> 
+        		<label>City :</label>
+        	</div>
+        	<div class="col-md-6">
+        		<input type="text" id="schoolCity" name="school_city" >
+        	</div>
+
+        	<div class="col-md-6">
+        		<label>Zipcode :</label>
+        	</div>
+        	<div class="col-md-6">
+        		<input type="text" id="schoolZipcode" name="school_zipcode" >
+        	</div>
+
+        	<div class="col-md-6">
+        		<label>State :</label>
+        	</div>
+        	<div class="col-md-6">
+        		<input type="text" id="schoolState" name="school_state" >
+        		<input type="hidden" id="schoolHidden" >
+        	</div>
+
+        	<div class="col-md-6"> 
+        		<div class="col-md-3">
+        		</div>
+        		<div class="col-md-6">
+        		  <button type="submit" id="saveSchool" >Save School</button>
+        		</div>
+        		<div class="col-md-3">
+        		</div>
+        	</div>
+
+        </div>
+        <div class="col-md-3">
+				</div>
+				</div>
+     </div>
+     </div>
+
+	</form>
+		
+	
 </div>
+
 <div id="dvshowSchool" class="hidden" align="center">
 	<div id="schoolDetails">
 		<h1>School Dashboard</h1>
@@ -139,65 +153,70 @@
 		</div>
 	</div>
 
-<div id="editSchoolContainer" class="hidden" align="center">
+<div id="editSchoolContainer" class="hidden">
 	<form action="" method="" id="editForm">
-		<h3>Edit School</h3>
-		<div>
-			<input type="text" id="schoolName" name="school_name"  placeholder="School Name">
-		</div>
-        <div>
-        <input type="text" id="schoolPhoneNo"  name="school_phone" placeholder="Phone No">
+		
+		<div class="container">
+			<div class="row" >
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-6">
+					<div ><h3>Edit School</h3></div>
+					<div class="col-md-6">
+						<label>School Name :</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" id="schoolName" name="school_name"  placeholder="School Name">
+					</div>
+
+					<div class="col-md-6">
+				  	<label>Phone No :</label>
+				  </div>
+				  <div class="col-md-6">
+      			<input type="text" id="schoolPhoneNo"  name="school_phone" >
+        	</div>
+        	<div class="col-md-6">
+          	<label>Address :</label>
+          </div>
+          <div class="col-md-6">
+          	<input type="text" id="schoolAddress"  name="school_address" placeholder="School Address">
+          </div>
+          <div class="col-md-6"> 
+        		<label>City :</label>
+        	</div>
+        	<div class="col-md-6">
+        		<input type="text" id="schoolCity" name="school_city" placeholder="City">
+        	</div>
+        	<div class="col-md-6">
+        		<label>Zipcode :</label>
+        	</div>
+        	<div class="col-md-6">
+        		<input type="text" id="schoolZipcode" name="school_zipcode" placeholder="Zipcode">
+        	</div>
+        	<div class="col-md-6">
+        		<label>State :</label>
+        	</div>
+        	<div class="col-md-6">
+        		<input type="text" id="schoolState" name="school_state" placeholder="State">
+        		<input type="hidden" id="schoolHidden" >
+        	</div>
+        	<div class="col-md-6"> 
+        		<div class="col-md-3">
+        		</div>
+        		<div class="col-md-6">
+        		<button type="button" id="btneditSchool" >Update School</button>
+        		</div>
+        		<div class="col-md-3">
+        		</div>
+        	</div>
+
         </div>
-        <div>
-        	<input type="text" id="schoolAddress"  name="school_address" placeholder="School Address">
-        </div>
-        <div>
-        	<input type="text" id="schoolCity" name="school_city" placeholder="City">
-        </div>
-        <div>
-        	<input type="text" id="schoolZipcode" name="school_zipcode" placeholder="Zipcode">
-        </div>
-        <div>
-        	<input type="text" id="schoolState" name="school_state" placeholder="State">
-        	<input type="hidden" id="schoolHidden" >
-        </div>
-        <div> 
-        	<button type="button" id="btneditSchool" >Update School</button>
-        </div>
+        <div class="col-md-3">
+				</div>
+				</div>
+     </div>
+     </div>
+
 	</form>
 </div>
-<div id="createClassroomContainer" class="hidden" align="center">
-	<form action=""  id="createClassForm">
-		<h3>Create Classroom</h3>
-		<div>
-			<input type="text" id="schoolName"  placeholder="School Name">
-		</div>
-        <div>
-        <input type="text" id="classroomName"  placeholder="Classroom Name">
-        </div>
-        <div>
-        	<input type="text" id="numberOfStudent"  placeholder="Number Of Students">
-        </div>
-        <div>
-        	<input type="hidden" id="classHidden" >
-        </div>
-        <div>
-        	<select id="ddSubject" multiple="true">
-			</select>
-        </div>
-        <div> 
-        	<button type="submit" id="btncreateClass" >Submit</button>
-        </div>
-	</form>
-</div>
-<div id="subjectContainer" class="hidden" align="center">
-	<form action=""  id="addSubjectForm">
-		<h3>Add Subject</h3>
-		<div>
-			<input type="text" id="subjectName"  placeholder="Subject Name">
-		</div>
-        <div> 
-        	<button type="submit" id="submitSubject" >Save Subject</button>
-        </div>
-	</form>
-</div>
+
