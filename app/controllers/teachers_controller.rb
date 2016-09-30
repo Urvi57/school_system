@@ -47,14 +47,14 @@ class TeachersController < ApplicationController
 		if @teacher.save
 			respond_to do |format|
 
- 				format.html {render 'show'}
+ 				# format.html {render 'show'}
  				format.json { render :json => @teacher, :status  => :ok}
 			end
 
 		else
 			respond_to do |format|
 
- 				format.html {render 'new'}
+ 				# format.html {render 'new'}
  				format.json {render :json => @teacher.errors, :status  => :unprocessable_entity}
  			end
 		end

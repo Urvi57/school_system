@@ -52,6 +52,11 @@ SS.Home.prototype = {
            var schoolIndex=new SS.schoolIndex();
 
         })
+        $('#dvSchool #dvChildSchool #createSubject').click(function(){
+          $('#dvSchool').addClass('hidden');
+            $('#subjectContainer').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        })
 	}
 
 }

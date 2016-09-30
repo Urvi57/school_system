@@ -5,7 +5,7 @@ SS.schoolIndex = function() {
 }
 SS.schoolIndex.prototype ={
     initialize: function () {
-    	//this.formSetup();// validation
+    	this.schoolFormValid();// validation
         this.getSchoolDetails();
         this.saveSchoolData();
         //this.updateSchoolDetails();
@@ -14,6 +14,7 @@ SS.schoolIndex.prototype ={
      		var self=this;
      		var table = $('#dvSchool #dvChildSchool #tableSchool').DataTable();
          table.clear();
+         
         $.ajax({
             url: 'schools',
             type: 'GET',
@@ -41,8 +42,9 @@ SS.schoolIndex.prototype ={
                  self.showSchoolDetails();
              },
              error: function (jqXHR, textStatus, errorThrown) {
-        // do error handling here
+       
       		}	
+      	
       	});
   },
   showSchoolDetails: function () {
@@ -126,14 +128,15 @@ saveSchoolData: function () {
 	editSchoolDetails: function(){
 		var schoolId = '';
 		$('#dvshowSchool #schoolDetails #editSchool').unbind();
-			$('#dvshowSchool #schoolDetails #editSchool').click(function(){
+			$('#dvshowSchool #schoolDetails #editSchool').click(function(e){
+				e.preventDefault();
 				 schoolId = $(this).attr('schoolId');
 				
            		 alert(schoolId);
            		 $('#dvshowSchool').addClass('hidden');
             	 $('#editSchoolContainer').removeClass('hidden');
 
-       	//	if($(#editForm).valid()){
+       		//if($('#editForm').valid()){
 
 
         	$.ajax({
@@ -176,7 +179,7 @@ saveSchoolData: function () {
 			address:$("#editForm #schoolAddress").val(),city:$("#editForm #schoolCity").val(),
 			zipcode:$("#editForm #schoolZipcode").val(),
 			state:$("#editForm #schoolState").val(),phone_no: $('#editForm #schoolPhoneno').val()}
-
+			if($('#editForm').valid()){
 			// console.log(school_data);
 			//var school_id=$('#editSchoolContainer #editForm #schoolHidden').val();
 
@@ -196,7 +199,9 @@ saveSchoolData: function () {
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
       		}	
+
       	});
+			}
 
 	  });
  },
@@ -240,7 +245,7 @@ saveSchoolData: function () {
           $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
           $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
 
-          $("#createClassroomContainer #createClassForm #subject").empty()
+          $("#createClassroomContainer #createClassForm #ddlSubject").empty()
 		  
 		  $.ajax({
             url: 'subjects',
@@ -249,11 +254,13 @@ saveSchoolData: function () {
             format: 'JSON',
             
             success: function (data, textStatus, jqXHR){
-                console.log("Start");
+                console.log("Classroom");
                 console.log(data);
-                 // $.each(data, function(i,item){
-                 // 	$("#ddlSubject").append($("<option />").val(item.id).text(item.Text));
-                 // });
+                 $.each(data, function(i,item){
+                  	// $("#ddlSubject").append($("<option />").val(data.id).text(data.Text));
+                  	$("#createClassForm #ddlSubject").append('<option value="' + item.id + '">' + item.name + '</option>');
+
+                  });
              },
              error: function (jqXHR, textStatus, errorThrown) {
         		// do error handling here
@@ -261,7 +268,93 @@ saveSchoolData: function () {
 
  	});
 		});
- }
+ },
+schoolFormValid: function(){
+	 $("#editSchoolContainer #editForm").validate ({
+      rules: {
+        school_name: {
+          required: true
+        },
+        school_phoneNo: {
+          required: true
+        },
+        school_address: {
+          required: true
+        },
+        school_city: {
+          required: true
+        },
+        school_zipcode: {
+          required: true
+        },
+        school_state: {
+          required: true
+        },
+        
+        school_phoneNo: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10
+        },
+        school_zipcode:{
+          required: true,
+          digits: true,
+         
+        }
+      },
+      messages : {
+        school_name: {
+            required: 'School Name Required'
+        },
+        school_phoneNo: {
+            required: 'Phone No Required'
+        },
+        school_address: {
+            required: 'School Address Required'
+        },
+        school_city: {
+            required: 'City Required'
+        },
+        school_zipcode: {
+          required: 'Zipcode Required'
+        },
+        school_state: {
+          required: 'State Required'
+        }
+      }
+    });
+},
+saveSubjectData: function () {
+		$('#subjectContainer #addSubjectForm #submitSubject').unbind();
+		$('#subjectContainer #addSubjectForm #submitSubject').click(function(){
+			
+			var subject_data = $("#addSubjectForm #subjectName").val(); 
+			
+			
+			 $.ajax({
+            url: '/subjects',
+
+            type: 'POST',
+            data: {subject:subject_data},
+            
+            format: 'JSON',
+
+            success: function (data, textStatus, jqXHR){
+
+             //   	$('#dvSchool').removeClass('hidden');
+             //    $('#subjectContainer').addClass('hidden');
+            	// var schoolIndex=new SS.schoolIndex();
+            	alert("Submitted");
+                
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+        // do error handling here
+      		}	
+      	});
+
+	  });
+	},
 }
 
 

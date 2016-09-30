@@ -41,8 +41,9 @@ class ClassroomsController < ApplicationController
 		end
 	 end
 	def create
-
-		 @classroom = Classroom.new(classroom_param)
+# //Teacher.new(params.require(:teacher).permit(:name,  :gender, :phone_no, 
+# :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
+		 @classroom = Classroom.new(params.require(:classroom).permit(:name, :no_of_students, :school_id).merge(:subject_ids=>params[:classroom][:subject_ids]))
 		 if @classroom.save
 		 	
 		 	respond_to do |format|

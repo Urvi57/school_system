@@ -1,9 +1,8 @@
 <div id="dvSchool" class="hidden" align="center">
-	<div id="dvChildSchool">
-
+    <form action=""  id="dvChildSchool">
 		<h1>School List</h1>
-		<a id="createSchool">Create new School</a>
-		
+		<a id="createSchool">Create new School</a></br>
+		<a id="createSubject">Create Subjects</a>
 		<table border="1" id="tableSchool" width="70%">
 		<thead>
 			<tr>
@@ -37,7 +36,7 @@
 		</tbody>
 
 		</table>
-	</div>
+	</form>
 </div>
 <div id="newSchoolContainer" class="hidden" align="center">
 	<div>
@@ -102,7 +101,7 @@
 </div>
 <div id="dvshowSchool" class="hidden" align="center">
 	<div id="schoolDetails">
-		<h1>School Details</h1>
+		<h1>School Dashboard</h1>
 		
 		<table border="1" id="tableShowSchool" width="60%">
 		<thead>
@@ -126,7 +125,7 @@
 				<th>
 					State
 				</th>
-				 <th colspan="6">
+				 <th colspan="8">
 					Actions
 				</th> 
 				
@@ -141,29 +140,29 @@
 	</div>
 
 <div id="editSchoolContainer" class="hidden" align="center">
-	<form action=""  id="editForm">
+	<form action="" method="" id="editForm">
 		<h3>Edit School</h3>
 		<div>
-			<input type="text" id="schoolName"  placeholder="School Name">
+			<input type="text" id="schoolName" name="school_name"  placeholder="School Name">
 		</div>
         <div>
-        <input type="text" id="schoolPhoneNo"  placeholder="Phone No">
+        <input type="text" id="schoolPhoneNo"  name="school_phone" placeholder="Phone No">
         </div>
         <div>
-        	<input type="text" id="schoolAddress"  placeholder="School Address">
+        	<input type="text" id="schoolAddress"  name="school_address" placeholder="School Address">
         </div>
         <div>
-        	<input type="text" id="schoolCity" placeholder="City">
+        	<input type="text" id="schoolCity" name="school_city" placeholder="City">
         </div>
         <div>
-        	<input type="text" id="schoolZipcode"  placeholder="Zipcode">
+        	<input type="text" id="schoolZipcode" name="school_zipcode" placeholder="Zipcode">
         </div>
         <div>
-        	<input type="text" id="schoolState" placeholder="State">
+        	<input type="text" id="schoolState" name="school_state" placeholder="State">
         	<input type="hidden" id="schoolHidden" >
         </div>
         <div> 
-        	<button type="submit" id="btneditSchool" >Update School</button>
+        	<button type="button" id="btneditSchool" >Update School</button>
         </div>
 	</form>
 </div>
@@ -183,11 +182,22 @@
         	<input type="hidden" id="classHidden" >
         </div>
         <div>
-        	<select id="ddSubject">
+        	<select id="ddSubject" multiple="true">
 			</select>
         </div>
         <div> 
         	<button type="submit" id="btncreateClass" >Submit</button>
+        </div>
+	</form>
+</div>
+<div id="subjectContainer" class="hidden" align="center">
+	<form action=""  id="addSubjectForm">
+		<h3>Add Subject</h3>
+		<div>
+			<input type="text" id="subjectName"  placeholder="Subject Name">
+		</div>
+        <div> 
+        	<button type="submit" id="submitSubject" >Save Subject</button>
         </div>
 	</form>
 </div>
