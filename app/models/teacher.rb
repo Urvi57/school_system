@@ -6,4 +6,14 @@ class Teacher < ActiveRecord::Base
 
 	validates :name, :gender, :phone_no, presence: true
 	validates :phone_no, uniqueness: true, length: {minimum:10, maximum:10}
+
+	def school_details
+		self.school
+	end
+	def classroom_details
+		self.classrooms
+	end
+	def subject_details
+		self.subjects
+	end
 end

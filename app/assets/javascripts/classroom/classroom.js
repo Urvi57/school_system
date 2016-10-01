@@ -77,12 +77,14 @@ SS.classroomIndex.prototype ={
                    
                     '<td><a id="editClassroom" classroom_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</a></td>'+
                     '<td><a id="destroyClassroom" classroom_id='+item.id+'>'+'Delete</a></td>'+
+                    
                     '<tr>'
                     )).draw();
                     });
 
                   self.editClassroom();
        						self.deleteClassroom();
+       						self.showTeacher();
        						// subjects=item.subject_details[i][].name
              },
              error: function (jqXHR, textStatus, errorThrown) {
@@ -267,6 +269,7 @@ updateClassroomDetails: function(classroom_id,school_id)
 		 // }
 
 	  });
- },
+ }
+ 
 
 }

@@ -5,3 +5,5 @@
 //=require common/jquery-validate
 //=require subject/subject.js
 //=require classroom/classroom.js
+//=require teacher/teacher.js
+//=require student/student.js

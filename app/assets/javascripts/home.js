@@ -74,12 +74,21 @@ SS.Home.prototype = {
           $('#createClassroomContainer').removeClass('hidden');
             var classroomIndex=new SS.classroomIndex();
         });
-        // $('#editClassroomContainer #editClassForm #btnEditClass').click(function(){
-        //   $('#editClassroomContainer').addClass('hidden');
-        //     $('#dvshowSchool').removeClass('hidden');
-        //     var schoolIndex=new SS.schoolIndex();
-        // });
-
+        $('#allTeacher #createTeacher').click(function(){
+          $('#allTeacher').addClass('hidden');
+          $('#createTeacherContainer').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#createTeacherContainer #createTeacherForm #btnCreateTeacher').click(function(){
+          $('#createTeacherContainer').addClass('hidden');
+         $('#allTeacher').removeClass('hidden');
+            var teacherIndex=new SS.teacherIndex();
+        });
+         $('#editTeacherContainer #editTeacherForm #btnEditTeacher').click(function(){
+          $('#createTeacherContainer').addClass('hidden');
+         $('#allTeacher').removeClass('hidden');
+            var teacherIndex=new SS.teacherIndex();
+        });
 	}
 
 }

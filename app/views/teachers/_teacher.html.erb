@@ -1,0 +1,190 @@
+<div id="allTeacher" class="hidden" align="center">
+    <h3>Teacher List</h3>
+    <a id="createTeacher">Add New Teacher</a></br>
+   <input type="hidden" id="hiddenSchoolId"></br>
+   <input type="hidden" id="hiddenSchoolName">
+    <table border="1" id="tableTeacher" width="70%">
+    <thead>
+      <tr>
+        <th>
+          School Name
+        </th>
+        <th>
+          Classroom Name
+        </th>
+        <th>
+           Teacher Name
+        </th>
+        <th>
+           Gender
+        </th>
+        <th>
+          Phone No
+        </th>
+        <th>
+          Proficiency Subject
+        </th>
+         <th colspan="6">
+          Actions
+        </th> 
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+
+    </table>
+</div>
+<div id="createTeacherContainer" class="hidden" align="center">
+  <form action=""  id="createTeacherForm" method="">
+  
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div ><h3>Create Teacher</h3></div>
+          <div class="col-md-6">
+            <label>School Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="schoolName" disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Classroom Name :</label>
+          </div>
+          <div class="col-md-6">
+           <select id="ddClassroom" multiple="true" size="3" width="10px">
+          </select>
+          </div>
+
+          <div class="col-md-6">
+            <label>Teacher Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="teacherName" >
+          </div>
+
+          <div class="col-md-3">
+            <label>Gender :</label>
+          </div>
+          <div>
+             <select id="gender">
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+             </select>
+          </div>
+
+           <div class="col-md-6">
+            <label>Phone No :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="phoneNo" >
+          </div>
+
+          <div class="col-md-6"> 
+            <label>Subject :</label>
+          </div>
+          <div class="col-md-6">
+           <select id="ddSubject" multiple="true" size="3" width="10px">
+          </select>
+          <input type="hidden" id="schoolHidden">
+          <input type="hidden" id="schoolIdHidden">
+          </div>
+
+          <div class="col-md-6"> 
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+            <button type="button" id="btnCreateTeacher" >Submit</button>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+        </div>
+     </div>
+     </div>
+  </form>
+</div>
+<div id="editTeacherContainer" class="hidden" align="center">
+  <form action=""  id="editTeacherForm" method="">
+  
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div ><h3>Create Teacher</h3></div>
+          <div class="col-md-6">
+            <label>School Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="schoolName" disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Classroom Name :</label>
+          </div>
+          <div class="col-md-6">
+           <select id="ddClassroom" multiple="true" size="3" width="10px">
+          </select>
+          </div>
+
+          <div class="col-md-6">
+            <label>Teacher Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="teacherName" >
+          </div>
+
+          <div class="col-md-3">
+            <label>Gender :</label>
+          </div>
+          <div>
+             <select id="gender" >
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+             </select>
+          </div>
+
+           <div class="col-md-6">
+            <label>Phone No :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="phoneNo" >
+          </div>
+
+          <div class="col-md-6"> 
+            <label>Subject :</label>
+          </div>
+          <div class="col-md-6">
+           <select id="ddSubject" multiple="true" size="3" width="10px">
+          </select>
+          <input type="hidden" id="schoolHidden">
+          <input type="hidden" id="schoolIdHidden">
+          </div>
+
+          <div class="col-md-6"> 
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+            <button type="button" id="btnEditTeacher" >Update</button>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+        </div>
+     </div>
+     </div>
+  </form>
+</div>

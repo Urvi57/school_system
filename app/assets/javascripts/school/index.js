@@ -84,6 +84,8 @@ SS.schoolIndex.prototype ={
                     '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
                     // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
                     '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
+                    '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
+                    '<td><a id="viewStudent" school_id='+data.id+' school_name='+data.name+'>View Student</a></td>'+
                     '<tr>'
                     )).draw();
                     // });
@@ -91,6 +93,7 @@ SS.schoolIndex.prototype ={
                  self.destroySchoolDetails();
                  // self.createClassroom();
                  self.viewClassroomDetails();
+                 self.showTeacher();
              },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
@@ -391,7 +394,33 @@ schoolFormValid: function(){
       }
     });
 },
+showTeacher: function(){
+  
+    $('#dvshowSchool #schoolDetails #viewTeacher').unbind();
+      $('#dvshowSchool #schoolDetails #viewTeacher').click(function(e){
+      e.preventDefault();
+        // console.log("urvashi");
+        // schoolId = $(this).attr('schoolId');
+        school_name=$(this).attr('school_name');
+        school_id = $(this).attr('school_id');
+       
+     
+        // $('#allTeacher  #hdnSchool').val(school_id);
+        $('#allTeacher  #hdnSchoolName').val(school_name);
+        $('#allTeacher #hiddenSchoolId').val(school_id);
+        $('#createTeacherContainer #createTeacherForm #schoolHidden').val(school_name);
+        $('#createTeacherContainer #createTeacherForm #schoolIdHidden').val(school_id);
+        $('#createTeacherContainer #createTeacherForm #schoolName').val(school_name);
+        // $('#allTeacher #hdnClassName').val(classroom_name);
 
+        // $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
+        // $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
+
+         $('#allTeacher').removeClass('hidden');
+         $('#dvshowSchool').addClass('hidden');
+         var teacherIndex=new SS.teacherIndex();
+    });
+ }
 
 }
 
