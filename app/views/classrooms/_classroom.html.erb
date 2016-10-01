@@ -1,5 +1,5 @@
 <div id="createClassroomContainer" class="hidden" align="center">
-	<form action=""  id="createClassForm">
+	<form action=""  id="createClassForm" method="">
 	
 	  <div class="container">
       <div class="row" >
@@ -11,18 +11,18 @@
             <label>School Name :</label>
           </div>
           <div class="col-md-6">
-            <input type="text" id="schoolName"  >
+            <input type="text" id="schoolName" disabled>
           </div>
 
           <div class="col-md-6">
             <label>Classroom Name :</label>
           </div>
           <div class="col-md-6">
-           <input type="text" id="classroomName"  >
+           <input type="text" id="classroomName">
           </div>
 
           <div class="col-md-6">
-            <label>Address :</label>
+            <label>Number Of Students :</label>
           </div>
           <div class="col-md-6">
             <input type="text" id="numberOfStudent" >
@@ -32,16 +32,16 @@
             <label>Subject :</label>
           </div>
           <div class="col-md-6">
-           <select id="ddSubject" >
+           <select id="ddSubject" multiple="true" size="3" width="10px">
           </select>
-          <input type="hidden" id="classHidden" >
+          <input type="hidden" id="classHidden">
           </div>
 
           <div class="col-md-6"> 
             <div class="col-md-3">
             </div>
             <div class="col-md-6">
-            <button type="button" id="btncreateClass" >Submit</button>
+            <button type="button" id="btnCreateClass" >Submit</button>
             </div>
             <div class="col-md-3">
             </div>
@@ -55,4 +55,91 @@
      </div>
 	</form>
 </div>
- 
+<div id="allClassroom" class="hidden" align="center">
+    <h1>Classroom List</h1>
+    <a id="createClassroom">Add New Classroom</a></br>
+   <input type="hidden" id="classHidden"></br>
+   <input type="hidden" id="classHiddenSchool">
+    <table border="1" id="tableClassroom" width="70%">
+    <thead>
+      <tr>
+        <th>
+          School Name
+        </th>
+        <th>
+          Classroom Name
+        </th>
+        <th>
+           Number Of Students
+        </th>
+        <th>
+           Subject
+        </th>
+         <th colspan="6">
+          Actions
+        </th> 
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+
+    </table>
+</div>
+ <div id="editClassroomContainer" class="hidden" align="center">
+  <form action=""  id="editClassForm" method="">
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div ><h3>Edit Classroom</h3></div>
+          <div class="col-md-6">
+            <label>School Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="schoolName" disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Classroom Name :</label>
+          </div>
+          <div class="col-md-6">
+           <input type="text" id="classroomName">
+          </div>
+
+          <div class="col-md-6">
+            <label>Number Of Students :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="numberOfStudent" >
+          </div>
+
+          <div class="col-md-6"> 
+            <label>Subject :</label>
+          </div>
+          <div class="col-md-6">
+           <select id="ddSubject" multiple="true" size="3" width="10px">
+          </select>
+          <input type="hidden" id="classHidden">
+          </div>
+
+          <div class="col-md-6"> 
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+            <button type="button" id="btnEditClass" >Update</button>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+        </div>
+     </div>
+     </div>
+  </form>
+</div>

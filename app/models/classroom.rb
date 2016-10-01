@@ -6,5 +6,12 @@ class Classroom < ActiveRecord::Base
 
 	validates :name, :number_of_students, presence: true
 	validates :name, uniqueness: true
+
+	def school_details
+		self.school
+	end
+	def subject_details
+		self.subjects
+	end
 	
 end

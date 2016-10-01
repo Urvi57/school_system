@@ -82,13 +82,15 @@ SS.schoolIndex.prototype ={
                     '<td>'+data.state+'</td>'+
                     '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
                     '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
-                    '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
+                    // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
+                    '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
                     '<tr>'
                     )).draw();
                     // });
                  self.editSchoolDetails();
                  self.destroySchoolDetails();
-                 self.createClassroom();
+                 // self.createClassroom();
+                 self.viewClassroomDetails();
              },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
@@ -178,10 +180,11 @@ saveSchoolData: function () {
 	},
  updateSchoolDetails: function(schoolId)
  {
+   var self=this;
  	$('#editSchoolContainer #editForm #btneditSchool').unbind();
 		$('#editSchoolContainer #editForm #btneditSchool').click(function(e){
 			e.preventDefault();
-			var self=this;
+			
 			var school_data = {name:$("#editForm #schoolName").val(), 
 			address:$("#editForm #schoolAddress").val(),city:$("#editForm #schoolCity").val(),
 			zipcode:$("#editForm #schoolZipcode").val(),
@@ -243,40 +246,40 @@ saveSchoolData: function () {
 
 	});
  },
- createClassroom: function(){
- 	$('#dvshowSchool #schoolDetails #createClassroom').unbind();
- 	$('#dvshowSchool #schoolDetails #createClassroom').click(function(){
- 		 $('#dvshowSchool').addClass('hidden');
-          $('#createClassroomContainer').removeClass('hidden');
-          schoolId = $(this).attr('schoolId');
-          schoolName = $(this).attr('schoolName');
-          alert(schoolName);
-          $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
-          $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
 
-          $("#createClassroomContainer #createClassForm #ddlSubject").empty()
-		  
-		  $.ajax({
-            url: 'subjects',
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
-            
-            success: function (data, textStatus, jqXHR){
-                console.log("Classroom");
-                console.log(data);
-                 $.each(data, function(i,item){
-                  	// $("#ddlSubject").append($("<option />").val(data.id).text(data.Text));
-                  	$("#createClassForm #ddlSubject").append('<option value="' + item.id + '">' + item.name + '</option>');
+ createClassroom: function() {
+    $('#dvshowSchool #schoolDetails #createClassroom').unbind();
+    $('#dvshowSchool #schoolDetails #createClassroom').click(function(){
+        // console.log("urvashi");
+        schoolId = $(this).attr('schoolId');
+        schoolName=$(this).attr('schoolName');
 
-                  });
-             },
-             error: function (jqXHR, textStatus, errorThrown) {
-        		// do error handling here
-      		 }	
+        $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
+        $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
 
- 		});
-	});
+         $('#createClassroomContainer').removeClass('hidden');
+         $('#dvshowSchool').addClass('hidden');
+         var classroomIndex=new SS.classroomIndex();
+    });
+ },
+ viewClassroomDetails: function(){
+
+    $('#dvshowSchool #schoolDetails #viewClassroom').unbind();
+    $('#dvshowSchool #schoolDetails #viewClassroom').click(function(){
+        // console.log("urvashi");
+        schoolId = $(this).attr('schoolId');
+        schoolName=$(this).attr('schoolName');
+
+        $('#allClassroom  #classHidden').val(schoolId);
+        $('#allClassroom #classHiddenSchool').val(schoolName);
+
+        $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
+        $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
+
+         $('#allClassroom').removeClass('hidden');
+         $('#dvshowSchool').addClass('hidden');
+         var classroomIndex=new SS.classroomIndex();
+    });
  },
 schoolFormValid: function(){
 	 $("#newSchoolContainer #createForm").validate ({
@@ -388,6 +391,7 @@ schoolFormValid: function(){
       }
     });
 },
+
 
 }
 
