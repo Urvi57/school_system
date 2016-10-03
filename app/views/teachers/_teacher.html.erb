@@ -1,9 +1,9 @@
 <div id="allTeacher" class="hidden" align="center">
     <h3>Teacher List</h3>
-    <a id="createTeacher">Add New Teacher</a></br>
+    <a class="btn btn-success" id="createTeacher">Add New Teacher</a></br>
    <input type="hidden" id="hiddenSchoolId"></br>
    <input type="hidden" id="hiddenSchoolName">
-    <table border="1" id="tableTeacher" width="70%">
+    <table border="1" id="tableTeacher" width="70%" class="table table-bordered">
     <thead>
       <tr>
         <th>
@@ -35,10 +35,10 @@
     </tbody>
 
     </table>
-    <button id="back" type="button" >Back</button>
+    <button id="back" type="button" class="btn btn-info">Back</button>
 </div>
 <div id="createTeacherContainer" class="hidden" align="center">
-  <form action=""  id="createTeacherForm" method="">
+  <form action=""  id="createTeacherForm" method="" class="form-horizontal">
   
     <div class="container">
       <div class="row" >
@@ -46,62 +46,72 @@
         </div>
         <div class="col-md-6">
           <div ><h3>Create Teacher</h3></div>
-          <div class="col-md-6">
+          
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>School Name :</label>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-4">
             <input type="text" id="schoolName" disabled>
           </div>
+          </div>
 
-          <div class="col-md-6">
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>Classroom Name :</label>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-4">
            <select id="ddClassroom" multiple="true" size="3" width="10px" name="teacher_class">
           </select>
           </div>
-
-          <div class="col-md-6">
+          </div>
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>Teacher Name :</label>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-4">
             <input type="text" id="teacherName" name="teacher_name">
           </div>
-
-          <div class="col-md-3">
+          </div>
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>Gender :</label>
           </div>
-          <div>
+          <div class="col-sm-4">
              <select id="gender" name="teacher_gender">
                 <option value="Male" selected>Male</option>
                 <option value="Female">Female</option>
              </select>
           </div>
-
-           <div class="col-md-6">
-            <label>Phone No :</label>
-          </div>
-          <div class="col-md-6">
-            <input type="text" id="phoneNo" name="teacher_phone">
           </div>
 
-          <div class="col-md-6"> 
-            <label>Subject :</label>
-          </div>
-          <div class="col-md-6">
-           <select id="ddSubject" multiple="true" size="3" width="10px" name="teacher_subject">
-          </select>
-          <input type="hidden" id="schoolHidden">
-          <input type="hidden" id="schoolIdHidden">
-          </div>
-
-          <div class="col-md-6"> 
-            
-            <div class="col-md-6">
-            <button type="button" id="btnCreateTeacher" >Submit</button>
+           <div class="form-group">
+            <div class="col-sm-4">
+              <label>Phone No :</label>
             </div>
-            <div class="col-md-6">
-             <button type="button" id="cancel" >Cancel</button>
+            <div class="col-sm-4">
+              <input type="text" id="phoneNo" name="teacher_phone">
+            </div>
+          </div>
+
+          <div class="form-group"> 
+            <div class="col-sm-4">
+              <label>Subject :</label>
+            </div>
+            <div class="col-sm-4">
+               <select id="ddSubject" multiple="true" size="3" width="10px" name="teacher_subject">
+              </select>
+              <input type="hidden" id="schoolHidden">
+              <input type="hidden" id="schoolIdHidden">
+            </div>
+          </div>
+          <div class="form-group"> 
+            
+            <div class="col-sm-4">
+            <button type="button" id="btnCreateTeacher" class="btn btn-primary" >Submit</button>
+            </div>
+            <div class="col-sm-4">
+             <button type="button" id="cancel" class="btn btn-warning">Cancel</button>
             </div>
           </div>
 
@@ -114,71 +124,79 @@
   </form>
 </div>
 <div id="editTeacherContainer" class="hidden" align="center">
-  <form action=""  id="editTeacherForm" method="">
+ <form action=""  id="editTeacherForm" method="" class="form-horizontal">
   
     <div class="container">
       <div class="row" >
         <div class="col-md-3">
         </div>
         <div class="col-md-6">
-          <div ><h3>Edit Teacher</h3></div>
-          <div class="col-md-6">
+          <div ><h3>Create Teacher</h3></div>
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>School Name :</label>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-4">
             <input type="text" id="schoolName" disabled>
           </div>
+          </div>
 
-          <div class="col-md-6">
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>Classroom Name :</label>
           </div>
-          <div class="col-md-6">
-           <select id="ddClassroom" multiple="true" size="3" width="10px">
+          <div class="col-sm-4">
+           <select id="ddClassroom" multiple="true" size="3" width="10px" name="teacher_class">
           </select>
           </div>
-
-          <div class="col-md-6">
+          </div>
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>Teacher Name :</label>
           </div>
-          <div class="col-md-6">
-            <input type="text" id="teacherName" >
+          <div class="col-sm-4">
+            <input type="text" id="teacherName" name="teacher_name">
           </div>
-
-          <div class="col-md-3">
+          </div>
+          <div class="form-group">
+          <div class="col-sm-4">
             <label>Gender :</label>
           </div>
-          <div>
-             <select id="gender" >
+          <div class="col-sm-4">
+             <select id="gender" name="teacher_gender">
                 <option value="Male" selected>Male</option>
                 <option value="Female">Female</option>
              </select>
           </div>
-
-           <div class="col-md-6">
-            <label>Phone No :</label>
-          </div>
-          <div class="col-md-6">
-            <input type="text" id="phoneNo" >
           </div>
 
-          <div class="col-md-6"> 
-            <label>Subject :</label>
-          </div>
-          <div class="col-md-6">
-           <select id="ddSubject" multiple="true" size="3" width="10px">
-          </select>
-          <input type="hidden" id="schoolHidden">
-          <input type="hidden" id="schoolIdHidden">
+           <div class="form-group">
+            <div class="col-sm-4">
+              <label>Phone No :</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="text" id="phoneNo" name="teacher_phone">
+            </div>
           </div>
 
-          <div class="col-md-6"> 
-           
-            <div class="col-md-6">
-            <button type="button" id="btnEditTeacher" >Update</button>
+          <div class="form-group"> 
+            <div class="col-sm-4">
+              <label>Subject :</label>
+            </div>
+            <div class="col-sm-4">
+               <select id="ddSubject" multiple="true" size="3" width="10px" name="teacher_subject">
+              </select>
+              <input type="hidden" id="schoolHidden">
+              <input type="hidden" id="schoolIdHidden">
+            </div>
+          </div>
+          <div class="form-group"> 
+            <div class="col-sm-4">
+            <button type="button" id="btnEditTeacher" class="btn btn-primary">Update</button>
            
             </div>
-            <div class="col-md-6">
-             <button type="button" id="cancel" >Cancel</button>
+            <div class="col-sm-4">
+             <button type="button" id="cancel" class="btn btn-warning">Cancel</button>
             </div>
           </div>
 
@@ -190,3 +208,4 @@
      </div>
   </form>
 </div>
+

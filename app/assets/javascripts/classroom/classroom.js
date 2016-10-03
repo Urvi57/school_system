@@ -82,9 +82,9 @@ SS.classroomIndex.prototype ={
                     '<td>'+item.number_of_students+'</td>'+
                     '<td>'+subjects+'</td>'+
                    
-                    '<td><button type="button" id="editClassroom" classroom_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</button></td>'+
-                    '<td><button type="button" id="destroyClassroom" classroom_id='+item.id+'>'+'Delete</button></td>'+
-                    '<td><button type="button" id="viewStudent" school_id='+school_id+' school_name='+item.school_details.name+' classroom_id='+item.id+' classroom_name='+item.name+'>View Student</button></td>'+
+                    '<td><button type="button" id="editClassroom" classroom_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+' class="btn btn-info">'+'Edit</button></td>'+
+                    '<td><button type="button" id="destroyClassroom" classroom_id='+item.id+' class="btn btn-info">'+'Delete</button></td>'+
+                    '<td><button type="button" id="viewStudent" school_id='+school_id+' school_name='+item.school_details.name+' classroom_id='+item.id+' classroom_name='+item.name+' class="btn btn-info">View Student</button></td>'+
                   
                     '<tr>'
                     )).draw();

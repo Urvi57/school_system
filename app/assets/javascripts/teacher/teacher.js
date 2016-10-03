@@ -61,8 +61,8 @@ SS.teacherIndex.prototype ={
                     '<td>'+subjects+'</td>'+
                     
                    
-                    '<td><button type="button" id="editTeacher" teacher_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</button></td>'+
-                    '<td><button type="button" id="destroyTeacher" teacher_id='+item.id+'>'+'Delete</button></td>'+
+                    '<td><button type="button" id="editTeacher" class="btn btn-info" teacher_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</button></td>'+
+                    '<td><button type="button" id="destroyTeacher" class="btn btn-info" teacher_id='+item.id+'>'+'Delete</button></td>'+
                     
                     '<tr>'
                     )).draw();
@@ -173,8 +173,8 @@ SS.teacherIndex.prototype ={
            		 alert(teacher_id);
            		 $('#allTeacher').addClass('hidden');
             	 $('#editTeacherContainer').removeClass('hidden');
-          $("#editTeacherContainer #editTeacherForm #ddSubject").val("");
-          $("#editTeacherContainer #editTeacherForm #ddClassroom").val("");
+          $("#editTeacherContainer #editTeacherForm #ddSubject").empty();
+          $("#editTeacherContainer #editTeacherForm #ddClassroom").empty();
           $.ajax({
             url: 'subjects',
             type: 'GET',

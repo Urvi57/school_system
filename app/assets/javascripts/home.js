@@ -178,6 +178,18 @@ SS.Home.prototype = {
             $('#allSubjectContainer').removeClass('hidden');
             var schoolIndex=new SS.schoolIndex();
         });
+        $('#dvshowSchool #home').click(function(){
+            $('#dvshowSchool').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#allClassroom #home').click(function(){
+            $('#allClassroom').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var classroomIndex=new SS.classroomIndex();
+        });
+
+
 	}
 
 }

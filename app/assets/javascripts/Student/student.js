@@ -51,8 +51,8 @@ SS.studentIndex.prototype ={
 					          '<td>'+item.zipcode+'</td>'+
 					          '<td>'+item.state+'</td>'+
                     
-                    '<td><button type="button" id="editStudent" student_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</button></td>'+
-                    '<td><button type="button" id="destroyStudent" student_id='+item.id+'>'+'Delete</button></td>'+
+                    '<td><button type="button" class="btn btn-info" id="editStudent" student_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</button></td>'+
+                    '<td><button type="button" class="btn btn-info" id="destroyStudent" student_id='+item.id+'>'+'Delete</button></td>'+
                     
                     '<tr>'
                     )).draw();

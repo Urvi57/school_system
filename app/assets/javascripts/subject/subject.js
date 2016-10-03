@@ -66,7 +66,7 @@ SS.subjectIndex.prototype ={
                  table.row.add( $(
                     '<tr>'+
                     '<td>'+item.name+'</td>'+
-                    '<td><a id="deleteSubject" subject_id='+item.id+'>'+'Delete</a></td>'+
+                    '<td><a id="deleteSubject" subject_id='+item.id+' class="btn btn-info">'+'Delete</a></td>'+
 
                     '<tr>'
                     )).draw();

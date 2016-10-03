@@ -38,7 +38,7 @@ SS.schoolIndex.prototype ={
                     '<td>'+item.city+'</td>'+
                     '<td>'+item.zipcode+'</td>'+
                     '<td>'+item.state+'</td>'+
-                    '<td><button type="button" id="showSchool" school_id='+item.id+'>'+'Show</button></td>'+
+                    '<td><button type="button" id="showSchool" school_id='+item.id+' class="btn btn-info">'+'Show</button></td>'+
                     '<tr>'
                     )).draw();
                     });
@@ -82,11 +82,11 @@ SS.schoolIndex.prototype ={
                     '<td>'+data.city+'</td>'+
                     '<td>'+data.zipcode+'</td>'+
                     '<td>'+data.state+'</td>'+
-                    '<td><button type="button" id="editSchool" schoolId='+data.id+'>Edit'+'</button></td>'+
-                    '<td><button type="button" id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</button></td>'+
+                    '<td><button type="button" id="editSchool" schoolId='+data.id+' class="btn btn-info">Edit'+'</button></td>'+
+                    '<td><button type="button" id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" } class="btn btn-info">Destroy'+'</button></td>'+
                     // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
-                    '<td><button type="button" id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</button></td>'+
-                    '<td><button type="button" id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</button></td>'+
+                    '<td><button type="button" id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+' class="btn btn-info">View Classroom'+'</button></td>'+
+                    '<td><button type="button" id="viewTeacher" school_id='+data.id+' school_name='+data.name+' class="btn btn-info">View Teacher</button></td>'+
                     
                     '<tr>'
                     )).draw();
