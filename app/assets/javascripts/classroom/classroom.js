@@ -191,6 +191,28 @@ editClassroom: function(){
            		 $('#allClassroom').addClass('hidden');
             	 $('#editClassroomContainer').removeClass('hidden');
 
+               $("#editClassroomContainer #editClassForm #ddSubject").empty();
+
+          $.ajax({
+            url: 'subjects',
+            type: 'GET',
+            contentType: 'application/json',
+            format: 'JSON',
+            
+            success: function (data, textStatus, jqXHR){
+                // console.log("Classroom///");
+                // console.log("con",data);
+                 $.each(data, function(i,item){
+                    // $("#ddlSubject").append($("<option />").val(data.id).text(data.Text));
+                    $("#editClassroomContainer #editClassForm #ddSubject").append('<option value="' + item.id + '">' + item.name + '</option>');
+
+                  });
+                
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+            // do error handling here
+           }  
+         });
         	$.ajax({
             // url: '/classrooms/'+classroom_id,
             // type: 'GET',
@@ -205,9 +227,9 @@ editClassroom: function(){
 
                 var  total_subject = data[0].subject_details;
                     for (var j=0;j<total_subject.length;j++) {
-                      subjects+=total_subject[j].id+', ';
+                      subjects+=total_subject[j].id+',';
                     }
-                subjects=subjects.substring(0, subjects.length-2);
+                
                 console.log(subjects);
                  console.log("showing",data);
                  $('#editClassroomContainer #editClassForm #schoolName').val(school_name);
@@ -215,8 +237,12 @@ editClassroom: function(){
                  $('#editClassroomContainer #editClassForm #numberOfStudent').val(data[0].number_of_students);
                  
                  $('#editClassroomContainer #editClassForm #classHidden').val(data[0].id);
-                  $('#editClassroomContainer #editClassForm #ddSubject').val(subjects);
-
+                  // $('#editClassroomContainer #editClassForm #ddSubject').val(subjects);
+                 
+                  $.each(subjects.split(","), function(i,e){
+                      $("#ddSubject option[value='" + e + "']").prop("selected", true);
+                     
+                  });
                  self.updateClassroomDetails(classroom_id,school_id);
              },
              error: function (jqXHR, textStatus, errorThrown) {
@@ -224,26 +250,7 @@ editClassroom: function(){
       			}	
       		});
 
-      		$.ajax({
-            url: 'subjects',
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
-            
-            success: function (data, textStatus, jqXHR){
-                // console.log("Classroom///");
-                // console.log("con",data);
-                 $.each(data, function(i,item){
-                   	// $("#ddlSubject").append($("<option />").val(data.id).text(data.Text));
-                   	$("#editClassroomContainer #editClassForm #ddSubject").append('<option value="' + item.id + '">' + item.name + '</option>');
-
-                  });
-                
-             },
-             error: function (jqXHR, textStatus, errorThrown) {
-        		// do error handling here
-      		 }	
- 		});
+      		
 
 			});
 },

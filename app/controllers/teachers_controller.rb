@@ -124,4 +124,24 @@ class TeachersController < ApplicationController
  			end
 	  end
   end
+  def filtered_index_teacher
+    # refactor this to generate dynamic query
+    begin
+
+      @teachers = Teacher.where(:id => params[:teacher_id])
+       # respond_to do |format|
+       	# format.json {render json: @classroom, :status => :ok}
+ 			# format.html 
+ 			   # format.json { render :json => @classroom.to_json("classroom_details"=>[@classroom],"subject_details"=>[@subject_details]), :status => :ok }
+ 			   render :json => @teachers.to_json(:methods => [:teacher, :classroom_details, :subject_details, :school_details]), :status => :ok
+		# end
+		rescue => e
+			p e.message
+			respond_to do |format|
+
+ 				# format.html 
+ 				format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
+ 			end
+	  end
+  end
 end

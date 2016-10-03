@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/classrooms/filtered_index' => 'classrooms#filtered_index'
   get '/classrooms/filtered_index_classroom' => 'classrooms#filtered_index_classroom'
   get '/teachers/filtered_index' => 'teachers#filtered_index'
+  get '/teachers/filtered_index_teacher' => 'teachers#filtered_index_teacher' 
   get '/students/filtered_index' => 'students#filtered_index'
 
   resources :schools , :classrooms, :teachers, :students, :subjects
