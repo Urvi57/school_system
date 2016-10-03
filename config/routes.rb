@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
   get '/classrooms/filtered_index' => 'classrooms#filtered_index'
+  get '/classrooms/filtered_index_classroom' => 'classrooms#filtered_index_classroom'
   get '/teachers/filtered_index' => 'teachers#filtered_index'
+  get '/students/filtered_index' => 'students#filtered_index'
+
   resources :schools , :classrooms, :teachers, :students, :subjects
 
   # The priority is based upon order of creation: first created -> highest priority.

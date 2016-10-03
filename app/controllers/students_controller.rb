@@ -84,8 +84,8 @@ class StudentsController < ApplicationController
 			
 			if @student.destroy
 				@students = Student.all
-				# respond_to do |format|
-					format.html {render 'index'}
+				 respond_to do |format|
+					# format.html {render 'index'}
  					format.json {render :json => @student, :status => :ok}
  			end
 			
@@ -99,8 +99,32 @@ class StudentsController < ApplicationController
  			end
 		end
 	end
-private
+	
+	def filtered_index
+    # refactor this to generate dynamic query
+    begin
+
+      @students = Student.where(:classroom_id => params[:classroom_id])
+     
+ 			   render :json => @students.to_json(:methods => [:classroom, :subject_details, :school_details]), :status => :ok
+		# end
+		rescue => e
+			p e.message
+			respond_to do |format|
+
+ 				# format.html 
+ 				format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
+ 			end
+	  end
+  end
+
+	private
 	def student_param
 		 params.require(:student).permit(:name, :father_name, :mother_name, :phone_no, :address, :city, :zipcode, :state, :school_id, :classroom_id)
 	end	
+
+	
 end
+
+
+

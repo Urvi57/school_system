@@ -5,10 +5,11 @@ SS.subjectIndex = function() {
 }
 SS.subjectIndex.prototype ={
     initialize: function () {
-    	
+    	  
+        this.subjectFormValid();
         this.saveSubjectData();
         this.getSubjectDetails();
-       
+        this.subjectFormValid();
     },
     saveSubjectData: function () {
 		$('#subjectContainer #addSubjectForm #submitSubject').unbind();
@@ -16,7 +17,7 @@ SS.subjectIndex.prototype ={
 			e.preventDefault();
 			var subject = {name:$("#addSubjectForm #subjectName").val()}
 			// {name:$("#schoolName").val()
-			
+			if($('#subjectContainer #addSubjectForm').valid()){
 			 $.ajax({
             url: '/subjects',
 
@@ -26,7 +27,7 @@ SS.subjectIndex.prototype ={
             format: 'JSON',
 
             success: function (data, textStatus, jqXHR){
-            	alert("Submitted");
+            	// alert("Submitted");
                  $('#allSubjectContainer').removeClass('hidden');
                  $('#subjectContainer').addClass('hidden');
             	 var subjectIndex=new SS.subjectIndex();
@@ -37,6 +38,11 @@ SS.subjectIndex.prototype ={
         // do error handling here
       		}	
       	});
+       }
+       else{
+        alert("Please Complete form first!!");
+
+       }
 
 	  });
 	},
@@ -103,4 +109,22 @@ SS.subjectIndex.prototype ={
 	});
  
   },
+   subjectFormValid: function(){
+   $("#subjectContainer #addSubjectForm").validate ({
+      rules: {
+        
+        subject_name: {
+          required: true
+        }
+        
+      },
+      messages : {
+        subject_name: {
+            required: 'Subject Name Required'
+        }
+       
+      }
+    });
+    
+}
 }

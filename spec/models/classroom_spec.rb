@@ -1,5 +1,11 @@
 require 'rails_helper'
 RSpec.describe Classroom, type: :model do
+  before(:each) do
+     
+      @subject=FactoryGirl.create(:subject)
+     
+      
+    end
   describe Classroom do
   	context 'validations' do
   		["name", "number_of_students"].each do |field|
@@ -15,6 +21,18 @@ RSpec.describe Classroom, type: :model do
          
         end
   	end
+    context "associations" do
+    
+    it "should return school details"do
+      classroom = FactoryGirl.create(:classroom,:name => 'First', :number_of_students => '10')
+      classroom.school_details
+    end
+
+     it "should return subject details"do
+      classroom = FactoryGirl.create(:classroom,:name => 'First', :number_of_students => '10', :subject_ids=>@subject.id)
+      classroom.subject_details==@subject
+    end
+  end
   end
 end
 end

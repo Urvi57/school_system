@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Student, type: :model do
   describe Student do
+    before(:each) do
+      # ["name", "address", "city", "zipcode", "state", "phone_no"]
+      # @school=FactoryGirl.create(:school,:name=>"DPS",:address=>"Hiran Magri",:city=>"Udaipur",:zipcode=>"313001",:state=>"Raj",:phone_no=>"7834902090")
+      @subject=FactoryGirl.create(:subject)
+      # @classroom = FactoryGirl.create(:name=>"First",:number_of_students=>"20")
+      
+    end
   	context 'validations' do
   		["name", "father_name", "mother_name","phone_no","address","city","zipcode","state"].each do |field|
   			it "is invalid if #{field} is not present}" do
@@ -12,6 +19,23 @@ RSpec.describe Student, type: :model do
         end
         
   	end
+    context "associations" do
+    
+    it "should return school details"do
+      student = FactoryGirl.create(:student,:name => "Jaya",:father_name=>"Hitesh",:mother_name=>"Maya", :phone_no=>"8234567890",:address=>"Sector-11",:city=>"Udaipur",:zipcode=>"313002",:state=>"Rajasthan")
+      student.school_details
+    end
+
+    it "should return classroom details"do
+      student = FactoryGirl.create(:student,:name => "Jaya",:father_name=>"Hitesh",:mother_name=>"Maya", :phone_no=>"8234567890",:address=>"Sector-11",:city=>"Udaipur",:zipcode=>"313002",:state=>"Rajasthan", :subject_ids=>@subject.id)
+      student.classroom_details
+    end
+
+     it "should return subject details"do
+      student = FactoryGirl.create(:student,:name => "Jaya",:father_name=>"Hitesh",:mother_name=>"Maya", :phone_no=>"8234567890",:address=>"Sector-11",:city=>"Udaipur",:zipcode=>"313002",:state=>"Rajasthan", :subject_ids=>@subject.id)
+      student.subject_details==@subject
+    end
+  end
   end
 end
 end

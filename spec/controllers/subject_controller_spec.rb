@@ -77,4 +77,5 @@ RSpec.describe SubjectsController, type: :controller do
 			response.status.should eq 422
 	  	  end
 	end
+	
 end

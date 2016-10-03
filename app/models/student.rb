@@ -11,7 +11,7 @@ class Student < ActiveRecord::Base
 		self.school
 	end
 	def classroom_details
-		self.classrooms
+		self.classroom
 	end
 	def subject_details
 		self.subjects

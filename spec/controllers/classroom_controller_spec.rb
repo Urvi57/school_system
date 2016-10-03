@@ -89,4 +89,16 @@ RSpec.describe ClassroomsController, type: :controller do
 	 		response.status.should eq 422
 	  	  end
 	end
+	context "GET filtered_index"do
+    		it"should return all classrooms associated with school id"do
+      			get :filtered_index ,:school_id=>@school_id
+     
+      			response.status.should eq 200
+    		end
+		    # it"should not return students associated with classroom id is not valid"do
+		      
+		    #    get :filtered_index 
+		    #    response.status.should eq 422
+		    # end
+	end
 end

@@ -2,11 +2,15 @@
 	<form action="" method="" id="addSubjectForm">
 		<h3>Add Subject</h3>
 		<div>
-			<input type="text" id="subjectName"  placeholder="Subject Name">
+			<input type="text" id="subjectName"  placeholder="Subject Name" name="subject_name">
+		</div>
+		<div>
 		</div>
         <div> 
         	<button type="button" id="submitSubject" >Save Subject</button>
+        	<button type="button" id="cancel" >Cancel</button>
         </div>
+        
 	</form>
 </div>
 <div id="allSubjectContainer" class="hidden" align="center">
@@ -31,5 +35,6 @@
 		</tbody>
 
 		</table>
+		<button type="button" id="back" >Back</button>
 	</form>
 </div>

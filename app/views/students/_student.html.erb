@@ -1,0 +1,249 @@
+<div id="allStudent" class="hidden" align="center">
+    <h3>Student List</h3>
+    <a id="createStudent">Add New Student</a></br>
+   <input type="hidden" id="hdnClassId"></br>
+   <input type="hidden" id="hdnClassName">
+   <input type="hidden" id="hdnSchoolName">
+   <input type="hidden" id="hdnSchoolId">
+    <table border="1" id="tableStudent" width="70%">
+    <thead>
+      <tr>
+        <th>
+           Student Name
+        </th>
+        <th>
+          School Name
+        </th>
+        <th>
+          Classroom Name
+        </th>
+        
+        <th>
+            Father Name
+        </th>
+        <th>
+          Mother Name
+        </th>
+        <th>
+           Phone No
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+          City
+        </th>
+        <th>  
+          Zipcode
+        </th>
+        <th>
+          State
+        </th>
+         <th colspan="6">
+          Actions
+        </th> 
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+
+    </table>
+    <button id="backClass" type="button">Back</button>
+</div>
+<div id="createStudentContainer" class="hidden">
+<form action=""  id="createStudentForm" method="">
+  
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div align="center"><h3>Create Student</h3></div>
+          <div class="col-md-6">
+            <label>School Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="schoolName" disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Classroom Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="classroomName" disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Student Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="studentName" name="student_name">
+          </div>
+          <div class="col-md-6">
+            <label>Father Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="fatherName" name="father_name">
+          </div>
+          <div class="col-md-6">
+            <label>Mother Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="motherName" name="mother_name">
+          </div>
+          <div class="col-md-6">
+            <label>Phone No :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="phoneNo" name="student_phone">
+          </div>
+
+          <div class="col-md-6">
+            <label>Address:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="address" name="student_address">
+          </div>
+          <div class="col-md-6">
+            <label>City:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="city" name="student_city">
+          </div>
+
+          <div class="col-md-6">
+            <label>Zipcode:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="zipcode" name="student_zipcode">
+          </div>
+
+          <div class="col-md-6">
+            <label>State:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="state" >
+            <input type="hidden" id="hdnSchoolId">
+            <input type="hidden" id="hdnSchoolName">
+            <input type="hidden" id="hdnClassName">
+            <input type="hidden" id="hdnClassId">
+
+          </div>
+          <div class="col-md-6"> 
+            <div class="col-md-6">
+            <button type="button" id="btnCreateStudent" >Submit</button>
+            </div>
+            <div class="col-md-6">
+            
+            <button id="cancel" type="button">Cancel</button>
+            </div>
+            
+          </div>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+        </div>
+     </div>
+     </div>
+  </form>
+</div>
+<div id="editStudentContainer" class="hidden">
+<form action=""  id="editStudentForm" method="">
+  
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div align="center"><h3>Edit Student Details</h3></div>
+          <div class="col-md-6">
+            <label>School Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="schoolName"  disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Classroom Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="classroomName" disabled>
+          </div>
+
+          <div class="col-md-6">
+            <label>Student Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="studentName" name="student_name">
+          </div>
+          <div class="col-md-6">
+            <label>Father Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="fatherName" name="father_name">
+          </div>
+          <div class="col-md-6">
+            <label>Mother Name :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="motherName" name="mother_name">
+          </div>
+          <div class="col-md-6">
+            <label>Phone No :</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="phoneNo" name="student_phone">
+          </div>
+
+          <div class="col-md-6">
+            <label>Address:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="address" name="student_address">
+          </div>
+          <div class="col-md-6">
+            <label>City:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="city" name="student_city">
+          </div>
+
+          <div class="col-md-6">
+            <label>Zipcode:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="zipcode" name="student_zipcode">
+          </div>
+
+          <div class="col-md-6">
+            <label>State:</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="state" name="student_state">
+            <input type="hidden" id="hdnSchoolId">
+            
+            <input type="hidden" id="hdnStudentId">
+            <input type="hidden" id="hdnClassId">
+
+          </div>
+          <div class="col-md-6"> 
+           
+            <div class="col-md-6">
+            <button type="button" id="btnEditStudent" >Update</button>
+            </div>
+            <div class="col-md-6">
+            <button id="cancel" type="button">Cancel</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+        </div>
+     </div>
+     </div>
+  </form>
+</div>

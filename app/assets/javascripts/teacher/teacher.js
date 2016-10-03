@@ -5,7 +5,7 @@ SS.teacherIndex = function() {
 }
 SS.teacherIndex.prototype ={
     initialize: function () {
-    	
+    	    this.teacherFormValid();
           this.fillAllTeacher();
           this.saveTeacher();
           this.getTeacherDetails();
@@ -20,8 +20,8 @@ SS.teacherIndex.prototype ={
          // var school_name=$('#allTeacher #hiddenSchoolName').val();
          var school_id=$('#allTeacher #hiddenSchoolId').val();
          // var class_name=$('#allTeacher #hdnClassName').val(); 
-         var subjects="";
-
+          var subjects="",classrooms="";
+         
           alert(school_id);
         $.ajax({
             url: '/teachers/filtered_index',
@@ -34,20 +34,35 @@ SS.teacherIndex.prototype ={
                 console.log("Teacher Details");
                 console.log(data);
                  $.each(data, function(i,item){
-                 
+                  subjects="",classrooms="";
+                
+                var  total_subject = item.subject_details;
+                    for (var j=0;j<total_subject.length;j++) {
+                      subjects+=total_subject[j].name+', ';
+                    }
+               
+                 subjects=subjects.substring(0, subjects.length-2);
+                 var  total_classroom = item.classroom_details;
+                    for (var j=0;j<total_classroom.length;j++) {
+                      classrooms+=total_classroom[j].name+', ';
+                    }
+                classrooms=classrooms.substring(0, classrooms.length-2);
                  table.row.add( $(
                  	// alert(item.name);
                     '<tr>'+
                     '<td>'+item.school_details.name+'</td>'+
-                    '<td>'+item.classroom_details[0].name+'</td>'+
+                    '<td>'+classrooms+'</td>'+
                     '<td>'+item.name+'</td>'+
                     '<td>'+item.gender+'</td>'+
                     '<td>'+item.phone_no+'</td>'+
-                    '<td>'+item.subject_details[0].name+'</td>'+
+                    // '<td>'+item.subject_details[0].name+'</td>'+
+                    
+                    // append("<a href='#' class='all_users_article_tags'>"+total_tag[j].name+"</a>");
+                    '<td>'+subjects+'</td>'+
+                    
                    
-                   
-                    '<td><a id="editTeacher" teacher_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</a></td>'+
-                    '<td><a id="destroyTeacher" teacher_id='+item.id+'>'+'Delete</a></td>'+
+                    '<td><button type="button" id="editTeacher" teacher_id='+item.id+' school_name='+item.school_details.name+' school_id='+school_id+'>'+'Edit</button></td>'+
+                    '<td><button type="button" id="destroyTeacher" teacher_id='+item.id+'>'+'Delete</button></td>'+
                     
                     '<tr>'
                     )).draw();
@@ -72,6 +87,7 @@ SS.teacherIndex.prototype ={
 		 	      $('#allTeacher').addClass('hidden');
           	$('#createTeacherContainer').removeClass('hidden');
             var teacherIndex=new SS.teacherIndex();
+
 
 		  $.ajax({
             url: 'subjects',
@@ -156,7 +172,7 @@ SS.teacherIndex.prototype ={
            		 alert(teacher_id);
            		 $('#allTeacher').addClass('hidden');
             	 $('#editTeacherContainer').removeClass('hidden');
-
+          $("#editTeacherContainer #editTeacherForm #ddSubject").val("");
         	$.ajax({
             url: '/teachers/'+teacher_id,
             type: 'GET',
@@ -245,7 +261,8 @@ SS.teacherIndex.prototype ={
 			var teacher_data = {name:$("#teacherName").val(), phone_no:$("#phoneNo").val(),
 			gender:$("#gender :selected").val(),school_id:$("#schoolIdHidden").val(),
 			subject_ids:subject_ids,classroom_ids:classroom_ids}
-			// if($('#newSchoolContainer #createForm').valid()){
+
+			if($('#createTeacherContainer #createTeacherForm').valid()){
 				console.log(teacher_data);
 			 $.ajax({
             url: '/teachers',
@@ -266,10 +283,10 @@ SS.teacherIndex.prototype ={
         // do error handling here
       		}	
       	});
-			// }
-			// else{
-			// 	alert("Please form first!!")
-			// }
+			}
+			else{
+				alert("Please complete form first!!")
+			}
 			});
     },
     updateTeacherDetails:function(school_id,teacher_id){
@@ -296,7 +313,7 @@ SS.teacherIndex.prototype ={
 			// if($('#newSchoolContainer #createForm').valid()){
 				console.log(teacher_data);
 			
-			// if($('#editSchoolContainer #editForm').valid()){
+			if($('#editTeacherContainer #editTeacherForm').valid()){
 				 $.ajax({
 	            url: '/teachers/'+teacher_id,
 
@@ -317,12 +334,106 @@ SS.teacherIndex.prototype ={
 	      		}	
 
 	      		});
-		 // 	}
-		 // else{
-		 // 	alert("Complete form first");
+  		 	}
+  		 else{
+  		 	alert("Please Complete form first!!");
 
-		 // }
+  		 }
 
 	  });
-    }
+    },
+     teacherFormValid: function(){
+   $("#createTeacherContainer #createTeacherForm").validate ({
+      rules: {
+        
+        teacher_class: {
+          required: true
+        },
+        teacher_name: {
+          required: true
+        },
+        teacher_gender: {
+          required: true
+        },
+        teacher_phone: {
+          required: true
+        },
+        teacher_subject: {
+          required: true
+        },
+        
+        teacher_phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10
+        }
+        
+      },
+      messages : {
+        teacher_class: {
+            required: 'Classroom Required'
+        },
+        teacher_name:{
+          required: 'Teacher Name Required'
+        },
+        teacher_gender:{
+          required: 'Select Gender'
+        },
+         teacher_subject: {
+            required: 'Subject Required'
+        },
+        teacher_phone: {
+            required: 'Phone No Required'
+        }
+       
+      }
+    });
+    $("#editTeacherContainer #editTeacherForm").validate ({
+      rules: {
+        
+        teacher_class: {
+          required: true
+        },
+        teacher_name: {
+          required: true
+        },
+        teacher_gender: {
+          required: true
+        },
+        teacher_phone: {
+          required: true
+        },
+        teacher_subject: {
+          required: true
+        },
+        
+        teacher_phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10
+        }
+        
+      },
+      messages : {
+        teacher_class: {
+            required: 'Classroom Required'
+        },
+        teacher_name:{
+          required: 'Teacher Name Required'
+        },
+        teacher_gender:{
+          required: 'Select Gender'
+        },
+         teacher_subject: {
+            required: 'Subject Required'
+        },
+        teacher_phone: {
+            required: 'Phone No Required'
+        }
+       
+      }
+    });
+}
 }

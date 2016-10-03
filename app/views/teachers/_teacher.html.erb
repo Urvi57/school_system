@@ -35,6 +35,7 @@
     </tbody>
 
     </table>
+    <button id="back" type="button" >Back</button>
 </div>
 <div id="createTeacherContainer" class="hidden" align="center">
   <form action=""  id="createTeacherForm" method="">
@@ -56,7 +57,7 @@
             <label>Classroom Name :</label>
           </div>
           <div class="col-md-6">
-           <select id="ddClassroom" multiple="true" size="3" width="10px">
+           <select id="ddClassroom" multiple="true" size="3" width="10px" name="teacher_class">
           </select>
           </div>
 
@@ -64,14 +65,14 @@
             <label>Teacher Name :</label>
           </div>
           <div class="col-md-6">
-            <input type="text" id="teacherName" >
+            <input type="text" id="teacherName" name="teacher_name">
           </div>
 
           <div class="col-md-3">
             <label>Gender :</label>
           </div>
           <div>
-             <select id="gender">
+             <select id="gender" name="teacher_gender">
                 <option value="Male" selected>Male</option>
                 <option value="Female">Female</option>
              </select>
@@ -81,26 +82,26 @@
             <label>Phone No :</label>
           </div>
           <div class="col-md-6">
-            <input type="text" id="phoneNo" >
+            <input type="text" id="phoneNo" name="teacher_phone">
           </div>
 
           <div class="col-md-6"> 
             <label>Subject :</label>
           </div>
           <div class="col-md-6">
-           <select id="ddSubject" multiple="true" size="3" width="10px">
+           <select id="ddSubject" multiple="true" size="3" width="10px" name="teacher_subject">
           </select>
           <input type="hidden" id="schoolHidden">
           <input type="hidden" id="schoolIdHidden">
           </div>
 
           <div class="col-md-6"> 
-            <div class="col-md-3">
-            </div>
+            
             <div class="col-md-6">
             <button type="button" id="btnCreateTeacher" >Submit</button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
+             <button type="button" id="cancel" >Cancel</button>
             </div>
           </div>
 
@@ -120,7 +121,7 @@
         <div class="col-md-3">
         </div>
         <div class="col-md-6">
-          <div ><h3>Create Teacher</h3></div>
+          <div ><h3>Edit Teacher</h3></div>
           <div class="col-md-6">
             <label>School Name :</label>
           </div>
@@ -171,12 +172,13 @@
           </div>
 
           <div class="col-md-6"> 
-            <div class="col-md-3">
-            </div>
+           
             <div class="col-md-6">
             <button type="button" id="btnEditTeacher" >Update</button>
+           
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
+             <button type="button" id="cancel" >Cancel</button>
             </div>
           </div>
 

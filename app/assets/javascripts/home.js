@@ -23,7 +23,7 @@ SS.Home.prototype = {
               
         });
         $('#dvSchool #dvChildSchool #createSchool').click(function(){
-        	$('#dvSchool').addClass('hidden');
+        	  $('#dvSchool').addClass('hidden');
             $('#newSchoolContainer').removeClass('hidden');
             var schoolIndex=new SS.schoolIndex();
         });
@@ -86,8 +86,97 @@ SS.Home.prototype = {
         });
          $('#editTeacherContainer #editTeacherForm #btnEditTeacher').click(function(){
           $('#createTeacherContainer').addClass('hidden');
-         $('#allTeacher').removeClass('hidden');
+          $('#allTeacher').removeClass('hidden');
             var teacherIndex=new SS.teacherIndex();
+        });
+        $('#allStudent #createStudent').click(function(){
+            $('#allStudent').addClass('hidden');
+            $('#createStudentContainer').removeClass('hidden');
+            var studentIndex=new SS.studentIndex();
+        });
+        //  $('#editTeacherContainer #editTeacherForm #btnEditTeacher').click(function(){
+        //   $('#createTeacherContainer').addClass('hidden');
+        //  $('#allTeacher').removeClass('hidden');
+        //     var teacherIndex=new SS.teacherIndex();
+        // });
+        $('#allStudent #backClass').click(function(){
+            $('#allStudent').addClass('hidden');
+            $('#allClassroom').removeClass('hidden');
+            var classroomIndex=new SS.classroomIndex();
+        });
+        $('#createStudentContainer #createStudentForm #cancel').click(function(){
+            $('#createStudentContainer').addClass('hidden');
+            $('#allStudent').removeClass('hidden');
+            var studentIndex=new SS.studentIndex();
+        });
+        $('#editStudentContainer #editStudentForm #cancel').click(function(){
+            $('#editStudentContainer').addClass('hidden');
+            $('#allStudent').removeClass('hidden');
+            var studentIndex=new SS.studentIndex();
+        });
+        $('#editTeacherContainer #editTeacherForm #cancel').click(function(){
+            $('#editTeacherContainer').addClass('hidden');
+            $('#allTeacher').removeClass('hidden');
+            var teacherIndex=new SS.teacherIndex();
+        });
+        $('#createTeacherContainer #createTeacherForm #cancel').click(function(){
+            $('#createTeacherContainer').addClass('hidden');
+            $('#allTeacher').removeClass('hidden');
+            var teacherIndex=new SS.teacherIndex();
+        });
+        $('#allTeacher #back').click(function(){
+            $('#allTeacher').addClass('hidden');
+            $('#dvshowSchool').removeClass('hidden');
+           
+            var schoolIndex=new SS.schoolIndex();
+        }); 
+        $('#allClassroom #back').click(function(){
+            $('#allClassroom').addClass('hidden');
+            $('#dvshowSchool').removeClass('hidden');
+           
+            var schoolIndex=new SS.schoolIndex();
+        }); 
+        $('#createClassroomContainer #createClassForm #cancel').click(function(){
+            $('#createClassroomContainer').addClass('hidden');
+            $('#allClassroom').removeClass('hidden');
+            var classroomIndex=new SS.classroomIndex();
+        });
+        $('#editClassroomContainer #editClassForm #cancel').click(function(){
+            $('#editClassroomContainer').addClass('hidden');
+            $('#allClassroom').removeClass('hidden');
+            var classroomIndex=new SS.classroomIndex();
+        });
+        $('#dvSchool #back').click(function(){
+            $('#dvSchool').addClass('hidden');
+            $('#divIndex').removeClass('hidden');
+           
+            var Home=new SS.Home();
+        }); 
+        $('#dvshowSchool #back').click(function(){
+            $('#dvshowSchool').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+           
+            var schoolIndex=new SS.schoolIndex();
+        }); 
+        $('#newSchoolContainer #createForm #cancel').click(function(){
+            $('#newSchoolContainer').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#editSchoolContainer #editForm #cancel').click(function(){
+            $('#editSchoolContainer').addClass('hidden');
+            $('#dvshowSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#allSubjectContainer #back').click(function(){
+            $('#allSubjectContainer').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#subjectContainer #addSubjectForm #cancel').click(function(){
+            $('#subjectContainer').addClass('hidden');
+            $('#allSubjectContainer').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
         });
 	}
 

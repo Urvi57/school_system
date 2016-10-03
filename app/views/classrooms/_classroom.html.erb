@@ -18,32 +18,32 @@
             <label>Classroom Name :</label>
           </div>
           <div class="col-md-6">
-           <input type="text" id="classroomName">
+           <input type="text" id="classroomName" name="classroom_name">
           </div>
 
           <div class="col-md-6">
             <label>Number Of Students :</label>
           </div>
           <div class="col-md-6">
-            <input type="text" id="numberOfStudent" >
+            <input type="text" id="numberOfStudent" name="no_of_student">
           </div>
 
           <div class="col-md-6"> 
             <label>Subject :</label>
           </div>
           <div class="col-md-6">
-           <select id="ddSubject" multiple="true" size="3" width="10px">
+           <select id="ddSubject" multiple="true" size="3" width="10px" name="classroom_subject">
           </select>
           <input type="hidden" id="classHidden">
           </div>
 
           <div class="col-md-6"> 
-            <div class="col-md-3">
-            </div>
+           
             <div class="col-md-6">
             <button type="button" id="btnCreateClass" >Submit</button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
+            <button type="button" id="cancel" >Cancel</button>
             </div>
           </div>
 
@@ -86,6 +86,7 @@
     </tbody>
 
     </table>
+    <button id="back" type="button" >Back</button>
 </div>
  <div id="editClassroomContainer" class="hidden" align="center">
   <form action=""  id="editClassForm" method="">
@@ -106,32 +107,32 @@
             <label>Classroom Name :</label>
           </div>
           <div class="col-md-6">
-           <input type="text" id="classroomName">
+           <input type="text" id="classroomName" name="classroom_name">
           </div>
 
           <div class="col-md-6">
             <label>Number Of Students :</label>
           </div>
           <div class="col-md-6">
-            <input type="text" id="numberOfStudent" >
+            <input type="text" id="numberOfStudent" name="no_of_student">
           </div>
 
           <div class="col-md-6"> 
             <label>Subject :</label>
           </div>
           <div class="col-md-6">
-           <select id="ddSubject" multiple="true" size="3" width="10px">
+           <select id="ddSubject" multiple="true" size="3" width="10px" name="classroom_subject">
           </select>
           <input type="hidden" id="classHidden">
           </div>
 
           <div class="col-md-6"> 
-            <div class="col-md-3">
-            </div>
+           
             <div class="col-md-6">
             <button type="button" id="btnEditClass" >Update</button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
+            <button type="button" id="cancel" >Cancel</button>
             </div>
           </div>
 

@@ -40,12 +40,12 @@ RSpec.describe TeachersController, type: :controller do
 	end
 	context "create" do
 	  	it "should return success and create teacher if valid params are passed" do
-	  		 post :create, :teacher=>{:name => 'Amit',  :gender => 'M', :phone_no => '1234567890', :school_id => @school.id }
+	  		 post :create, :teacher=>{:name => 'Amit',  :gender => 'Male', :phone_no => '1234567890', :school_id => @school.id }
  	 		 response.status.should eq 200
 		
 		 end
 		it "should not return success if invalid params are passed" do
-			 post :create, :teacher=>{:name => 'Amit',  :gender => 'M', :phone_no => '123456789', :school_id => @school.id }
+			 post :create, :teacher=>{:name => 'Amit',  :gender => 'Male', :phone_no => '123456789', :school_id => @school.id }
  		 		 response.status.should eq 422
 		end
 	 end
@@ -78,4 +78,16 @@ RSpec.describe TeachersController, type: :controller do
 			response.status.should eq 422
 	  	  end
 		end
+		context "GET filtered_index"do
+    		it"should return all teachers associated with school id"do
+      			get :filtered_index ,:school_id=>@school_id
+     
+      			response.status.should eq 200
+    		end
+		    # it"should not return students associated with classroom id is not valid"do
+		      
+		    #    get :filtered_index 
+		    #    response.status.should eq 422
+		    # end
+  end
 end

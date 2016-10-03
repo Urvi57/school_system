@@ -114,12 +114,9 @@ class ClassroomsController < ApplicationController
     begin
 
       @classrooms = Classroom.where(:school_id => params[:school_id])
-       # respond_to do |format|
-       	# format.json {render json: @classroom, :status => :ok}
- 			# format.html 
- 			   # format.json { render :json => @classroom.to_json("classroom_details"=>[@classroom],"subject_details"=>[@subject_details]), :status => :ok }
- 			   render :json => @classrooms.to_json(:methods => [:classroom, :subject_details, :school_details]), :status => :ok
-		# end
+       
+ 		render :json => @classrooms.to_json(:methods => [:classroom, :subject_details, :school_details]), :status => :ok
+		
 		rescue => e
 			p e.message
 			respond_to do |format|
@@ -129,4 +126,21 @@ class ClassroomsController < ApplicationController
  			end
 	  end
   end
+  def filtered_index_classroom
+    # refactor this to generate dynamic query
+    begin
+
+      @classrooms = Classroom.where(:id => params[:classroom_id])
+       
+ 		render :json => @classrooms.to_json(:methods => [:classroom, :subject_details, :school_details]), :status => :ok
+		
+		rescue => e
+			p e.message
+			respond_to do |format|
+
+ 				format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
+ 			end
+	  end
+  end
+
 end
