@@ -9,7 +9,8 @@ SS.teacherIndex.prototype ={
           this.fillAllTeacher();
           this.saveTeacher();
           this.getTeacherDetails();
-       		
+          this.getSubjectByClassroom();
+       		// this.getSubjectByClassroom();
     },
     getTeacherDetails:function(){
     	 var self=this;
@@ -79,6 +80,7 @@ SS.teacherIndex.prototype ={
       	 });
     },
     fillAllTeacher:function(){
+      var self=this;
     	$('#allTeacher #createTeacher').unbind();
 		  $('#allTeacher #createTeacher').click(function(e){
 		  	var school_id=$('#createTeacherContainer #createTeacherForm #schoolIdHidden').val();
@@ -88,27 +90,7 @@ SS.teacherIndex.prototype ={
           	$('#createTeacherContainer').removeClass('hidden');
             var teacherIndex=new SS.teacherIndex();
 
-
-		  $.ajax({
-            url: 'subjects',
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
-            
-            success: function (data, textStatus, jqXHR){
-                
-                 $.each(data, function(i,item){
-                   	// $("#ddlSubject").append($("<option />").val(data.id).text(data.Text));
-                   	$("#createTeacherContainer #createTeacherForm #ddSubject").append('<option value="' + item.id + '">' + item.name + '</option>');
-
-                  });
-                
-             },
-             error: function (jqXHR, textStatus, errorThrown) {
-        		// do error handling here
-      		 }	
- 		});
-		 $.ajax({
+             $.ajax({
             url: '/classrooms/filtered_index',
             type: 'GET',
             contentType: 'application/json',
@@ -119,16 +101,19 @@ SS.teacherIndex.prototype ={
                 console.log("Classroom Details");
                 console.log(data);
                  $.each(data, function(i,item){
-                 	$("#createTeacherContainer #createTeacherForm #ddClassroom").append('<option value="' + item.id + '">' + item.name + '</option>');
+                  $("#createTeacherContainer #createTeacherForm #ddClassroom").append('<option value="' + item.id + '">' + item.name + '</option>');
                  });
-
              },
              error: function (jqXHR, textStatus, errorThrown) {
        
-      		}	
-      	
-      	 });
-		});
+          } 
+        
+         });
+     
+      var classroom_id=$('#createTeacherContainer #createTeacherForm #ddClassroom').val();
+     
+ 
+		 });
     },
     deleteTeacher:function(){
     	$('#allTeacher #destroyTeacher').unbind();
@@ -263,7 +248,7 @@ SS.teacherIndex.prototype ={
     saveTeacher:function(){
     	$('#createTeacherContainer #createTeacherForm #btnCreateTeacher').unbind();
 		  $('#createTeacherContainer #createTeacherForm #btnCreateTeacher').click(function(e){
-		  	alert("Join");
+		  	// alert("Join");
 			
 			 e.preventDefault();
 			var subject_ids=new Array();
@@ -294,7 +279,7 @@ SS.teacherIndex.prototype ={
             format: 'JSON',
 
             success: function (data, textStatus, jqXHR){
-            	alert("done");
+            	// alert("done");
                	$('#allTeacher').removeClass('hidden');
                 $('#createTeacherContainer').addClass('hidden');
             	 var teacherIndex=new SS.teacherIndex();
@@ -315,7 +300,7 @@ SS.teacherIndex.prototype ={
  	  $('#editTeacherContainer #editTeacherForm #btnEditTeacher').unbind();
 		$('#editTeacherContainer #editTeacherForm #btnEditTeacher').click(function(e){
 			e.preventDefault();
-			alert("fgvljhgkjuh.kj");
+			// alert("fgvljhgkjuh.kj");
 			var subject_ids=new Array();
 			var classroom_ids=new Array();
 			 $('#editTeacherContainer #editTeacherForm #ddSubject :selected').each(function(i, selected){
@@ -456,5 +441,40 @@ SS.teacherIndex.prototype ={
        
       }
     });
-}
+},
+getSubjectByClassroom:function()
+{
+  $('#createTeacherContainer #createTeacherForm #ddClassroom').unbind();
+      $('#createTeacherContainer #createTeacherForm #ddClassroom').on('change',function(e){
+       
+      $("#createTeacherContainer #createTeacherForm #ddSubject").empty();
+        
+         var classroom_id=$('#createTeacherContainer #createTeacherForm #ddClassroom').val();
+         $.ajax({
+            url: '/classrooms/filtered_index_classroom',
+            type: 'GET',
+            contentType: 'application/json',
+            format: 'JSON',
+            data:{classroom_id:classroom_id},
+            success: function (data, textStatus, jqXHR){
+                console.log("Doing",data);
+            $.each(data, function(i,item){
+                     // $("#ddlSubject").append($("<option />").val(data.id).text(data.Text));
+  // $("#createTeacherContainer #createTeacherForm #ddSubject").append('<option value="' + item.subject_details.id + '">' + item.subject_details.name + '</option>');
+    var total_subjects = item.subject_details;
+    for (var j=0;j<total_subjects.length;j++) {
+       $("#createTeacherContainer #createTeacherForm #ddSubject").append('<option value="' + total_subjects[j].id + '">' + total_subjects[j].name + '</option>');
+                  }
+
+                  });
+                
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+           // do error handling here
+          }  
+    });
+     });
+      
+},
+
 }

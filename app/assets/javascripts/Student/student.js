@@ -23,7 +23,7 @@ SS.studentIndex.prototype ={
          var class_name=$('#allStudent #hdnClassName').val(); 
          var subjects="";
 
-          alert(school_id);
+          // alert(school_id);
         $.ajax({
             url: '/students/filtered_index',
             type: 'GET',
@@ -77,7 +77,7 @@ SS.studentIndex.prototype ={
 				 student_id = $(this).attr('student_id');
 				 school_name=$(this).attr('school_name');
 				 school_id=$(this).attr('school_id');
-           		 alert(student_id);
+           		 // alert(student_id);
            		 $('#allStudent').addClass('hidden');
             	 $('#editStudentContainer').removeClass('hidden');
 
@@ -145,7 +145,7 @@ SS.studentIndex.prototype ={
     createStudent:function(){
     	$('#createStudentContainer #createStudentForm #btnCreateStudent').unbind();
 		  $('#createStudentContainer #createStudentForm #btnCreateStudent').click(function(e){
-		  	alert("Join");
+		  	// alert("Join");
 			
 			e.preventDefault();
 			

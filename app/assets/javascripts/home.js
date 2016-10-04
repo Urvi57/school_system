@@ -186,9 +186,25 @@ SS.Home.prototype = {
         $('#allClassroom #home').click(function(){
             $('#allClassroom').addClass('hidden');
             $('#dvSchool').removeClass('hidden');
-            var classroomIndex=new SS.classroomIndex();
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#allSubjectContainer #home').click(function(){
+            $('#allSubjectContainer').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
         });
 
+        $('#allTeacher #home').click(function(){
+            $('#allTeacher').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        $('#allStudent #home').click(function(){
+            $('#allStudent').addClass('hidden');
+            $('#dvSchool').removeClass('hidden');
+            var schoolIndex=new SS.schoolIndex();
+        });
+        
 
 	}
 
