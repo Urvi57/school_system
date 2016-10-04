@@ -5,47 +5,47 @@ SS.schoolIndex = function() {
 }
 SS.schoolIndex.prototype ={
     initialize: function () {
-       this.showSchoolData();
-    	this.schoolFormValid();// validation
+        this.showSchoolData();
+    	  this.schoolFormValid();// validation
         this.getSchoolDetails();
         this.saveSchoolData();
         
         this.showSchoolDetails();
 
     },
-     getSchoolDetails: function () {
-     		var self=this;
-     		var table = $('#dvSchool #dvChildSchool #tableSchool').DataTable();
-        table.clear().draw();
-        console.log("Working");
-        $.ajax({
-            url: 'schools',
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
-            success: function (data, textStatus, jqXHR){
-                console.log("School Details");
-                console.log(data);
-                 $.each(data, function(i,item){
-                 table.row.add( $(
-                    '<tr>'+
-                    '<td>'+item.name+'</td>'+
-                    '<td>'+item.phone_no+'</td>'+
-                    '<td>'+item.address+'</td>'+
-                    '<td>'+item.city+'</td>'+
-                    '<td>'+item.zipcode+'</td>'+
-                    '<td>'+item.state+'</td>'+
-                    '<td><button type="button" id="showSchool" school_id='+item.id+' class="btn btn-info">'+'Show</button></td>'+
-                    '<tr>'
-                    )[0]).draw();
-                    });
-                 self.showSchoolDetails();
-             },
-             error: function (jqXHR, textStatus, errorThrown) {
-       
-      		}	
+  getSchoolDetails: function () {
+    var self=this;
+    var table = $('#dvSchool #dvChildSchool #tableSchool').DataTable();
+      table.clear();
+      table.draw();
+      console.log("Working");
+      $.ajax({
+       url: 'schools',
+       type: 'GET',
+       contentType: 'application/json',
+       format: 'JSON',
+       success: function (data, textStatus, jqXHR){
+          console.log("School Details");
+          console.log(data);
+          $.each(data, function(i,item){
+            table.row.add( $(
+            '<tr>'+
+            '<td>'+item.name+'</td>'+
+            '<td>'+item.phone_no+'</td>'+
+            '<td>'+item.address+'</td>'+
+            '<td>'+item.city+'</td>'+
+            '<td>'+item.zipcode+'</td>'+
+            '<td>'+item.state+'</td>'+
+            '<td><button type="button" id="showSchool" school_id='+item.id+' class="btn btn-info">'+'Show</button></td>'+
+            '<tr>'
+             )[0]).draw();
+          });
+          self.showSchoolDetails();
+         },
+         error: function (jqXHR, textStatus, errorThrown) {
+       	}	
       	
-      	});
+  	});
   },
   showSchoolDetails: function () {
     var self=this;
@@ -55,7 +55,7 @@ SS.schoolIndex.prototype ={
            		 // alert(schoolId);
        $('#dvSchool').addClass('hidden');
        $('#dvshowSchool').removeClass('hidden');
-       		
+
      		 var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
          table.clear();
           $.ajax({
@@ -180,7 +180,7 @@ saveSchoolData: function () {
  updateSchoolDetails: function(schoolId)
  {
    var self=this;
- 	$('#editSchoolContainer #editForm #btneditSchool').unbind();
+ 	  $('#editSchoolContainer #editForm #btneditSchool').unbind();
 		$('#editSchoolContainer #editForm #btneditSchool').click(function(e){
 			e.preventDefault();
 			
@@ -190,10 +190,10 @@ saveSchoolData: function () {
 			state:$("#editForm #schoolState").val(),phone_no: $('#editForm #schoolPhoneNo').val()}
 			if($('#editSchoolContainer #editForm').valid()){
 				 $.ajax({
-	            url: '/schools/'+schoolId,
-              type: 'PUT',
-	            data: {school:school_data},
-	            format: 'JSON',
+	         url: '/schools/'+schoolId,
+           type: 'PUT',
+	         data: {school:school_data},
+	         format: 'JSON',
               success: function (data, textStatus, jqXHR){
 	            	
 	               	$('#dvSchool').removeClass('hidden');

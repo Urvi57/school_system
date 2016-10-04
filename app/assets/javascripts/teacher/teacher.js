@@ -23,7 +23,7 @@ SS.teacherIndex.prototype ={
          // var class_name=$('#allTeacher #hdnClassName').val(); 
           var subjects="",classrooms="";
          
-          alert(school_id);
+          // alert(school_id);
         $.ajax({
             url: '/teachers/filtered_index',
             type: 'GET',
@@ -85,7 +85,7 @@ SS.teacherIndex.prototype ={
 		  $('#allTeacher #createTeacher').click(function(e){
 		  	var school_id=$('#createTeacherContainer #createTeacherForm #schoolIdHidden').val();
 
-		  		alert(school_id);
+		  		// alert(school_id);
 		 	      $('#allTeacher').addClass('hidden');
           	$('#createTeacherContainer').removeClass('hidden');
             var teacherIndex=new SS.teacherIndex();
@@ -120,7 +120,7 @@ SS.teacherIndex.prototype ={
 			$('#allTeacher #destroyTeacher').click(function(){
 				 teacher_id = $(this).attr('teacher_id');
 				
-           		 alert(teacher_id);
+           		 // alert(teacher_id);
         if(confirm('Are you sure!'))
 				{
         	$.ajax({
@@ -155,7 +155,7 @@ SS.teacherIndex.prototype ={
 				 teacher_id = $(this).attr('teacher_id');
 				 school_name=$(this).attr('school_name');
 				 school_id=$(this).attr('school_id');
-           		 alert(teacher_id);
+           		 // alert(teacher_id);
            		 $('#allTeacher').addClass('hidden');
             	 $('#editTeacherContainer').removeClass('hidden');
           $("#editTeacherContainer #editTeacherForm #ddSubject").empty();
@@ -231,7 +231,7 @@ SS.teacherIndex.prototype ={
                   }); 
                   $.each(classrooms.split(","), function(i,e){
                       $("#ddClassroom option[value='" + e + "']").prop("selected", true);
-                     
+                     console.log("classroom_ids",e)
                   });   
                  self.updateTeacherDetails(school_id,teacher_id);
              },
