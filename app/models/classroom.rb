@@ -10,6 +10,7 @@ class Classroom < ActiveRecord::Base
 	def school_details
 		self.school
 	end
+	def 
 	def subject_details
 		self.subjects
 	end

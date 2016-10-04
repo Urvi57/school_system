@@ -48,18 +48,17 @@ SS.schoolIndex.prototype ={
       	});
   },
   showSchoolDetails: function () {
-     		var self=this;
-     		var schoolId = '';
-     		 $('#dvSchool #dvChildSchool #showSchool').click(function(){
-         		 schoolId = $(this).attr('school_id');
+    var self=this;
+    var schoolId = '';
+     	$('#dvSchool #dvChildSchool #showSchool').click(function(){
+      	 schoolId = $(this).attr('school_id');
            		 // alert(schoolId);
-           		 $('#dvSchool').addClass('hidden');
-            	 $('#dvshowSchool').removeClass('hidden');
-
+       $('#dvSchool').addClass('hidden');
+       $('#dvshowSchool').removeClass('hidden');
        		
-     		var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
-         	table.clear();
-        $.ajax({
+     		 var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
+         table.clear();
+          $.ajax({
             url: '/schools/'+schoolId,
             type: 'GET',
             contentType: 'application/json',
@@ -70,7 +69,6 @@ SS.schoolIndex.prototype ={
                 console.log("Show School");
                 console.log(data);
                  // $.each(data, function(i,item){
-                 
                  table.row.add( $(
                     '<tr>'+
                     '<td>'+data.name+'</td>'+
@@ -98,7 +96,7 @@ SS.schoolIndex.prototype ={
         // do error handling here
       		}	
       		});
-      	});
+      });
 	},
 saveSchoolData: function () {
 		$('#newSchoolContainer #createForm #saveSchool').unbind();
@@ -110,7 +108,6 @@ saveSchoolData: function () {
 			if($('#newSchoolContainer #createForm').valid()){
 			 $.ajax({
             url: '/schools',
-
             type: 'POST',
             data: {school:school_data},
             
@@ -194,13 +191,10 @@ saveSchoolData: function () {
 			if($('#editSchoolContainer #editForm').valid()){
 				 $.ajax({
 	            url: '/schools/'+schoolId,
-
-	            type: 'PUT',
+              type: 'PUT',
 	            data: {school:school_data},
-	            
 	            format: 'JSON',
-
-	            success: function (data, textStatus, jqXHR){
+              success: function (data, textStatus, jqXHR){
 	            	
 	               	$('#dvSchool').removeClass('hidden');
                 	$('#editSchoolContainer').addClass('hidden');
@@ -210,43 +204,36 @@ saveSchoolData: function () {
 	        		// do error handling here
 	      		}	
 
-	      		});
+	      });
 		 	}
 		 else{
 		 	alert("Complete form first");
 
 		 }
 
-	  });
+	});
  },
  destroySchoolDetails: function(){
  		$('#dvshowSchool #schoolDetails #destroySchool').unbind();
 			$('#dvshowSchool #schoolDetails #destroySchool').click(function(){
 				 schoolId = $(this).attr('schoolId');
-				
            		 // alert(schoolId);
-           		
-        	$.ajax({
+         $.ajax({
             url: '/schools/'+schoolId,
             type: 'DELETE',
             contentType: 'application/json',
             format: 'JSON',
-            
             success: function (data, textStatus, jqXHR){
-
                  console.log(data.name);
-                 $('#dvSchool').removeClass('hidden');
-                 $('#newSchoolContainer').addClass('hidden');
+              $('#dvSchool').removeClass('hidden');
+              $('#newSchoolContainer').addClass('hidden');
             	 var schoolIndex=new SS.schoolIndex();
-                
              },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
       			}	
       		});
-      		
-
-	});
+	   });
  },
 
  createClassroom: function() {
@@ -421,108 +408,98 @@ showTeacher: function(){
     });
  },
  showSchoolData: function () {
-        var self=this;
-        var schoolId =''; 
-         $('#allTeacher #back').click(function(){
-
-          
-             schoolId = $('#allTeacher #hiddenSchoolId').val();
+    var self=this;
+    var schoolId =''; 
+    $('#allTeacher #back').click(function(){
+      schoolId = $('#allTeacher #hiddenSchoolId').val();
                // alert(schoolId);
-
-              var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
-        table.clear();
-        $.ajax({
-            url: '/schools/'+schoolId,
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
-            
-            success: function (data, textStatus, jqXHR){
+      var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
+      table.clear();
+      $.ajax({
+        url: '/schools/'+schoolId,
+        type: 'GET',
+        contentType: 'application/json',
+        format: 'JSON',
+        success: function (data, textStatus, jqXHR){
                 
-                console.log("Show School");
-                console.log(data);
-                 // $.each(data, function(i,item){
-                 
-                 table.row.add( $(
-                    '<tr>'+
-                    '<td>'+data.name+'</td>'+
-                    '<td>'+data.phone_no+'</td>'+
-                    '<td>'+data.address+'</td>'+
-                    '<td>'+data.city+'</td>'+
-                    '<td>'+data.zipcode+'</td>'+
-                    '<td>'+data.state+'</td>'+
-                    '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
-                    '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
-                    // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
-                    '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
-                    '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
-                    
-                    '<tr>'
-                    )).draw();
+          console.log("Show School");
+          console.log(data);
+           // $.each(data, function(i,item){
+           table.row.add( $(
+            '<tr>'+
+            '<td>'+data.name+'</td>'+
+            '<td>'+data.phone_no+'</td>'+
+            '<td>'+data.address+'</td>'+
+            '<td>'+data.city+'</td>'+
+            '<td>'+data.zipcode+'</td>'+
+            '<td>'+data.state+'</td>'+
+            '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
+            '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
+            // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
+            '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
+            '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
+            '<tr>'
+             )).draw();
                     // });
-                 self.editSchoolDetails();
-                 self.destroySchoolDetails();
-                 // self.createClassroom();
-                 self.viewClassroomDetails();
-                 self.showTeacher();
-             },
+           self.editSchoolDetails();
+           self.destroySchoolDetails();
+           // self.createClassroom();
+           self.viewClassroomDetails();
+           self.showTeacher();
+          },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
           } 
           });
-        });
+    });
   },
    showSchool: function () {
         var self=this;
         var schoolId =''; 
          $('#allClassroom #back').click(function(){
-
-          
-             schoolId = $('#allClassroom #hiddenSchoolId').val();
+            schoolId = $('#allClassroom #hiddenSchoolId').val();
                // alert(schoolId);
-
-              var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
+            var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
         table.clear();
         $.ajax({
-            url: '/schools/'+schoolId,
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
+          url: '/schools/'+schoolId,
+          type: 'GET',
+          contentType: 'application/json',
+          format: 'JSON',
             
             success: function (data, textStatus, jqXHR){
                 
-                console.log("Show School");
-                console.log(data);
+              console.log("Show School");
+              console.log(data);
                  // $.each(data, function(i,item){
                  
-                 table.row.add( $(
-                    '<tr>'+
-                    '<td>'+data.name+'</td>'+
-                    '<td>'+data.phone_no+'</td>'+
-                    '<td>'+data.address+'</td>'+
-                    '<td>'+data.city+'</td>'+
-                    '<td>'+data.zipcode+'</td>'+
-                    '<td>'+data.state+'</td>'+
-                    '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
-                    '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
-                    // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
-                    '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
-                    '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
-                    
-                    '<tr>'
-                    )).draw();
+              table.row.add( $(
+                '<tr>'+
+                '<td>'+data.name+'</td>'+
+                '<td>'+data.phone_no+'</td>'+
+                '<td>'+data.address+'</td>'+
+                '<td>'+data.city+'</td>'+
+                '<td>'+data.zipcode+'</td>'+
+                '<td>'+data.state+'</td>'+
+                '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
+                '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
+                // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
+                '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
+                '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
+                '<tr>'
+              )).draw();
                     // });
-                 self.editSchoolDetails();
-                 self.destroySchoolDetails();
-                 // self.createClassroom();
-                 self.viewClassroomDetails();
-                 self.showTeacher();
-             },
+            self.editSchoolDetails();
+            self.destroySchoolDetails();
+            // self.createClassroom();
+            self.viewClassroomDetails();
+            self.showTeacher();
+          },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
           } 
-          });
         });
+     });
   }
 
 }

@@ -47,46 +47,39 @@ SS.subjectIndex.prototype ={
 	  });
 	},
 	getSubjectDetails: function () {
-     		var self=this;
-     		var table = $('#allSubjectContainer #tableSubject').DataTable();
-         table.clear();
-         
-        $.ajax({
-            url: 'subjects',
-            type: 'GET',
-            contentType: 'application/json',
-            format: 'JSON',
-            
-            success: function (data, textStatus, jqXHR){
-                
-                console.log("Subject Details");
-                console.log(data);
-                 $.each(data, function(i,item){
-                 
-                 table.row.add( $(
-                    '<tr>'+
-                    '<td>'+item.name+'</td>'+
-                    '<td><a id="deleteSubject" subject_id='+item.id+' class="btn btn-info">'+'Delete</a></td>'+
-
-                    '<tr>'
-                    )).draw();
-                    });
-                  self.destroySubject();
-             },
-             error: function (jqXHR, textStatus, errorThrown) {
-       
-      		}	
-      	
-      	});
+    var self=this;
+    var table = $('#allSubjectContainer #tableSubject').DataTable();
+    table.clear();
+    $.ajax({
+      url: 'subjects',
+      type: 'GET',
+      contentType: 'application/json',
+      format: 'JSON',
+      success: function (data, textStatus, jqXHR){
+      console.log("Subject Details");
+      console.log(data);
+      $.each(data, function(i,item){
+        table.row.add( $(
+         '<tr>'+
+         '<td>'+item.name+'</td>'+
+         '<td><a id="deleteSubject" subject_id='+item.id+' class="btn btn-info">'+'Delete</a></td>'+
+         '<tr>'
+         )).draw();
+        });
+        self.destroySubject();
+      },
+       error: function (jqXHR, textStatus, errorThrown) {
+    }	
+   });
   },
   destroySubject:function()
   {
  		$('#allSubjectContainer #deleteSubject').unbind();
  		var self=this;
-			$('#allSubjectContainer #deleteSubject').click(function(e){
-				e.preventDefault();
-				 subjectId = $(this).attr('subject_id');
-				if(confirm('Are you sure!'))
+		$('#allSubjectContainer #deleteSubject').click(function(e){
+			e.preventDefault();
+			subjectId = $(this).attr('subject_id');
+			if(confirm('Are you sure!'))
 				{
         	$.ajax({
             url: '/subjects/'+subjectId,
@@ -95,21 +88,17 @@ SS.subjectIndex.prototype ={
             format: 'JSON',
             
             success: function (data, textStatus, jqXHR){
-            	
             	self.getSubjectDetails();
-               
              },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
       			}	
       		});
       	}
-      		
-
-	});
+	 });
  
   },
-   subjectFormValid: function(){
+  subjectFormValid: function(){
    $("#subjectContainer #addSubjectForm").validate ({
       rules: {
         
@@ -126,5 +115,5 @@ SS.subjectIndex.prototype ={
       }
     });
     
-}
+  }
 }
