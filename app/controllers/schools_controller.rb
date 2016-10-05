@@ -1,5 +1,4 @@
 class SchoolsController < ApplicationController
-
 	def index
 		p "index"
 		@schools=School.all
@@ -11,41 +10,18 @@ class SchoolsController < ApplicationController
 	def show
 		begin
 		@school = School.find(params[:id])
-		
 		respond_to do |format|
-
  			# format.html 
 			format.json {render :json => @school, :status => :ok}
 		end
-		
 		rescue => e
       		p e.message
       		respond_to do |format|
-
  				# format.html 
 				format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
 			end
 		end
 	end
-	def new
-		@school = School.new
-		respond_to do |format|
-
- 			# format.html 
-			format.json {render :json => @school, :status => :ok}
-		end
-	end
-
-
-	def edit 
-	 	@school = School.find(params[:id])
-	 	respond_to do |format|
-
- 			# format.html 
-			format.json {render :json => @school, :status => :ok}
-		end
-	end
-
 	def create
 		p "jhggjghjgjhgj"
 		p "hererre"
@@ -53,9 +29,7 @@ class SchoolsController < ApplicationController
 		@school = School.new(school_param)
 		
 		if @school.save
-			# redirect_to @school
 			respond_to do |format|
-
  				# format.html {render 'show'}
 				format.json {render :json => @school, :status => :ok}
 			end
@@ -81,13 +55,12 @@ class SchoolsController < ApplicationController
 				end
 			else
 				respond_to do |format|
-							p @school.errors
+					p @school.errors
  				# format.html  {render 'edit'}
 				format.json {render :json => @school.message , :status  => :unprocessable_entity}
 			end
 			end
 			rescue => e
-		
 			respond_to do |format|
 
  				# format.html {render 'edit'}
@@ -98,25 +71,21 @@ class SchoolsController < ApplicationController
 	def destroy
 		begin
 		@school = School.find(params[:id])
-		
-	   		if @school.destroy
-	   			@schools = School.all
-	    		respond_to do |format|
-	    			# format.html {render 'index'}
-	    			format.json {render :json => @school, :status => :ok}
-	      		end
-	   		
+			if @school.destroy
+	   		@schools = School.all
+	    	respond_to do |format|
+	    		# format.html {render 'index'}
+	    		format.json {render :json => @school, :status => :ok}
+	     	end
 	   		end
 	   		rescue => e
-       	  	 	respond_to do |format|
-       	  	 		@schools = School.all
+       	  	respond_to do |format|
+       	   	@schools = School.all
  					# format.html {render 'index'}
 					format.json {render :json => { "error" => e.message} , :status  => :unprocessable_entity}
-				end
-        	end
-   
+			end
+     	end
 	end
-
 	private 
 	def school_param
 		 params.require(:school).permit(:name, :address, :city, :zipcode, :state, :phone_no)

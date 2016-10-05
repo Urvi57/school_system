@@ -257,7 +257,7 @@ updateClassroomDetails: function(classroom_id,school_id)
 	        		// do error handling here
 	      		}	
 
-	      		});
+	      	});
 		 	}
 		 else{
 		 	alert("Please Complete form first!!");

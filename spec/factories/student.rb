@@ -8,12 +8,7 @@ FactoryGirl.define do
     city "Udaipur"
     zipcode "313001"
     state "Rajasthan"
-    before(:create) do |student|
-       
-        student.school_id=FactoryGirl.create(:school).id
-        student.classroom_id=FactoryGirl.create(:classroom,:name=>'Six',:number_of_students=>'5',:school_id=>student.school_id).id
-        
-    end
-    
+    school_id "1"
+    classroom_id "1"
   end
 end

@@ -1,0 +1,15 @@
+.bundle
+db/*.sqlite3
+log/*.log
+log/development.log
+tmp/
+tmp/pids/
+.sass-cache/
+schema.rb
+coverage/*
+.DS_Store
+.env
+config/database.yml
+dump.rdb
+.idea/
+log/test.log
