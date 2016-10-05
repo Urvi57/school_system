@@ -5,11 +5,11 @@ RSpec.describe Classroom, type: :model do
   end
   describe Classroom do
   	context 'validations' do
-  	["name", "number_of_students"].each do |field|
-  	it "is invalid if #{field} is not present}" do
+  	 ["name", "number_of_students"].each do |field|
+  	 it "is invalid if #{field} is not present}" do
   		FactoryGirl.build(:classroom, "#{field}".to_sym =>nil).should_not be_valid
   	end
-  	it "should have many students" do
+  	 it "should have many students" do
       FactoryGirl.create(:student,:name=>"Prateek",:father_name=>"Shah",:mother_name=>"Rita",
         :phone_no=>"8210101010",:city=>"Udaipur",:zipcode=>"313002",:state=>"Raj")
       FactoryGirl.create(:student,:name=>"sha",:father_name=>"Shah",:mother_name=>"Rita",

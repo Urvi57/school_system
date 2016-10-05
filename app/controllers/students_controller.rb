@@ -73,13 +73,15 @@ class StudentsController < ApplicationController
 	def filtered_index
     # refactor this to generate dynamic query
     begin
-      @students = Student.where(:classroom_id => params[:classroom_id])
+      @classroom = Classroom.find(params[:classroom_id])
+	  @students = Student.where(:classroom_id => @classroom.id)
+      # @students = Student.where(:classroom_id => params[:classroom_id])
       render :json => @students.to_json(:methods => [:classroom, :subject_details, :school_details]), :status => :ok
-			rescue => e
-			p e.message
-			respond_to do |format|
- 			format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
- 			end
+		rescue => e
+		p e.message
+		respond_to do |format|
+ 		format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
+ 		end
 	  end
   end
 	private

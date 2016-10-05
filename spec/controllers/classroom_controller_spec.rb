@@ -4,7 +4,7 @@ RSpec.describe ClassroomsController, type: :controller do
 	before(:each) do
 		@school=FactoryGirl.create(:school, :name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567890')
 		@school1=FactoryGirl.create(:school, :name => 'Alok', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567891')
-		@classroom = FactoryGirl.create(:classroom)
+		@classroom = FactoryGirl.create(:classroom,:name=>"Sanjay",:school_id=>@school.id)
 		request.env["HTTP_ACCEPT"]='application/json'
 		
 	end
@@ -77,22 +77,25 @@ RSpec.describe ClassroomsController, type: :controller do
 	end
 	context "GET filtered_index"do
     it"should return all classrooms associated with school id"do
-    	get :filtered_index ,:school_id=>@school_id
+      classroom1 = FactoryGirl.create(:classroom,:name=>"Harshit",:school_id=>@school1.id)
+      classroom2 = FactoryGirl.create(:classroom,:name=>"Maan",:school_id=>@school1.id)
+    	get :filtered_index ,:school_id=>@school1.id
  			response.status.should eq 200
+ 			assigns(:classrooms).should eq([classroom1,classroom2])
     end
-		# it"should not return students associated with classroom id is not valid"do
-		#    get :filtered_index 
-		#    response.status.should eq 422
-		# end
+		it"should not return classrooms associated with classroom id is not valid"do
+			get :filtered_index ,:school_id=>nil
+			response.status.should eq 422
+		end
 	end
-	context "GET filtered_index"do
-    it"should return all classrooms associated with classroom id"do
-    	get :filtered_index ,:id=>@classroom.id
+	context "GET filtered_index_classroom"do
+    it"should return all classroom associated with classroom id"do
+    	get :filtered_index_classroom ,:classroom_id=>@classroom.id
  			response.status.should eq 200
     end
-		# it"should not return students associated with classroom id is not valid"do
-		#    get :filtered_index 
-		#    response.status.should eq 422
-		# end
+		it"should not return classroom associated with classroom id is not valid"do
+		  get :filtered_index_classroom 
+		  response.status.should eq 422
+		end
 	end
 end

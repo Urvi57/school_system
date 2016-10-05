@@ -4,7 +4,7 @@ RSpec.describe TeachersController, type: :controller do
 	before(:each) do
 		@school=FactoryGirl.create(:school, :name => 'Anthony', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567890')
 		@school1=FactoryGirl.create(:school, :name => 'Alok', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567891')
-		@teacher = FactoryGirl.create(:teacher)
+		@teacher = FactoryGirl.create(:teacher,:school_id=>@school.id)
 		request.env["HTTP_ACCEPT"]='application/json'
 	end
 	context "index" do
@@ -75,13 +75,25 @@ RSpec.describe TeachersController, type: :controller do
 	end
 	context "GET filtered_index"do
     it"should return all teachers associated with school id"do
-      get :filtered_index ,:school_id=>@school_id
-      response.status.should eq 200
+      teacher1 = FactoryGirl.create(:teacher,:phone_no=>"8923908909",:school_id=>@school1.id)
+      teacher2 = FactoryGirl.create(:teacher,:phone_no=>"9003092309",:school_id=>@school1.id)
+    	get :filtered_index ,:school_id=>@school1.id
+    	response.status.should eq 200
+    	assigns(:teachers).should eq([teacher1,teacher2])
     end
-		    # it"should not return students associated with classroom id is not valid"do
-		      
-		    #    get :filtered_index 
-		    #    response.status.should eq 422
-		    # end
-  end
+		it"should not return teachers if invalid school id passed"do
+	  	get :filtered_index ,:id=>nil
+	  	response.status.should eq 422
+		end
+	end
+	context "GET filtered_index_teacher"do
+    it"should return teacher details"do
+    	get :filtered_index_teacher ,:teacher_id=>@teacher.id
+    	response.status.should eq 200
+    end
+		it"should not return teacher details if invalid id passed"do
+	  	get :filtered_index_teacher 
+	  	response.status.should eq 422
+		end
+	end
 end

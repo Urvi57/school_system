@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe School, type: :model do
   describe School do
   	context 'validations' do

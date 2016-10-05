@@ -42,7 +42,7 @@ class TeachersController < ApplicationController
  			format.json {render :json => { "error" => e.message}, :status  => :unprocessable_entity}
  			end
 		end
-		rescue => e
+			rescue => e
 			p e.message
 			respond_to do |format|
  			format.json {render :json => { "error" => e.message}, :status  => :unprocessable_entity}
@@ -67,7 +67,8 @@ class TeachersController < ApplicationController
 	def filtered_index
     # refactor this to generate dynamic query
 	  begin
-	    @teachers = Teacher.where(:school_id => params[:school_id])
+	  	@school = School.find(params[:school_id])
+	    @teachers = Teacher.where(:school_id => @school.id)
 	 	  render :json => @teachers.to_json(:methods => [:teacher, :classroom_details, :subject_details, :school_details]), :status => :ok
 		  rescue => e
 		  p e.message
@@ -79,13 +80,17 @@ class TeachersController < ApplicationController
   def filtered_index_teacher
     # refactor this to generate dynamic query
     begin
-      @teachers = Teacher.where(:id => params[:teacher_id])
- 			render :json => @teachers.to_json(:methods => [:teacher, :classroom_details, :subject_details, :school_details]), :status => :ok
-		  rescue => e
+    	if params[:teacher_id] 
+  		@teachers = Teacher.where(:id => params[:teacher_id]).all
+ 		  render :json => @teachers.to_json(:methods => [:teacher, :classroom_details, :subject_details, :school_details]), :status => :ok
+			else
+	    	format.json {render :json =>  "error", :status  => :unprocessable_entity}
+	    end	
+			rescue => e
 			p e.message
 			respond_to do |format|
  			format.json {render :json =>  { "error" => e.message}, :status  => :unprocessable_entity}
- 			end
+ 		end
 	  end
   end
 end

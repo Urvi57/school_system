@@ -74,12 +74,15 @@ RSpec.describe StudentsController, type: :controller do
 	end
 	context "GET filtered_index"do
     it"should return all students associated with classroom id"do
-      get :filtered_index ,:classroom_id=>@classroom_id
+      student1 = FactoryGirl.create(:student,:name=>"Sanjay",:school_id => @school.id,:classroom_id=>@classroom.id)
+	    student2 = FactoryGirl.create(:student,:name=>"Ankit",:school_id => @school1.id,:classroom_id=>@classroom.id)
+      get :filtered_index ,:classroom_id=>@classroom.id
 	    response.status.should eq 200
+	    assigns(:students).should eq([student1,student2])
     end
-    # it"should not return students associated with classroom id is not valid"do
-    #    get :filtered_index 
-    #    response.status.should eq 422
-    # end
+    it"should not return students associated with classroom id is not valid"do
+       get :filtered_index 
+       response.status.should eq 422
+    end
   end
 end
