@@ -21,7 +21,7 @@ class ClassroomsController < ApplicationController
 	def create
 		begin
 		 @classroom = Classroom.new(params.require(:classroom).permit(:name, :number_of_students, :school_id).merge(:subject_ids=>params[:classroom][:subject_ids]))
-		 if @classroom.save
+		 if @classroom.save!
 		 	respond_to do |format|
  			format.json {render json: @classroom, :status => :ok}
  			end
@@ -29,23 +29,19 @@ class ClassroomsController < ApplicationController
 		rescue => e
     	respond_to do |format|
  			format.json {render :json => { "error" => e.message}, :status  => :unprocessable_entity}
- 			end
+ 		end
      end
 	end
 	def update
 		begin
 		@classroom = Classroom.find(params[:id])
-		if @classroom.update_attributes(params.require(:classroom).permit(:name, 
+		if @classroom.update_attributes!(params.require(:classroom).permit(:name, 
 			:number_of_students, :school_id).merge(:subject_ids=>params[:classroom][:subject_ids]))
 			respond_to do |format|
  			format.json {render :json => @classroom, :status => :ok}
  			end
-		else
-			respond_to do |format|
- 				format.json {render :json => {"error" => e.message}, :status  => :unprocessable_entity}
- 			end
-		end
-	    rescue => e
+ 		end
+		rescue => e
 	    	p e.message
 			respond_to do |format|
  				format.json {render :json => {"error" => e.message}, :status  => :unprocessable_entity}

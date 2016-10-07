@@ -5,13 +5,12 @@ SS.studentIndex = function() {
 }
 SS.studentIndex.prototype ={
     initialize: function () {
-    	
-          this.studentFormValid();
-          this.createStudent();
-          this.getStudentDetails();
-
-       		
-    },
+    	this.studentFormValid();
+      this.studentFormValid();
+      this.createStudent();
+      this.getStudentDetails();
+      this.linkclickevent();
+  },
   getStudentDetails:function(){
     var self=this;
     var table = $('#allStudent #tableStudent').DataTable();
@@ -51,12 +50,10 @@ SS.studentIndex.prototype ={
           });      
          self.editStudent();
        	 self.deleteStudent();
-       					
         },
         error: function (jqXHR, textStatus, errorThrown) {
        
       	}	
-      	
       });
   },
   editStudent:function(){
@@ -76,7 +73,6 @@ SS.studentIndex.prototype ={
       contentType: 'application/json',
       format: 'JSON',
         success: function (data, textStatus, jqXHR){
-
           console.log(data.name);
           $('#editStudentContainer #editStudentForm #schoolName').val(school_name);
           $('#editStudentContainer #editStudentForm #classroomName').val(classroom_name);
@@ -101,38 +97,32 @@ SS.studentIndex.prototype ={
   	});
   },
   deleteStudent:function(){
+    var self=this;
     $('#allStudent #destroyStudent').unbind();
     $('#allStudent #destroyStudent').click(function(){
       student_id = $(this).attr('student_id');
-      if(confirm('Are you sure!'))
-        {
+      // if(confirm('Are you sure!'))
+      //   {
           $.ajax({
             url: '/students/'+student_id,
             type: 'DELETE',
             contentType: 'application/json',
             format: 'JSON',
-            
             success: function (data, textStatus, jqXHR){
-
                  console.log(data.name);
-                 $('#allStudent').removeClass('hidden');
-                
-                 var studentIndex=new SS.studentIndex();
-                
+                 self.getStudentDetails();
              },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
             } 
           });
-        }
+        // }
       });
   },
   createStudent:function(){
     $('#createStudentContainer #createStudentForm #btnCreateStudent').unbind();
 		$('#createStudentContainer #createStudentForm #btnCreateStudent').click(function(e){
-		  	// alert("Join");
 			e.preventDefault();
-			
 			var student_data = {school_id:$("#hdnSchoolId").val(), classroom_id:$("#hdnClassId").val(),
 			name:$("#studentName").val(),father_name:$("#fatherName").val(),
 			mother_name:$("#motherName").val(),phone_no:$("#createStudentForm #phoneNo").val(),
@@ -151,17 +141,15 @@ SS.studentIndex.prototype ={
                  $('#allStudent').removeClass('hidden');
                  $('#createStudentContainer').addClass('hidden');
             	   var studentIndex=new SS.studentIndex();
-                
              },
              error: function (jqXHR, textStatus, errorThrown) {
-        // do error handling here
+             alert(JSON.parse(jqXHR.responseText)["error"]);
       		}	
       	});
 			 }
 			 else{
 			 	alert("Please Complete form first!!")
 			 }
-			
 	  });
   },
     updateStudentDetails:function(student_id,classroom_id,school_id){
@@ -169,7 +157,6 @@ SS.studentIndex.prototype ={
  	  $('#editStudentContainer #editStudentForm #btnEditStudent').unbind();
 		$('#editStudentContainer #editStudentForm #btnEditStudent').click(function(e){
 			e.preventDefault();
-			
 			var student_data = {school_id:school_id, classroom_id:classroom_id,
 			name:$("#editStudentForm #studentName").val(),father_name:$("#editStudentForm #fatherName").val(),
 			mother_name:$("#editStudentForm #motherName").val(),phone_no:$("#editStudentForm #phoneNo").val(),
@@ -184,16 +171,14 @@ SS.studentIndex.prototype ={
 	            data: {student:student_data},
 	            format: 'JSON',
 	            success: function (data, textStatus, jqXHR){
-	            	
 	               	$('#allStudent').removeClass('hidden');
                 	$('#editStudentContainer').addClass('hidden');
             		  var studentIndex=new SS.studentIndex();
-            		  // self.getClassroomDetails();
 	             },
 	             error: function (jqXHR, textStatus, errorThrown) {
 	        		// do error handling here
+               alert(JSON.parse(jqXHR.responseText)["error"]);
 	      		}	
-
 	      	});
 		 		}
 		  else{
@@ -238,9 +223,9 @@ SS.studentIndex.prototype ={
         },
         student_zipcode:{
           required: true,
-          digits: true,
-         
-        }
+          digits: true
+        },
+        
       },
       messages : {
         student_name: {
@@ -305,7 +290,6 @@ SS.studentIndex.prototype ={
         student_zipcode:{
           required: true,
           digits: true,
-         
         }
       },
       messages : {
@@ -335,5 +319,37 @@ SS.studentIndex.prototype ={
         }
       }
     });
-}
+},
+linkclickevent: function()
+  {
+    $('#allStudent #home').click(function(){
+      $('#allStudent').addClass('hidden'); 
+      $('#dvSchool').removeClass('hidden');
+    });
+    $('#allStudent #back').click(function(){
+      $('#allStudent').addClass('hidden'); 
+      $('#allClassroom').removeClass('hidden');
+    });
+    $('#allStudent #createStudent').click(function(){
+      $('#allStudent').addClass('hidden'); 
+      $('#createStudentContainer').removeClass('hidden');
+      $('#createStudentContainer #createStudentForm')[0].reset("");
+      var school_name=$('#allStudent  #hdnSchoolName').val();
+      var school_id=$('#allStudent #hdnSchoolId').val();
+      var class_id=$('#allStudent #hdnClassId').val();
+      var classroom_name=$('#allStudent  #hdnClassName').val();
+      $('#createStudentContainer #createStudentForm #hdnSchoolId').val(school_id);
+      $('#createStudentContainer #createStudentForm #schoolName').val(school_name);
+      $('#createStudentContainer #createStudentForm #classroomName').val(classroom_name);
+      $('#createStudentContainer #createStudentForm #hdnClassId').val(class_id);
+    });
+    $('#createStudentContainer #createStudentForm #cancel').click(function(){
+      $('#createStudentContainer').addClass('hidden'); 
+      $('#allStudent').removeClass('hidden');
+    });
+    $('#editStudentContainer #editStudentForm #cancel').click(function(){
+      $('#editStudentContainer').addClass('hidden'); 
+      $('#allStudent').removeClass('hidden');
+    });
+  }
 }

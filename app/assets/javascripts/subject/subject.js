@@ -1,49 +1,41 @@
 var SS = SS || {};
 SS.subjectIndex = function() {
     this.initialize();
-   
 }
 SS.subjectIndex.prototype ={
-    initialize: function () {
-    	  
-        this.subjectFormValid();
-        this.saveSubjectData();
-        this.getSubjectDetails();
-        this.subjectFormValid();
-    },
-    saveSubjectData: function () {
+  initialize: function () {
+    this.subjectFormValid();
+    this.saveSubjectData();
+    this.getSubjectDetails();
+    this.subjectFormValid();
+    this.linkclickevent();
+  },
+  saveSubjectData: function () {
 		$('#subjectContainer #addSubjectForm #submitSubject').unbind();
 		$('#subjectContainer #addSubjectForm #submitSubject').click(function(e){
 			e.preventDefault();
 			var subject = {name:$("#addSubjectForm #subjectName").val()}
-			// {name:$("#schoolName").val()
 			if($('#subjectContainer #addSubjectForm').valid()){
 			 $.ajax({
-            url: '/subjects',
-
-            type: 'POST',
-            data: {subject:subject},
-            
-            format: 'JSON',
-
-            success: function (data, textStatus, jqXHR){
-            	// alert("Submitted");
-                 $('#allSubjectContainer').removeClass('hidden');
-                 $('#subjectContainer').addClass('hidden');
-            	 var subjectIndex=new SS.subjectIndex();
-            	
-                
-             },
-             error: function (jqXHR, textStatus, errorThrown) {
+        url: '/subjects',
+        type: 'POST',
+        data: {subject:subject},
+        format: 'JSON',
+        success: function (data, textStatus, jqXHR){
+         $('#allSubjectContainer').removeClass('hidden');
+         $('#subjectContainer').addClass('hidden');
+         var subjectIndex=new SS.subjectIndex();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
-      		}	
+        alert(JSON.parse(jqXHR.responseText)["error"]);
+      	}	
       	});
        }
        else{
         alert("Please Complete form first!!");
 
        }
-
 	  });
 	},
 	getSubjectDetails: function () {
@@ -79,41 +71,51 @@ SS.subjectIndex.prototype ={
 		$('#allSubjectContainer #deleteSubject').click(function(e){
 			e.preventDefault();
 			subjectId = $(this).attr('subject_id');
-			if(confirm('Are you sure!'))
-				{
+			// if(confirm('Are you sure'))
+				// {
         	$.ajax({
             url: '/subjects/'+subjectId,
             type: 'DELETE',
             contentType: 'application/json',
             format: 'JSON',
-            
             success: function (data, textStatus, jqXHR){
             	self.getSubjectDetails();
              },
              error: function (jqXHR, textStatus, errorThrown) {
-        // do error handling here
+            // do error handling here
       			}	
       		});
-      	}
-	 });
- 
+      	// }
+	  });
   },
   subjectFormValid: function(){
    $("#subjectContainer #addSubjectForm").validate ({
       rules: {
-        
         subject_name: {
           required: true
         }
-        
       },
       messages : {
         subject_name: {
             required: 'Subject Name Required'
         }
-       
       }
     });
-    
+  },
+  linkclickevent: function()
+  {
+    $('#allSubjectContainer #home').click(function(){
+      $('#allSubjectContainer').addClass('hidden'); 
+      $('#dvSchool').removeClass('hidden');
+    });
+    $('#allSubjectContainer #createSubject').click(function(){
+      $('#allSubjectContainer').addClass('hidden');
+      $('#subjectContainer').removeClass('hidden');
+      $('#subjectContainer #addSubjectForm')[0].reset("");
+    })
+    $('#subjectContainer #addSubjectForm #cancel').click(function(){
+       $('#subjectContainer').addClass('hidden');
+       $('#allSubjectContainer').removeClass('hidden');
+    });
   }
 }

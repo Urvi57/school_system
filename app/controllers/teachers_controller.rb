@@ -20,7 +20,7 @@ class TeachersController < ApplicationController
 	end
 	def create
 		@teacher = Teacher.new(params.require(:teacher).permit(:name,  :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
-		if @teacher.save
+		if @teacher.save!
 			respond_to do |format|
  			format.json { render :json => @teacher, :status  => :ok}
 			end
@@ -33,7 +33,7 @@ class TeachersController < ApplicationController
 	def update
 		begin
 		@teacher=Teacher.find(params[:id])
-		if @teacher.update_attributes(params.require(:teacher).permit(:name,  :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
+		if @teacher.update_attributes!(params.require(:teacher).permit(:name,  :gender, :phone_no, :school_id).merge(:classroom_ids=>params[:teacher][:classroom_ids],:subject_ids=>params[:teacher][:subject_ids]))
 			respond_to do |format|
  			format.json { render :json => @teacher, :status  => :ok}
 			end

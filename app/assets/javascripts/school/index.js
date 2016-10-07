@@ -1,23 +1,21 @@
 var SS = SS || {};
 SS.schoolIndex = function() {
     this.initialize();
-   
 }
 SS.schoolIndex.prototype ={
-    initialize: function () {
+  initialize: function () {
         this.showSchoolData();
     	  this.schoolFormValid();// validation
         this.getSchoolDetails();
         this.saveSchoolData();
-        
         this.showSchoolDetails();
-
-    },
+        this.linkclickevent();
+  },
   getSchoolDetails: function () {
     var self=this;
     var table = $('#dvSchool #dvChildSchool #tableSchool').DataTable();
       table.clear();
-      table.draw();
+
       console.log("Working");
       $.ajax({
        url: 'schools',
@@ -44,18 +42,15 @@ SS.schoolIndex.prototype ={
          },
          error: function (jqXHR, textStatus, errorThrown) {
        	}	
-      	
   	});
   },
   showSchoolDetails: function () {
     var self=this;
     var schoolId = '';
      	$('#dvSchool #dvChildSchool #showSchool').click(function(){
-      	 schoolId = $(this).attr('school_id');
-           		 // alert(schoolId);
+       schoolId = $(this).attr('school_id');
        $('#dvSchool').addClass('hidden');
        $('#dvshowSchool').removeClass('hidden');
-
      		 var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
          table.clear();
           $.ajax({
@@ -63,12 +58,10 @@ SS.schoolIndex.prototype ={
             type: 'GET',
             contentType: 'application/json',
             format: 'JSON',
-            
             success: function (data, textStatus, jqXHR){
-                
                 console.log("Show School");
                 console.log(data);
-                 // $.each(data, function(i,item){
+                
                  table.row.add( $(
                     '<tr>'+
                     '<td>'+data.name+'</td>'+
@@ -82,13 +75,11 @@ SS.schoolIndex.prototype ={
                     // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
                     '<td><button type="button" id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+' class="btn btn-info">View Classroom'+'</button></td>'+
                     '<td><button type="button" id="viewTeacher" school_id='+data.id+' school_name='+data.name+' class="btn btn-info">View Teacher</button></td>'+
-                    
                     '<tr>'
-                    )).draw();
+                    )[0]).draw();
                     // });
                  self.editSchoolDetails();
                  self.destroySchoolDetails();
-                 // self.createClassroom();
                  self.viewClassroomDetails();
                  self.showTeacher();
              },
@@ -100,8 +91,8 @@ SS.schoolIndex.prototype ={
 	},
 saveSchoolData: function () {
 		$('#newSchoolContainer #createForm #saveSchool').unbind();
-		$('#newSchoolContainer #createForm #saveSchool').click(function(){
-			
+		$('#newSchoolContainer #createForm #saveSchool').click(function(e){
+			e.preventDefault();
 			var school_data = {name:$("#schoolName").val(), 
 			address:$("#schoolAddress").val(),city:$("#schoolCity").val(),zipcode:$("#schoolZipcode").val(),
 			state:$("#schoolState").val(),phone_no: $('#schoolPhoneNo').val()}
@@ -110,18 +101,15 @@ saveSchoolData: function () {
             url: '/schools',
             type: 'POST',
             data: {school:school_data},
-            
             format: 'JSON',
-
             success: function (data, textStatus, jqXHR){
-
-               	$('#dvSchool').removeClass('hidden');
+                $('#dvSchool').removeClass('hidden');
                 $('#newSchoolContainer').addClass('hidden');
-            	var schoolIndex=new SS.schoolIndex();
-                
+            	  var schoolIndex=new SS.schoolIndex();
              },
-             error: function (jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
+            alert(JSON.parse(jqXHR.responseText)["error"]);
       		}	
       	});
 			}
@@ -138,43 +126,28 @@ saveSchoolData: function () {
 			$('#dvshowSchool #schoolDetails #editSchool').click(function(e){
 				e.preventDefault();
 				 schoolId = $(this).attr('schoolId');
-				
-           		 // alert(schoolId);
-           		 $('#dvshowSchool').addClass('hidden');
-            	 $('#editSchoolContainer').removeClass('hidden');
-
-       		//if($('#editForm').valid()){
-
-
-        	$.ajax({
+          $('#dvshowSchool').addClass('hidden');
+          $('#editSchoolContainer').removeClass('hidden');
+          $.ajax({
             url: '/schools/'+schoolId,
             type: 'GET',
             contentType: 'application/json',
             format: 'JSON',
-            
             success: function (data, textStatus, jqXHR){
-
-                 console.log(data.name);
-                 $('#editSchoolContainer #editForm #schoolName').val(data.name);
-                 $('#editSchoolContainer #editForm #schoolPhoneNo').val(data.phone_no);
-                 $('#editSchoolContainer #editForm #schoolAddress').val(data.address);
-                 $('#editSchoolContainer #editForm #schoolCity').val(data.city);
-                 $('#editSchoolContainer #editForm #schoolZipcode').val(data.zipcode);
-                 $('#editSchoolContainer #editForm #schoolState').val(data.state);
-                 $('#editSchoolContainer #editForm #schoolHidden').val(data.id);
-                    
-                self.updateSchoolDetails(schoolId);
+              console.log(data.name);
+              $('#editSchoolContainer #editForm #schoolName').val(data.name);
+              $('#editSchoolContainer #editForm #schoolPhoneNo').val(data.phone_no);
+              $('#editSchoolContainer #editForm #schoolAddress').val(data.address);
+              $('#editSchoolContainer #editForm #schoolCity').val(data.city);
+              $('#editSchoolContainer #editForm #schoolZipcode').val(data.zipcode);
+              $('#editSchoolContainer #editForm #schoolState').val(data.state);
+              $('#editSchoolContainer #editForm #schoolHidden').val(data.id);
+              self.updateSchoolDetails(schoolId);
              },
              error: function (jqXHR, textStatus, errorThrown) {
         // do error handling here
       			}	
       		});
-      		// }
-      		// else
-      		// {
-      		// 	alert("pls check form first");
-      		// }
-
 			});
 	},
  updateSchoolDetails: function(schoolId)
@@ -183,7 +156,6 @@ saveSchoolData: function () {
  	  $('#editSchoolContainer #editForm #btneditSchool').unbind();
 		$('#editSchoolContainer #editForm #btneditSchool').click(function(e){
 			e.preventDefault();
-			
 			var school_data = {name:$("#editForm #schoolName").val(), 
 			address:$("#editForm #schoolAddress").val(),city:$("#editForm #schoolCity").val(),
 			zipcode:$("#editForm #schoolZipcode").val(),
@@ -195,20 +167,19 @@ saveSchoolData: function () {
 	         data: {school:school_data},
 	         format: 'JSON',
               success: function (data, textStatus, jqXHR){
-	            	
-	               	$('#dvSchool').removeClass('hidden');
-                	$('#editSchoolContainer').addClass('hidden');
+	            	$('#dvSchool').removeClass('hidden');
+                $('#editSchoolContainer').addClass('hidden');
             		var schoolIndex=new SS.schoolIndex();
 	             },
 	             error: function (jqXHR, textStatus, errorThrown) {
 	        		// do error handling here
+              alert(JSON.parse(jqXHR.responseText)["error"]);
 	      		}	
 
 	      });
 		 	}
 		 else{
 		 	alert("Complete form first");
-
 		 }
 
 	});
@@ -217,16 +188,15 @@ saveSchoolData: function () {
  		$('#dvshowSchool #schoolDetails #destroySchool').unbind();
 			$('#dvshowSchool #schoolDetails #destroySchool').click(function(){
 				 schoolId = $(this).attr('schoolId');
-           		 // alert(schoolId);
          $.ajax({
             url: '/schools/'+schoolId,
             type: 'DELETE',
             contentType: 'application/json',
             format: 'JSON',
             success: function (data, textStatus, jqXHR){
-                 console.log(data.name);
+              console.log(data.name);
               $('#dvSchool').removeClass('hidden');
-              $('#newSchoolContainer').addClass('hidden');
+              $('#dvshowSchool').addClass('hidden');
             	 var schoolIndex=new SS.schoolIndex();
              },
              error: function (jqXHR, textStatus, errorThrown) {
@@ -239,35 +209,27 @@ saveSchoolData: function () {
  createClassroom: function() {
     $('#dvshowSchool #schoolDetails #createClassroom').unbind();
     $('#dvshowSchool #schoolDetails #createClassroom').click(function(){
-        // console.log("urvashi");
-        schoolId = $(this).attr('schoolId');
-        schoolName=$(this).attr('schoolName');
-
-        $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
-        $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
-
-         $('#createClassroomContainer').removeClass('hidden');
-         $('#dvshowSchool').addClass('hidden');
-         var classroomIndex=new SS.classroomIndex();
+      schoolId = $(this).attr('schoolId');
+      schoolName=$(this).attr('schoolName');
+      $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
+      $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
+      $('#createClassroomContainer').removeClass('hidden');
+      $('#dvshowSchool').addClass('hidden');
+      var classroomIndex=new SS.classroomIndex();
     });
  },
  viewClassroomDetails: function(){
-
     $('#dvshowSchool #schoolDetails #viewClassroom').unbind();
     $('#dvshowSchool #schoolDetails #viewClassroom').click(function(){
-        // console.log("urvashi");
-        schoolId = $(this).attr('schoolId');
-        schoolName=$(this).attr('schoolName');
-
-        $('#allClassroom  #classHidden').val(schoolId);
-        $('#allClassroom #classHiddenSchool').val(schoolName);
-
-        $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
-        $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
-
-         $('#allClassroom').removeClass('hidden');
-         $('#dvshowSchool').addClass('hidden');
-         var classroomIndex=new SS.classroomIndex();
+      schoolId = $(this).attr('schoolId');
+      schoolName=$(this).attr('schoolName');
+      $('#allClassroom  #classHidden').val(schoolId);
+      $('#allClassroom #classHiddenSchool').val(schoolName);
+      $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
+      $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
+      $('#allClassroom').removeClass('hidden');
+      $('#dvshowSchool').addClass('hidden');
+      var classroomIndex=new SS.classroomIndex();
     });
  },
 schoolFormValid: function(){
@@ -345,7 +307,6 @@ schoolFormValid: function(){
         school_state: {
           required: true
         },
-        
         school_phone: {
           required: true,
           digits: true,
@@ -385,26 +346,13 @@ showTeacher: function(){
     $('#dvshowSchool #schoolDetails #viewTeacher').unbind();
       $('#dvshowSchool #schoolDetails #viewTeacher').click(function(e){
       e.preventDefault();
-        // console.log("urvashi");
-        // schoolId = $(this).attr('schoolId');
         school_name=$(this).attr('school_name');
         school_id = $(this).attr('school_id');
-       
-     
-        // $('#allTeacher  #hdnSchool').val(school_id);
         $('#allTeacher  #hdnSchoolName').val(school_name);
         $('#allTeacher #hiddenSchoolId').val(school_id);
-        $('#createTeacherContainer #createTeacherForm #schoolHidden').val(school_name);
-        $('#createTeacherContainer #createTeacherForm #schoolIdHidden').val(school_id);
-        $('#createTeacherContainer #createTeacherForm #schoolName').val(school_name);
-        // $('#allTeacher #hdnClassName').val(classroom_name);
-
-        // $('#createClassroomContainer #createClassForm #classHidden').val(schoolId);
-        // $('#createClassroomContainer #createClassForm #schoolName').val(schoolName);
-
-         $('#allTeacher').removeClass('hidden');
-         $('#dvshowSchool').addClass('hidden');
-         var teacherIndex=new SS.teacherIndex();
+        $('#allTeacher').removeClass('hidden');
+        $('#dvshowSchool').addClass('hidden');
+        var teacherIndex=new SS.teacherIndex();
     });
  },
  showSchoolData: function () {
@@ -412,7 +360,6 @@ showTeacher: function(){
     var schoolId =''; 
     $('#allTeacher #back').click(function(){
       schoolId = $('#allTeacher #hiddenSchoolId').val();
-               // alert(schoolId);
       var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
       table.clear();
       $.ajax({
@@ -421,10 +368,8 @@ showTeacher: function(){
         contentType: 'application/json',
         format: 'JSON',
         success: function (data, textStatus, jqXHR){
-                
           console.log("Show School");
           console.log(data);
-           // $.each(data, function(i,item){
            table.row.add( $(
             '<tr>'+
             '<td>'+data.name+'</td>'+
@@ -433,17 +378,14 @@ showTeacher: function(){
             '<td>'+data.city+'</td>'+
             '<td>'+data.zipcode+'</td>'+
             '<td>'+data.state+'</td>'+
-            '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
-            '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
-            // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
-            '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
-            '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
+            '<td><a id="editSchool" schoolId='+data.id+' class="btn btn-info">Edit'+'</a></td>'+
+            '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" } class="btn btn-danger">Destroy'+'</a></td>'+
+            '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+' class="btn btn-info">View Classroom'+'</a></td>'+
+            '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+' class="btn btn-info">View Teacher</a></td>'+
             '<tr>'
              )).draw();
-                    // });
            self.editSchoolDetails();
            self.destroySchoolDetails();
-           // self.createClassroom();
            self.viewClassroomDetails();
            self.showTeacher();
           },
@@ -456,23 +398,18 @@ showTeacher: function(){
    showSchool: function () {
         var self=this;
         var schoolId =''; 
-         $('#allClassroom #back').click(function(){
-            schoolId = $('#allClassroom #hiddenSchoolId').val();
-               // alert(schoolId);
-            var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
+        $('#allClassroom #back').click(function(){
+        schoolId = $('#allClassroom #hiddenSchoolId').val();
+        var table = $('#dvshowSchool #schoolDetails #tableShowSchool').DataTable();
         table.clear();
         $.ajax({
           url: '/schools/'+schoolId,
           type: 'GET',
           contentType: 'application/json',
           format: 'JSON',
-            
             success: function (data, textStatus, jqXHR){
-                
               console.log("Show School");
               console.log(data);
-                 // $.each(data, function(i,item){
-                 
               table.row.add( $(
                 '<tr>'+
                 '<td>'+data.name+'</td>'+
@@ -483,15 +420,13 @@ showTeacher: function(){
                 '<td>'+data.state+'</td>'+
                 '<td><a id="editSchool" schoolId='+data.id+'>Edit'+'</a></td>'+
                 '<td><a id="destroySchool" schoolId='+data.id+' data: { confirm: "Are you sure?" }>Destroy'+'</a></td>'+
-                // '<td><a id="createClassroom" schoolId='+data.id+' schoolName='+data.name+'>Create Classroom'+'</a></td>'+
                 '<td><a id="viewClassroom" schoolId='+data.id+' schoolName='+data.name+'>View Classroom'+'</a></td>'+
                 '<td><a id="viewTeacher" school_id='+data.id+' school_name='+data.name+'>View Teacher</a></td>'+
                 '<tr>'
               )).draw();
-                    // });
+             
             self.editSchoolDetails();
             self.destroySchoolDetails();
-            // self.createClassroom();
             self.viewClassroomDetails();
             self.showTeacher();
           },
@@ -500,8 +435,37 @@ showTeacher: function(){
           } 
         });
      });
-  }
+  },
 
+  linkclickevent: function()
+  {
+    $('#dvSchool #back').click(function(){
+      $('#dvSchool').addClass('hidden'); 
+      $('#divIndex').removeClass('hidden');
+    });
+    $('#dvshowSchool #home').click(function(){
+      $('#dvshowSchool').addClass('hidden'); 
+      $('#dvSchool').removeClass('hidden');
+    });
+    $('#dvSchool #createSchool').click(function(){
+      $('#dvSchool').addClass('hidden'); 
+      $('#newSchoolContainer').removeClass('hidden');
+      $('#newSchoolContainer #createForm')[0].reset("");
+    });
+    $('#newSchoolContainer #createForm #cancel').click(function(){
+       $('#newSchoolContainer').addClass('hidden');
+       $('#dvSchool').removeClass('hidden');
+    });
+    $('#dvSchool #allSubject').click(function(){
+      $('#dvSchool').addClass('hidden'); 
+      $('#allSubjectContainer').removeClass('hidden');
+      var subjectIndex=new SS.subjectIndex();
+    });
+    $('#editSchoolContainer #editForm #cancel').click(function(){
+       $('#editSchoolContainer').addClass('hidden');
+       $('#dvshowSchool').removeClass('hidden');
+    });
+  }
 }
 
 

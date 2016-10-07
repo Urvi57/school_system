@@ -35,8 +35,9 @@ RSpec.describe SchoolsController, type: :controller do
  	 		 response.status.should eq 200
 		end
 		it "should not return success if invalid params are passed" do
-			 post :create, :school=>{:name => nil, :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '1234567'} 	 		
+			 post :create, :school=>{:name => 'DPS', :address => 'Hiran Magri', :city => 'Udaipur', :zipcode => '313002', :state => 'Rajasthan', :phone_no => '12345'}
 			 response.status.should eq 422
+			 p JSON.parse(response.body)["error"].should_not be_empty
 		end
 	 end
 	 context "update" do

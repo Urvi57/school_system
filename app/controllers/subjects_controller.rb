@@ -21,7 +21,7 @@ class SubjectsController < ApplicationController
 	def create
 		begin
 		@subject=Subject.new(subject_param)
-		if @subject.save
+		if @subject.save!
 			respond_to do |format|
  			format.json {render :json => @subject, :status  => :ok}
  			end
@@ -36,7 +36,7 @@ class SubjectsController < ApplicationController
 	def update
 		begin
 		@subject=Subject.find(params[:id])
-		if @subject.update_attributes(subject_param)
+		if @subject.update_attributes!(subject_param)
 			respond_to do |format|
 				# format.html {render 'show'}
  				format.json {render :json => @subject, :status => :ok}

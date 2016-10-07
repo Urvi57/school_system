@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
 	def create
 		begin
 		@student = Student.new(student_param)
-		if @student.save
+		if @student.save!
 			respond_to do |format|
  			format.json {render :json => @student, :status  => :ok}
  			end

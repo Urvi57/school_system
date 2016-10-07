@@ -5,6 +5,6 @@ class School < ActiveRecord::Base
 	has_and_belongs_to_many :subjects
 
 	validates :name, :address, :city, :zipcode, :state, :phone_no, presence: true
+	validates :name, uniqueness: true
 	validates :phone_no, uniqueness: true, length: {minimum:10, maximum:10}
-	
 end
